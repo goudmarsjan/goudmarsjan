@@ -3,11 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#17130d">
+
 <title>DE GOUDMARSJAN — Edelmetalen</title>
-<meta name="description" content="DE GOUDMARSJAN koopt goud, zilver, juwelen en horloges in op locatie in heel België.">
+
+<meta
+  name="description"
+  content="DE GOUDMARSJAN koopt goud, zilver, juwelen en horloges in op locatie in heel België."
+>
+
+<meta name="theme-color" content="#17130d">
 
 <style>
+
 :root{
   --cream:#f7efd9;
   --cream2:#fffaf0;
@@ -41,7 +48,10 @@ a{
   color:inherit;
 }
 
-/* NAVIGATIE */
+
+/* =========================
+   NAVIGATIE
+========================= */
 
 .nav{
   position:sticky;
@@ -57,9 +67,11 @@ a{
   max-width:1180px;
   margin:auto;
   padding:16px 22px;
+
   display:flex;
   align-items:center;
   justify-content:space-between;
+
   gap:20px;
 }
 
@@ -80,6 +92,7 @@ a{
 .navlinks{
   display:flex;
   gap:24px;
+
   font-weight:700;
   font-size:14px;
 }
@@ -92,12 +105,17 @@ a{
   color:var(--gold2);
 }
 
-/* HERO */
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
   min-height:690px;
+
   display:flex;
   align-items:center;
+
   background:
     radial-gradient(
       circle at 20% 20%,
@@ -105,17 +123,22 @@ a{
       #f7efd9 48%,
       #ead7a5 100%
     );
+
   overflow:hidden;
 }
 
 .hero-inner{
   max-width:1180px;
   width:100%;
+
   margin:auto;
   padding:70px 22px;
+
   display:grid;
   grid-template-columns:.9fr 1.1fr;
+
   align-items:center;
+
   gap:35px;
 }
 
@@ -123,29 +146,42 @@ a{
   display:inline-flex;
   align-items:center;
   gap:9px;
+
   background:#fff8e6;
   border:1px solid #ead29a;
+
   border-radius:999px;
+
   padding:9px 14px;
+
   font-size:13px;
   font-weight:800;
+
   color:#765512;
 }
 
 .eyebrow:before{
   content:"";
+
   width:8px;
   height:8px;
+
   background:var(--gold2);
+
   border-radius:50%;
+
   box-shadow:0 0 12px #e8bd32;
 }
 
 h1{
   font-size:clamp(45px,6vw,78px);
+
   line-height:.96;
+
   margin:22px 0 18px;
+
   letter-spacing:-3px;
+
   color:var(--dark);
 }
 
@@ -157,30 +193,40 @@ h1{
 .lead{
   font-size:20px;
   line-height:1.55;
+
   max-width:560px;
+
   color:#514a3d;
 }
 
 .hero-actions{
   display:flex;
   gap:12px;
+
   flex-wrap:wrap;
+
   margin-top:30px;
 }
 
 .btn{
   display:inline-flex;
+
   align-items:center;
   justify-content:center;
+
   padding:15px 21px;
+
   border-radius:12px;
+
   font-weight:900;
+
   border:1px solid transparent;
 }
 
 .btn-gold{
   background:var(--gold);
   color:#17130d;
+
   box-shadow:0 8px 25px rgba(166,121,10,.2);
 }
 
@@ -193,25 +239,39 @@ h1{
   transform:translateY(-1px);
 }
 
-/* MUNTENAFBEELDING */
+
+/* =========================
+   MUNTEN
+========================= */
 
 .hero-art{
   border-radius:28px;
+
   overflow:hidden;
-  box-shadow:0 28px 70px rgba(74,51,10,.22);
+
+  box-shadow:
+    0 28px 70px rgba(74,51,10,.22);
+
   border:8px solid rgba(255,255,255,.58);
+
   background:#f8e9bf;
 }
 
 .hero-art img{
   display:block;
+
   width:100%;
   height:auto;
+
   aspect-ratio:16/10;
+
   object-fit:cover;
 }
 
-/* USP BALK */
+
+/* =========================
+   USP BALK
+========================= */
 
 .strip{
   background:var(--dark);
@@ -221,31 +281,44 @@ h1{
 .strip-inner{
   max-width:1180px;
   margin:auto;
+
   display:grid;
+
   grid-template-columns:repeat(3,1fr);
+
   gap:1px;
 }
 
 .strip-item{
   padding:22px;
+
   text-align:center;
+
   background:#211b12;
 }
 
 .strip-item strong{
   display:block;
+
   font-size:18px;
+
   color:#fff;
 }
 
 .strip-item span{
   display:block;
+
   margin-top:5px;
+
   color:#cfc7b7;
+
   font-size:13px;
 }
 
-/* SECTIES */
+
+/* =========================
+   ALGEMENE SECTIES
+========================= */
 
 section{
   padding:90px 22px;
@@ -258,45 +331,66 @@ section{
 
 .section-head{
   text-align:center;
+
   max-width:760px;
+
   margin:0 auto 45px;
 }
 
 .section-head .tag{
   color:#92701d;
+
   font-size:12px;
+
   font-weight:900;
+
   letter-spacing:2px;
+
   text-transform:uppercase;
 }
 
 .section-head h2{
   font-size:clamp(34px,4vw,50px);
+
   margin:10px 0 12px;
+
   color:var(--dark);
+
   letter-spacing:-1.5px;
 }
 
 .section-head p{
   font-size:17px;
+
   line-height:1.65;
+
   color:var(--muted);
 }
 
-/* PRODUCTEN */
+
+/* =========================
+   PRODUCTEN
+========================= */
 
 .cards{
   display:grid;
+
   grid-template-columns:repeat(4,1fr);
+
   gap:18px;
 }
 
 .card{
   background:white;
+
   border:1px solid var(--line);
+
   border-radius:20px;
+
   padding:27px;
-  box-shadow:0 10px 35px rgba(83,58,13,.07);
+
+  box-shadow:
+    0 10px 35px rgba(83,58,13,.07);
 }
 
 .card .icon{
@@ -305,129 +399,194 @@ section{
 
 .card h3{
   margin:17px 0 9px;
+
   font-size:21px;
 }
 
 .card p{
   color:var(--muted);
+
   line-height:1.6;
+
   margin:0;
 }
 
-/* GOUD & ZILVER */
+
+/* =========================
+   GOUD EN ZILVER
+========================= */
 
 .gold-section{
-  background:linear-gradient(
-    180deg,
-    #fffaf0,
-    #f7efd9
-  );
+  background:
+    linear-gradient(
+      180deg,
+      #fffaf0,
+      #f7efd9
+    );
 }
 
 .gold-grid{
   display:grid;
+
   grid-template-columns:1fr 1fr;
+
   gap:25px;
+
   align-items:stretch;
 }
 
 .gold-panel{
   background:var(--dark);
+
   color:white;
+
   border-radius:24px;
+
   padding:34px;
 }
 
 .gold-panel h3{
   font-size:29px;
+
   margin:0 0 15px;
 }
 
 .gold-panel p{
   color:#d4ccbd;
+
   line-height:1.7;
 }
 
 .purities{
   display:grid;
+
   grid-template-columns:repeat(5,1fr);
+
   gap:9px;
+
   margin-top:24px;
 }
 
 .purity{
   border:1px solid #4b402d;
+
   background:#211c14;
+
   border-radius:12px;
+
   padding:13px 8px;
+
   text-align:center;
 }
 
 .purity strong{
   display:block;
+
   color:#f1c947;
+
   font-size:20px;
 }
 
 .purity span{
   font-size:11px;
+
   color:#bdb5a5;
 }
 
 .silver-panel{
   background:white;
+
   border:1px solid var(--line);
+
   border-radius:24px;
+
   padding:34px;
+}
+
+.silver-panel h3{
+  font-size:29px;
+
+  margin-top:0;
+}
+
+.silver-panel p{
+  color:var(--muted);
+
+  line-height:1.6;
 }
 
 .silver-rates{
   display:grid;
+
   grid-template-columns:repeat(4,1fr);
+
   gap:10px;
+
   margin-top:24px;
 }
 
 .silver-rate{
   padding:17px 10px;
+
   border-radius:13px;
+
   background:#f5f1e8;
+
   text-align:center;
+
   font-weight:800;
 }
 
 .silver-rate span{
   display:block;
+
   color:#8b7e68;
+
   font-size:11px;
+
   margin-top:5px;
 }
 
-/* STAPPEN */
+
+/* =========================
+   STAPPEN
+========================= */
 
 .steps{
   display:grid;
+
   grid-template-columns:repeat(3,1fr);
+
   gap:18px;
 }
 
 .step{
   padding:30px;
+
   border-radius:20px;
+
   background:#fff;
+
   border:1px solid var(--line);
 }
 
 .number{
   width:42px;
   height:42px;
+
   border-radius:50%;
+
   background:var(--gold2);
+
   display:flex;
+
   align-items:center;
   justify-content:center;
+
   font-weight:900;
+
   color:var(--dark);
+
   margin-bottom:17px;
 }
 
@@ -437,147 +596,122 @@ section{
 
 .step p{
   margin:0;
+
   color:var(--muted);
+
   line-height:1.6;
 }
 
-/* BELGIE */
+
+/* =========================
+   BELGIË
+========================= */
 
 .location{
   background:var(--dark);
+
   color:white;
 }
 
 .location-grid{
   display:grid;
+
   grid-template-columns:1.1fr .9fr;
+
   gap:30px;
+
   align-items:center;
 }
 
 .location h2{
   font-size:clamp(35px,4vw,55px);
+
   margin:0 0 15px;
+
   letter-spacing:-1px;
 }
 
 .location p{
   color:#d1c9ba;
+
   font-size:17px;
+
   line-height:1.7;
 }
 
 .location-box{
   border:1px solid #4b402e;
+
   border-radius:22px;
+
   padding:28px;
+
   background:#211c14;
 }
 
 .location-box strong{
   display:block;
+
   font-size:23px;
+
   color:#f0c94b;
+
   margin-bottom:9px;
 }
 
 .location-box span{
   color:#d2c9b9;
+
   line-height:1.6;
 }
 
-/* KOERS */
 
-.rates-section{
-  background:#f7efd9;
-}
-
-.rate-box{
-  background:white;
-  border:1px solid var(--line);
-  border-radius:24px;
-  padding:28px;
-  box-shadow:0 12px 35px rgba(83,58,13,.07);
-}
-
-.rate-status{
-  text-align:center;
-  color:var(--muted);
-  font-size:13px;
-  margin-bottom:20px;
-}
-
-.rate-grid{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:12px;
-}
-
-.rate-item{
-  background:#fbf7ed;
-  border:1px solid var(--line);
-  border-radius:15px;
-  padding:19px;
-  text-align:center;
-}
-
-.rate-item small{
-  display:block;
-  color:var(--muted);
-  font-weight:700;
-}
-
-.rate-item strong{
-  display:block;
-  font-size:23px;
-  margin-top:7px;
-  color:var(--dark);
-}
-
-.silver-live{
-  margin-top:13px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-}
-
-.silver-live .rate-item{
-  background:#f2f2f2;
-}
-
-/* CONTACT */
+/* =========================
+   CONTACT
+========================= */
 
 .contact{
-  background:linear-gradient(
-    135deg,
-    #fffaf0,
-    #f2dfac
-  );
+  background:
+    linear-gradient(
+      135deg,
+      #fffaf0,
+      #f2dfac
+    );
 }
 
 .contact-grid{
   display:grid;
+
   grid-template-columns:1fr 1fr;
+
   gap:25px;
 }
 
 .contact-card{
   background:white;
+
   border:1px solid var(--line);
+
   border-radius:24px;
+
   padding:35px;
 }
 
 .contact-card h2{
   font-size:39px;
+
   margin:0 0 12px;
 }
 
 .contact-line{
   display:flex;
+
   gap:15px;
+
   align-items:flex-start;
+
   padding:18px 0;
+
   border-bottom:1px solid var(--line);
 }
 
@@ -591,34 +725,57 @@ section{
 
 .contact-line strong{
   display:block;
+
   font-size:12px;
+
   color:var(--muted);
+
   text-transform:uppercase;
+
   letter-spacing:1px;
+
   margin-bottom:4px;
 }
 
 .contact-line a{
   font-size:20px;
+
   font-weight:900;
 }
 
-/* FOOTER */
+.contact-line span{
+  font-size:18px;
+
+  font-weight:700;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
 
 .footer{
   background:#111;
+
   color:#a9a295;
+
   text-align:center;
+
   padding:30px 20px;
+
   font-size:13px;
 }
 
 .footer strong{
   color:white;
+
   letter-spacing:2px;
 }
 
-/* TABLET */
+
+/* =========================
+   TABLET
+========================= */
 
 @media(max-width:900px){
 
@@ -641,16 +798,16 @@ section{
     grid-template-columns:1fr 1fr;
   }
 
-  .rate-grid{
-    grid-template-columns:repeat(3,1fr);
-  }
-
   .navlinks{
     gap:12px;
   }
+
 }
 
-/* GSM */
+
+/* =========================
+   GSM
+========================= */
 
 @media(max-width:600px){
 
@@ -664,6 +821,7 @@ section{
 
   .navlinks{
     font-size:11px;
+
     gap:9px;
   }
 
@@ -673,6 +831,7 @@ section{
 
   .hero-art{
     border-width:4px;
+
     border-radius:18px;
   }
 
@@ -693,13 +852,8 @@ section{
     grid-template-columns:repeat(3,1fr);
   }
 
-  .silver-rates,
-  .rate-grid{
+  .silver-rates{
     grid-template-columns:repeat(2,1fr);
-  }
-
-  .silver-live{
-    grid-template-columns:1fr;
   }
 
   .strip-inner{
@@ -721,38 +875,65 @@ section{
   section{
     padding:65px 16px;
   }
+
 }
+
 </style>
 </head>
 
+
 <body>
 
-<!-- NAVIGATIE -->
+
+<!-- =========================
+     NAVIGATIE
+========================= -->
 
 <nav class="nav">
+
   <div class="nav-inner">
 
     <a href="#home" class="logo">
+
       DE GOUDMARSJAN
-      <span>EDELMETALEN</span>
+
+      <span>
+        EDELMETALEN
+      </span>
+
     </a>
 
+
     <div class="navlinks">
-      <a href="#home">Home</a>
-      <a href="#diensten">Wat doen we?</a>
-      <a href="#koers">Actuele koers</a>
-      <a href="#contact">Contact</a>
+
+      <a href="#home">
+        Home
+      </a>
+
+      <a href="#diensten">
+        Wat doen we?
+      </a>
+
+      <a href="#contact">
+        Contact
+      </a>
+
     </div>
 
   </div>
+
 </nav>
 
 
-<!-- HOME / HERO -->
+
+<!-- =========================
+     HERO
+========================= -->
 
 <header class="hero" id="home">
 
   <div class="hero-inner">
+
 
     <div>
 
@@ -760,76 +941,130 @@ section{
         INKOOP VAN EDELMETALEN
       </div>
 
+
       <h1>
+
         Uw goud.<br>
-        <em>Onze expertise.</em>
+
+        <em>
+          Onze expertise.
+        </em>
+
       </h1>
 
+
       <p class="lead">
-        DE GOUDMARSJAN koopt goud, zilver, juwelen en horloges in.
-        Duidelijke informatie, een correcte waardebepaling en een
-        persoonlijke aanpak.
+
+        DE GOUDMARSJAN koopt goud, zilver,
+        juwelen en horloges in.
+
+        Duidelijke informatie, een correcte
+        waardebepaling en een persoonlijke aanpak.
+
       </p>
+
 
       <div class="hero-actions">
 
-        <a class="btn btn-gold" href="#contact">
+        <a
+          class="btn btn-gold"
+          href="#contact"
+        >
           Neem contact op
         </a>
 
-        <a class="btn btn-dark" href="#koers">
-          Bekijk de koers
+
+        <a
+          class="btn btn-dark"
+          href="#diensten"
+        >
+          Wat doen we?
         </a>
 
       </div>
 
     </div>
 
+
+
     <div class="hero-art">
 
       <img
         src="munten-hero.png"
-        alt="Gouden Krugerrand en Maple Leaf munten in beweging"
+        alt="Gouden Krugerrand en Maple Leaf munten"
       >
 
     </div>
+
 
   </div>
 
 </header>
 
 
-<!-- USP BALK -->
+
+<!-- =========================
+     USP BALK
+========================= -->
 
 <div class="strip">
 
   <div class="strip-inner">
 
-    <div class="strip-item">
-      <strong>🇧🇪 Heel België</strong>
-      <span>Wij werken op locatie</span>
-    </div>
 
     <div class="strip-item">
-      <strong>🪙 Goud & zilver</strong>
-      <span>Van munten tot juwelen</span>
+
+      <strong>
+        🇧🇪 Heel België
+      </strong>
+
+      <span>
+        Wij werken op locatie
+      </span>
+
     </div>
 
+
     <div class="strip-item">
-      <strong>🔎 Duidelijke waardebepaling</strong>
-      <span>Gewicht, zuiverheid en marktprijs</span>
+
+      <strong>
+        🪙 Goud & zilver
+      </strong>
+
+      <span>
+        Van munten tot juwelen
+      </span>
+
     </div>
+
+
+    <div class="strip-item">
+
+      <strong>
+        🔎 Duidelijke waardebepaling
+      </strong>
+
+      <span>
+        Gewicht, zuiverheid en marktwaarde
+      </span>
+
+    </div>
+
 
   </div>
 
 </div>
 
 
-<!-- WAT DOEN WE -->
+
+<!-- =========================
+     WAT DOEN WE
+========================= -->
 
 <section id="diensten">
 
   <div class="wrap">
+
 
     <div class="section-head">
 
@@ -837,75 +1072,123 @@ section{
         Wat doen we?
       </div>
 
+
       <h2>
         Van gouden munt tot oud juweel.
       </h2>
 
+
       <p>
-        Wij kopen verschillende soorten edelmetalen en waardevolle stukken.
-        We bekijken elk stuk afzonderlijk en leggen duidelijk uit waarop
-        de waardebepaling gebaseerd is.
+
+        Wij kopen verschillende soorten
+        edelmetalen en waardevolle stukken.
+
+        We bekijken elk stuk afzonderlijk en
+        leggen duidelijk uit waarop de
+        waardebepaling gebaseerd is.
+
       </p>
 
     </div>
 
 
+
     <div class="cards">
 
+
       <article class="card">
 
-        <div class="icon">🪙</div>
+        <div class="icon">
+          🪙
+        </div>
 
-        <h3>Goud</h3>
+        <h3>
+          Goud
+        </h3>
 
         <p>
-          Gouden juwelen, munten, baren en andere gouden voorwerpen.
-          Onder andere 9K, 14K, 18K, 22K en 24K.
+
+          Gouden juwelen, munten, baren en
+          andere gouden voorwerpen.
+
+          Onder andere 9K, 14K, 18K,
+          22K en 24K.
+
         </p>
 
       </article>
 
 
+
       <article class="card">
 
-        <div class="icon">⚪</div>
+        <div class="icon">
+          ⚪
+        </div>
 
-        <h3>Zilver</h3>
+        <h3>
+          Zilver
+        </h3>
 
         <p>
-          Zilveren munten, bestek, sieraden en andere voorwerpen.
-          We werken onder andere met 800, 835, 925 en 999.
+
+          Zilveren munten, bestek, sieraden
+          en andere voorwerpen.
+
+          We werken onder andere met
+          800, 835, 925 en 999.
+
         </p>
 
       </article>
 
 
+
       <article class="card">
 
-        <div class="icon">💍</div>
+        <div class="icon">
+          💍
+        </div>
 
-        <h3>Juwelen</h3>
+        <h3>
+          Juwelen
+        </h3>
 
         <p>
-          Ringen, kettingen, armbanden, oorbellen en andere juwelen.
-          Ook stukken die beschadigd zijn of niet meer gedragen worden.
+
+          Ringen, kettingen, armbanden,
+          oorbellen en andere juwelen.
+
+          Ook beschadigde of oude stukken
+          kunnen bekeken worden.
+
         </p>
 
       </article>
 
 
+
       <article class="card">
 
-        <div class="icon">⌚</div>
+        <div class="icon">
+          ⌚
+        </div>
 
-        <h3>Horloges</h3>
+        <h3>
+          Horloges
+        </h3>
 
         <p>
-          We bekijken ook horloges en beoordelen ze op basis van
-          materiaal, staat en eventuele waardevolle onderdelen.
+
+          We bekijken ook horloges en
+          beoordelen ze op basis van
+          materiaal, staat en waardevolle
+          onderdelen.
+
         </p>
 
       </article>
+
 
     </div>
 
@@ -914,11 +1197,15 @@ section{
 </section>
 
 
-<!-- GOUD & ZILVER -->
+
+<!-- =========================
+     GOUD EN ZILVER
+========================= -->
 
 <section class="gold-section">
 
   <div class="wrap">
+
 
     <div class="section-head">
 
@@ -926,16 +1213,21 @@ section{
         Zuiverheid
       </div>
 
+
       <h2>
         Elke legering heeft zijn eigen waarde.
       </h2>
 
+
       <p>
-        De hoeveelheid puur edelmetaal speelt een belangrijke rol
-        bij de waardebepaling.
+
+        De hoeveelheid puur edelmetaal speelt
+        een belangrijke rol bij de waardebepaling.
+
       </p>
 
     </div>
+
 
 
     <div class="gold-grid">
@@ -945,80 +1237,163 @@ section{
 
       <div class="gold-panel">
 
-        <h3>Goud</h3>
+        <h3>
+          Goud
+        </h3>
+
 
         <p>
+
           Van 9 karaat tot 24 karaat.
-          Hoe hoger het karaat, hoe groter het aandeel puur goud.
+
+          Hoe hoger het karaat,
+          hoe groter het aandeel puur goud.
+
         </p>
+
 
         <div class="purities">
 
-          <div class="purity">
-            <strong>9K</strong>
-            <span>37,5%</span>
-          </div>
 
           <div class="purity">
-            <strong>14K</strong>
-            <span>58,5%</span>
+
+            <strong>
+              9K
+            </strong>
+
+            <span>
+              37,5%
+            </span>
+
           </div>
 
-          <div class="purity">
-            <strong>18K</strong>
-            <span>75,0%</span>
-          </div>
 
           <div class="purity">
-            <strong>22K</strong>
-            <span>91,6%</span>
+
+            <strong>
+              14K
+            </strong>
+
+            <span>
+              58,5%
+            </span>
+
           </div>
 
+
           <div class="purity">
-            <strong>24K</strong>
-            <span>99,9%+</span>
+
+            <strong>
+              18K
+            </strong>
+
+            <span>
+              75,0%
+            </span>
+
           </div>
+
+
+          <div class="purity">
+
+            <strong>
+              22K
+            </strong>
+
+            <span>
+              91,6%
+            </span>
+
+          </div>
+
+
+          <div class="purity">
+
+            <strong>
+              24K
+            </strong>
+
+            <span>
+              99,9%+
+            </span>
+
+          </div>
+
 
         </div>
 
       </div>
+
 
 
       <!-- ZILVER -->
 
       <div class="silver-panel">
 
-        <h3>Zilver</h3>
+        <h3>
+          Zilver
+        </h3>
+
 
         <p>
-          Ook bij zilver maakt de zuiverheid een verschil.
+
+          Ook bij zilver maakt de
+          zuiverheid een verschil.
+
         </p>
+
 
         <div class="silver-rates">
 
+
           <div class="silver-rate">
+
             800
-            <span>80,0%</span>
+
+            <span>
+              80,0%
+            </span>
+
           </div>
 
+
           <div class="silver-rate">
+
             835
-            <span>83,5%</span>
+
+            <span>
+              83,5%
+            </span>
+
           </div>
 
+
           <div class="silver-rate">
+
             925
-            <span>92,5%</span>
+
+            <span>
+              92,5%
+            </span>
+
           </div>
 
+
           <div class="silver-rate">
+
             999
-            <span>99,9%</span>
+
+            <span>
+              99,9%
+            </span>
+
           </div>
+
 
         </div>
 
       </div>
+
 
     </div>
 
@@ -1027,11 +1402,15 @@ section{
 </section>
 
 
-<!-- HOE WERKT HET -->
+
+<!-- =========================
+     WERKWIJZE
+========================= -->
 
 <section>
 
   <div class="wrap">
+
 
     <div class="section-head">
 
@@ -1039,15 +1418,18 @@ section{
         Zo werkt het
       </div>
 
+
       <h2>
         Geen ingewikkeld gedoe.
       </h2>
+
 
       <p>
         We houden het eenvoudig en duidelijk.
       </p>
 
     </div>
+
 
 
     <div class="steps">
@@ -1059,15 +1441,21 @@ section{
           1
         </div>
 
+
         <h3>
           U neemt contact op
         </h3>
 
+
         <p>
-          Bel of mail ons en vertel kort wat u wilt laten bekijken.
+
+          Bel of mail ons en vertel kort
+          wat u wilt laten bekijken.
+
         </p>
 
       </div>
+
 
 
       <div class="step">
@@ -1076,16 +1464,22 @@ section{
           2
         </div>
 
+
         <h3>
           Wij bekijken de stukken
         </h3>
 
+
         <p>
-          We kijken naar materiaal, zuiverheid, gewicht en
-          de actuele marktwaarde.
+
+          We kijken naar materiaal,
+          zuiverheid, gewicht en
+          marktwaarde.
+
         </p>
 
       </div>
+
 
 
       <div class="step">
@@ -1094,13 +1488,18 @@ section{
           3
         </div>
 
+
         <h3>
           U krijgt duidelijkheid
         </h3>
 
+
         <p>
-          We leggen de waardebepaling helder uit en bespreken
-          de verdere afhandeling.
+
+          We leggen de waardebepaling
+          helder uit en bespreken de
+          verdere afhandeling.
+
         </p>
 
       </div>
@@ -1113,11 +1512,15 @@ section{
 </section>
 
 
-<!-- BELGIË -->
+
+<!-- =========================
+     BELGIË
+========================= -->
 
 <section class="location">
 
   <div class="wrap location-grid">
+
 
     <div>
 
@@ -1125,12 +1528,19 @@ section{
         Wij komen gewoon naar u toe.
       </h2>
 
+
       <p>
-        DE GOUDMARSJAN werkt op locatie in heel België.
-        U hoeft dus niet per se naar een winkel of kantoor te komen.
+
+        DE GOUDMARSJAN werkt op locatie
+        in heel België.
+
+        U hoeft dus niet per se naar een
+        winkel of kantoor te komen.
+
       </p>
 
     </div>
+
 
 
     <div class="location-box">
@@ -1139,102 +1549,28 @@ section{
         🇧🇪 Op locatie in heel België
       </strong>
 
+
       <span>
-        Wilt u weten of we bij u in de buurt kunnen langskomen?
+
+        Wilt u weten of we bij u in de buurt
+        kunnen langskomen?
+
         Neem gewoon even contact op.
+
       </span>
 
     </div>
 
-  </div>
-
-</section>
-
-
-<!-- ACTUELE KOERS -->
-
-<section class="rates-section" id="koers">
-
-  <div class="wrap">
-
-    <div class="section-head">
-
-      <div class="tag">
-        Actuele goudkoers
-      </div>
-
-      <h2>
-        De marktprijs van vandaag.
-      </h2>
-
-      <p>
-        Indicatieve internationale marktprijzen.
-        Uw uiteindelijke inkoopprijs kan verschillen naargelang
-        het stuk, de zuiverheid en de voorwaarden.
-      </p>
-
-    </div>
-
-
-    <div class="rate-box">
-
-      <div id="rateStatus" class="rate-status">
-        Koers wordt opgehaald…
-      </div>
-
-
-      <div class="rate-grid">
-
-        <div class="rate-item">
-          <small>24K goud</small>
-          <strong id="r24">—</strong>
-        </div>
-
-        <div class="rate-item">
-          <small>22K goud</small>
-          <strong id="r22">—</strong>
-        </div>
-
-        <div class="rate-item">
-          <small>18K goud</small>
-          <strong id="r18">—</strong>
-        </div>
-
-        <div class="rate-item">
-          <small>14K goud</small>
-          <strong id="r14">—</strong>
-        </div>
-
-        <div class="rate-item">
-          <small>9K goud</small>
-          <strong id="r9">—</strong>
-        </div>
-
-      </div>
-
-
-      <div class="silver-live">
-
-        <div class="rate-item">
-          <small>999 zilver</small>
-          <strong id="s999">—</strong>
-        </div>
-
-        <div class="rate-item">
-          <small>925 zilver</small>
-          <strong id="s925">—</strong>
-        </div>
-
-      </div>
-
-    </div>
 
   </div>
 
 </section>
 
 
-<!-- CONTACT -->
+
+<!-- =========================
+     CONTACT
+========================= -->
 
 <section class="contact" id="contact">
 
@@ -1243,25 +1579,40 @@ section{
 
     <div class="contact-card">
 
+
       <div class="tag">
         Contact
       </div>
+
 
       <h2>
         Even bellen?
       </h2>
 
-      <p style="color:var(--muted);line-height:1.6">
-        Hebt u goud, zilver, juwelen of horloges die u wilt laten bekijken?
+
+      <p
+        style="
+          color:var(--muted);
+          line-height:1.6;
+        "
+      >
+
+        Hebt u goud, zilver, juwelen of
+        horloges die u wilt laten bekijken?
+
         Neem gerust contact op.
+
       </p>
+
 
 
       <div class="contact-line">
 
+
         <div class="contact-icon">
           📞
         </div>
+
 
         <div>
 
@@ -1269,20 +1620,27 @@ section{
             Telefoon
           </strong>
 
+
           <a href="tel:+32456721892">
+
             +32 456 72 18 92
+
           </a>
 
         </div>
 
+
       </div>
+
 
 
       <div class="contact-line">
 
+
         <div class="contact-icon">
           ✉️
         </div>
+
 
         <div>
 
@@ -1290,20 +1648,27 @@ section{
             E-mail
           </strong>
 
+
           <a href="mailto:info@goudmarsjan.com">
+
             info@goudmarsjan.com
+
           </a>
 
         </div>
 
+
       </div>
+
 
 
       <div class="contact-line">
 
+
         <div class="contact-icon">
           🇧🇪
         </div>
+
 
         <div>
 
@@ -1311,21 +1676,30 @@ section{
             Werkgebied
           </strong>
 
+
           <span>
             Op locatie in heel België
           </span>
 
         </div>
 
+
       </div>
+
 
     </div>
 
 
+
     <div
       class="contact-card"
-      style="background:var(--dark);color:white;border-color:var(--dark)"
+      style="
+        background:var(--dark);
+        color:white;
+        border-color:var(--dark);
+      "
     >
+
 
       <div
         class="tag"
@@ -1334,185 +1708,72 @@ section{
         DE GOUDMARSJAN
       </div>
 
+
       <h2 style="color:white">
+
         Uw edelmetalen.<br>
+
         Onze expertise.
+
       </h2>
 
-      <p style="color:#d0c7b8;line-height:1.7">
-        Persoonlijk, duidelijk en zonder onnodige poespas.
-        Neem contact op en we bekijken samen wat mogelijk is.
+
+      <p
+        style="
+          color:#d0c7b8;
+          line-height:1.7;
+        "
+      >
+
+        Persoonlijk, duidelijk en zonder
+        onnodige poespas.
+
+        Neem contact op en we bekijken
+        samen wat mogelijk is.
+
       </p>
+
 
       <a
         class="btn btn-gold"
         href="tel:+32456721892"
       >
+
         📞 Bel ons
+
       </a>
 
+
     </div>
+
 
   </div>
 
 </section>
 
 
-<!-- FOOTER -->
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer class="footer">
+
 
   <strong>
     DE GOUDMARSJAN — EDELMETALEN
   </strong>
 
+
   <br><br>
 
-  © 2026 DE GOUDMARSJAN · Op locatie in heel België
+
+  © 2026 DE GOUDMARSJAN ·
+  Op locatie in heel België
+
 
 </footer>
 
-
-<!-- ACTUELE KOERS OPHALEN -->
-
-<script>
-
-const fmt = v =>
-  new Intl.NumberFormat(
-    'nl-BE',
-    {
-      style:'currency',
-      currency:'EUR'
-    }
-  ).format(v);
-
-
-async function loadRates(){
-
-  const status =
-    document.getElementById('rateStatus');
-
-  try{
-
-    const [goldRes,silverRes] =
-      await Promise.all([
-
-        fetch(
-          'https://api.gold-api.com/price/XAU/EUR',
-          {
-            cache:'no-store'
-          }
-        ),
-
-        fetch(
-          'https://api.gold-api.com/price/XAG/EUR',
-          {
-            cache:'no-store'
-          }
-        )
-
-      ]);
-
-
-    if(
-      !goldRes.ok ||
-      !silverRes.ok
-    ){
-      throw new Error(
-        'Koers niet beschikbaar'
-      );
-    }
-
-
-    const gold =
-      await goldRes.json();
-
-    const silver =
-      await silverRes.json();
-
-
-    const ounce =
-      31.1034768;
-
-
-    const g24 =
-      Number(gold.price) / ounce;
-
-
-    const s999 =
-      Number(silver.price) / ounce;
-
-
-    if(
-      !Number.isFinite(g24) ||
-      !Number.isFinite(s999)
-    ){
-
-      throw new Error(
-        'Ongeldige koers'
-      );
-
-    }
-
-
-    document.getElementById('r24')
-      .textContent =
-      fmt(g24);
-
-
-    document.getElementById('r22')
-      .textContent =
-      fmt(g24 * .916);
-
-
-    document.getElementById('r18')
-      .textContent =
-      fmt(g24 * .75);
-
-
-    document.getElementById('r14')
-      .textContent =
-      fmt(g24 * .585);
-
-
-    document.getElementById('r9')
-      .textContent =
-      fmt(g24 * .375);
-
-
-    document.getElementById('s999')
-      .textContent =
-      fmt(s999);
-
-
-    document.getElementById('s925')
-      .textContent =
-      fmt(s999 * .925);
-
-
-    status.textContent =
-      'Indicatieve marktprijs per gram · automatisch bijgewerkt';
-
-  }
-
-  catch(e){
-
-    status.textContent =
-      'De actuele koers kon momenteel niet worden opgehaald. Probeer later opnieuw.';
-
-  }
-
-}
-
-
-loadRates();
-
-setInterval(
-  loadRates,
-  300000
-);
-
-</script>
 
 </body>
 </html>
