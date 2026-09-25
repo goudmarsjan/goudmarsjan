@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#111111">
+<meta name="description" content="DE GOUDMARSJAN — Inkoop van goud, zilver, juwelen en horloges.">
+<title>DE GOUDMARSJAN — Edelmetalen</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f6f1e7;
+  color: #171717;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #101010;
+  border-bottom: 1px solid #292929;
+}
+
+.nav {
+  max-width: 1150px;
+  margin: auto;
+  padding: 15px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logo {
+  color: white;
+  text-decoration: none;
+  font-weight: 900;
+  letter-spacing: 2px;
+  font-size: 20px;
+}
+
+.logo span {
+  display: block;
+  color: #e3c568;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  margin-top: 3px;
+}
+
+nav {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+nav button {
+  border: 0;
+  background: transparent;
+  color: #ddd;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+nav button:hover,
+nav button.active {
+  background: #252525;
+  color: #e3c568;
+}
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+/* HOME */
+
+.hero {
+  min-height: 650px;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(120deg, rgba(16,16,16,.98), rgba(16,16,16,.84)),
+    radial-gradient(circle at 80% 30%, rgba(201,168,77,.22), transparent 38%);
+}
+
+.hero-inner {
+  max-width: 1150px;
+  width: 100%;
+  margin: auto;
+  padding: 80px 22px;
+}
+
+.kicker {
+  color: #e3c568;
+  font-weight: 800;
+  letter-spacing: 3px;
+  font-size: 13px;
+}
+
+h1 {
+  color: white;
+  font-size: clamp(42px, 7vw, 78px);
+  line-height: .98;
+  margin: 14px 0 20px;
+  letter-spacing: 2px;
+}
+
+.hero p {
+  color: #ddd;
+  font-size: 19px;
+  line-height: 1.6;
+  max-width: 650px;
+}
+
+.buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.btn {
+  display: inline-block;
+  border: 0;
+  border-radius: 9px;
+  padding: 14px 20px;
+  text-decoration: none;
+  font-weight: 800;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.btn.gold {
+  background: #e3c568;
+  color: #111;
+}
+
+.btn.dark {
+  background: #252525;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+.section {
+  max-width: 1100px;
+  margin: auto;
+  padding: 80px 22px;
+}
+
+.section-head {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 42px;
+}
+
+h2 {
+  font-size: 36px;
+  margin: 10px 0 12px;
+}
+
+.section-head p {
+  color: #777;
+  line-height: 1.6;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.card {
+  background: white;
+  border: 1px solid #e3ded3;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 8px 30px rgba(0,0,0,.05);
+}
+
+.icon {
+  font-size: 31px;
+  margin-bottom: 15px;
+}
+
+.card h3 {
+  margin: 0 0 8px;
+  font-size: 20px;
+}
+
+.card p {
+  margin: 0;
+  color: #666;
+  line-height: 1.55;
+}
+
+/* DARK SECTION */
+
+.dark-section {
+  background: #101010;
+  color: white;
+}
+
+.dark-section .section-head p {
+  color: #aaa;
+}
+
+.process {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.step {
+  background: #191919;
+  border: 1px solid #2d2d2d;
+  border-radius: 15px;
+  padding: 28px;
+}
+
+.num {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #e3c568;
+  color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  margin-bottom: 17px;
+}
+
+.step h3 {
+  margin: 0 0 8px;
+}
+
+.step p {
+  color: #aaa;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* KOERS */
+
+.price-box {
+  max-width: 800px;
+  margin: auto;
+  background: white;
+  border-radius: 18px;
+  border: 1px solid #e3ded3;
+  overflow: hidden;
+  box-shadow: 0 15px 45px rgba(0,0,0,.07);
+}
+
+.price-top {
+  background: #111;
+  color: white;
+  padding: 24px;
+  text-align: center;
+}
+
+.price-top .label {
+  color: #aaa;
+  font-size: 13px;
+}
+
+.price {
+  font-size: 46px;
+  color: #e3c568;
+  font-weight: 900;
+  margin: 8px 0;
+}
+
+.price-time {
+  font-size: 12px;
+  color: #aaa;
+}
+
+.price-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.price-item {
+  padding: 22px;
+  border-top: 1px solid #e3ded3;
+}
+
+.price-item:nth-child(odd) {
+  border-right: 1px solid #e3ded3;
+}
+
+.price-item span {
+  display: block;
+  color: #777;
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.price-item strong {
+  font-size: 23px;
+}
+
+.notice {
+  font-size: 12px;
+  color: #888;
+  text-align: center;
+  margin-top: 15px;
+}
+
+/* CONTACT */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.contact-box {
+  background: white;
+  border: 1px solid #e3ded3;
+  border-radius: 15px;
+  padding: 28px;
+}
+
+.contact-row {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+  padding: 16px 0;
+  border-bottom: 1px solid #e3ded3;
+}
+
+.contact-row:last-child {
+  border-bottom: 0;
+}
+
+.contact-icon {
+  font-size: 23px;
+}
+
+.contact-row strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.contact-row span,
+.contact-row a {
+  color: #666;
+  text-decoration: none;
+}
+
+.cta {
+  background: linear-gradient(120deg,#171717,#242424);
+  border-radius: 18px;
+  padding: 40px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.cta h2 {
+  margin: 0;
+  color: white;
+  font-size: 30px;
+}
+
+footer {
+  background: #0b0b0b;
+  color: #aaa;
+  padding: 30px 22px;
+  text-align: center;
+  font-size: 13px;
+}
+
+footer strong {
+  color: white;
+}
+
+/* MOBILE */
+
+@media(max-width:850px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .process {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media(max-width:600px) {
+
+  .nav {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .nav nav {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  nav button {
+    padding: 8px 9px;
+  }
+
+  .hero {
+    min-height: 590px;
+  }
+
+  .hero-inner {
+    padding: 65px 18px;
+  }
+
+  h1 {
+    font-size: 45px;
+  }
+
+  .hero p {
+    font-size: 17px;
+  }
+
+  .section {
+    padding: 60px 18px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .price-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .price-item:nth-child(odd) {
+    border-right: 0;
+  }
+
+  .cta {
+    padding: 28px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="nav">
+
+<a href="#" class="logo" onclick="showPage('home');return false">
+DE GOUDMARSJAN
+<span>EDELMETALEN</span>
+</a>
+
+<nav>
+
+<button id="nav-home"
+class="active"
+onclick="showPage('home')">
+Home
+</button>
+
+<button id="nav-doen"
+onclick="showPage('doen')">
+Wat doen we?
+</button>
+
+<button id="nav-koers"
+onclick="showPage('koers')">
+Actuele goudkoers
+</button>
+
+<button id="nav-contact"
+onclick="showPage('contact')">
+Contact
+</button>
+
+</nav>
+
+</div>
+
+</header>
+
+<main>
+
+<!-- HOME -->
+
+<section id="home" class="page active">
+
+<div class="hero">
+
+<div class="hero-inner">
+
+<div class="kicker">
+EDELMETALEN — INKOOP
+</div>
+
+<h1>
+Uw goud.<br>
+Onze expertise.
+</h1>
+
+<p>
+DE GOUDMARSJAN koopt goud, zilver, juwelen en horloges in.
+Transparante waardebepaling, duidelijke informatie en een correcte afhandeling.
+</p>
+
+<div class="buttons">
+
+<a class="btn gold"
+href="#"
+onclick="showPage('doen');return false">
+Wat doen we?
+</a>
+
+<a class="btn dark"
+href="#"
+onclick="showPage('contact');return false">
+Contact opnemen
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="section">
+
+<div class="section-head">
+
+<div class="kicker">
+WAARVOOR KUNT U BIJ ONS TERECHT?
+</div>
+
+<h2>
+Wij kopen edelmetalen in
+</h2>
+
+<p>
+Van een enkel juweel tot een verzameling.
+We bekijken elk stuk afzonderlijk.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+<div class="card">
+<div class="icon">🪙</div>
+<h3>Goud</h3>
+<p>
+Gouden juwelen, munten, baren en andere gouden voorwerpen.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">🥈</div>
+<h3>Zilver</h3>
+<p>
+Zilveren juwelen, munten en andere zilveren voorwerpen.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">💍</div>
+<h3>Juwelen</h3>
+<p>
+Ringen, kettingen, armbanden, oorbellen en andere juwelen.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">⌚</div>
+<h3>Horloges</h3>
+<p>
+Horloges worden afzonderlijk bekeken en beoordeeld.
+</p>
+</div>
+
+</div>
+</div>
+
+
+<div class="dark-section">
+
+<div class="section">
+
+<div class="section-head">
+
+<div class="kicker">
+ZO WERKT HET
+</div>
+
+<h2>
+Drie eenvoudige stappen
+</h2>
+
+<p>
+We houden het duidelijk en persoonlijk.
+</p>
+
+</div>
+
+
+<div class="process">
+
+<div class="step">
+
+<div class="num">1</div>
+
+<h3>
+Breng uw stukken mee
+</h3>
+
+<p>
+Neem uw goud, zilver, juwelen of horloges mee naar een van onze opkoopmomenten of neem contact op.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="num">2</div>
+
+<h3>
+Waardebepaling
+</h3>
+
+<p>
+We bekijken het materiaal, het gewicht en de zuiverheid van de stukken.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="num">3</div>
+
+<h3>
+U beslist
+</h3>
+
+<p>
+U krijgt een duidelijk voorstel en beslist zelf of u wilt verkopen.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="section">
+
+<div class="cta">
+
+<div>
+
+<h2>
+Een vraag over uw goud of zilver?
+</h2>
+
+<p style="color:#aaa;margin:8px 0 0">
+Neem vrijblijvend contact met ons op.
+</p>
+
+</div>
+
+<a class="btn gold"
+href="#"
+onclick="showPage('contact');return false">
+Contact
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- WAT DOEN WE -->
+
+<section id="doen" class="page">
+
+<div class="section">
+
+<div class="section-head">
+
+<div class="kicker">
+WAT DOEN WE?
+</div>
+
+<h2>
+Inkoop van edelmetalen
+</h2>
+
+<p>
+DE GOUDMARSJAN is gespecialiseerd in de inkoop van goud, zilver, juwelen en horloges.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+<div class="card">
+
+<div class="icon">🟡</div>
+
+<h3>
+Goud
+</h3>
+
+<p>
+Wij bekijken onder andere gouden juwelen, munten, baren en andere voorwerpen.
+De zuiverheid kan verschillen, bijvoorbeeld 9K, 14K, 18K, 22K of 24K.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">⚪</div>
+
+<h3>
+Zilver
+</h3>
+
+<p>
+Ook zilveren voorwerpen kunnen worden aangeboden.
+We houden rekening met de zuiverheid, zoals 800‰, 835‰, 925‰ of 999‰.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">💎</div>
+
+<h3>
+Juwelen
+</h3>
+
+<p>
+Ringen, kettingen, armbanden, oorbellen en andere juwelen worden stuk per stuk bekeken.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">⌚</div>
+
+<h3>
+Horloges
+</h3>
+
+<p>
+Horloges worden afzonderlijk bekeken.
+Neem gerust contact op als u wilt weten of uw horloge in aanmerking komt.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="dark-section">
+
+<div class="section">
+
+<div class="section-head">
+
+<div class="kicker">
+DUIDELIJKHEID
+</div>
+
+<h2>
+Hoe wordt de waarde bepaald?
+</h2>
+
+<p>
+De uiteindelijke waarde hangt af van verschillende factoren.
+</p>
+
+</div>
+
+
+<div class="process">
+
+<div class="step">
+
+<div class="num">01</div>
+
+<h3>
+Materiaal
+</h3>
+
+<p>
+We bepalen of het om goud, zilver, verzilverde materialen of een ander materiaal gaat.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="num">02</div>
+
+<h3>
+Zuiverheid & gewicht
+</h3>
+
+<p>
+Het gehalte en het netto gewicht spelen een belangrijke rol bij de berekening.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="num">03</div>
+
+<h3>
+Marktprijs
+</h3>
+
+<p>
+De actuele marktprijs van het betreffende edelmetaal wordt meegenomen in de waardebepaling.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- GOUDKOERS -->
+
+<section id="koers" class="page">
+
+<div class="section">
+
+<div class="section-head">
+
+<div class="kicker">
+MARKTGEGEVENS
+</div>
+
+<h2>
+Actuele goudkoers
+</h2>
+
+<p>
+De koers hieronder wordt automatisch opgehaald wanneer de pagina geopend wordt.
+</p>
+
+</div>
+
+
+<div class="price-box">
+
+<div class="price-top">
+
+<div class="label">
+24K GOUD — PER GRAM
+</div>
+
+<div class="price" id="goldPrice">
+Laden...
+</div>
+
+<div class="price-time" id="priceTime">
+Koers wordt opgehaald...
+</div>
+
+</div>
+
+
+<div class="price-grid">
+
+<div class="price-item">
+<span>24K / 999</span>
+<strong id="p24">—</strong>
+</div>
+
+<div class="price-item">
+<span>22K / 916</span>
+<strong id="p22">—</strong>
+</div>
+
+<div class="price-item">
+<span>18K / 750</span>
+<strong id="p18">—</strong>
+</div>
+
+<div class="price-item">
+<span>14K / 585</span>
+<strong id="p14">—</strong>
+</div>
+
+<div class="price-item">
+<span>9K / 375</span>
+<strong id="p9">—</strong>
+</div>
+
+<div class="price-item">
+<span>999 zilver / gram</span>
+<strong id="silverPrice">—</strong>
+</div>
+
+</div>
+
+</div>
+
+
+<p class="notice">
+Indicatieve marktkoers.
+De uiteindelijke inkoopwaarde kan afwijken en wordt bepaald op basis van het aangeboden stuk, gewicht, zuiverheid en de geldende voorwaarden.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact" class="page">
+
+<div class="section">
+
+<div class="section-head">
+
+<div class="kicker">
+CONTACT
+</div>
+
+<h2>
+Neem contact op
+</h2>
+
+<p>
+Heeft u goud, zilver, juwelen of een horloge en wilt u meer informatie?
+Neem contact met ons op.
+</p>
+
+</div>
+
+
+<div class="contact-grid">
+
+
+<div class="contact-box">
+
+<h3>
+DE GOUDMARSJAN
+</h3>
+
+
+<div class="contact-row">
+
+<div class="contact-icon">
+✉️
+</div>
+
+<div>
+
+<strong>
+E-mail
+</strong>
+
+<span>
+contact@rhsolutions.info
+</span>
+
+</div>
+
+</div>
+
+
+<div class="contact-row">
+
+<div class="contact-icon">
+📍
+</div>
+
+<div>
+
+<strong>
+Regio
+</strong>
+
+<span>
+Oost-Vlaanderen, België
+</span>
+
+</div>
+
+</div>
+
+
+<div class="contact-row">
+
+<div class="contact-icon">
+📅
+</div>
+
+<div>
+
+<strong>
+Opkoopdagen
+</strong>
+
+<span>
+Bekijk onze actuele aankondigingen of neem contact op voor meer informatie.
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="contact-box">
+
+<h3>
+Een bericht sturen
+</h3>
+
+<p style="color:#777;line-height:1.6">
+
+Voor vragen of informatie kunt u ons rechtstreeks mailen.
+Vermeld eventueel wat u wilt aanbieden en in welke regio u zich bevindt.
+
+</p>
+
+<a class="btn gold"
+href="mailto:contact@rhsolutions.info">
+✉️ E-mail sturen
+</a>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<strong>
+DE GOUDMARSJAN
+</strong>
+
+— EDELMETALEN
+
+<br>
+
+<span>
+© 2026 DE GOUDMARSJAN
+</span>
+
+</footer>
+
+
+<script>
+
+function showPage(id) {
+
+  document.querySelectorAll('.page')
+    .forEach(function(page) {
+      page.classList.remove('active');
+    });
+
+  document.getElementById(id)
+    .classList.add('active');
+
+  document.querySelectorAll('nav button')
+    .forEach(function(button) {
+      button.classList.remove('active');
+    });
+
+  var btn = document.getElementById('nav-' + id);
+
+  if (btn) {
+    btn.classList.add('active');
+  }
+
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
+
+
+function money(value, digits) {
+
+  return new Intl.NumberFormat('nl-BE', {
+    style: 'currency',
+    currency: 'EUR',
+    minimumFractionDigits: digits || 2,
+    maximumFractionDigits: digits || 2
+  }).format(value);
+
+}
+
+
+async function loadPrices() {
+
+  try {
+
+    var goldResponse =
+      await fetch('https://api.gold-api.com/price/XAU');
+
+    var silverResponse =
+      await fetch('https://api.gold-api.com/price/XAG');
+
+    var goldData =
+      await goldResponse.json();
+
+    var silverData =
+      await silverResponse.json();
+
+    var goldOunce =
+      Number(goldData.price);
+
+    var silverOunce =
+      Number(silverData.price);
+
+    if (!goldOunce || !silverOunce) {
+      throw new Error();
+    }
+
+    var goldGram =
+      goldOunce / 31.1034768;
+
+    var silverGram =
+      silverOunce / 31.1034768;
+
+
+    document.getElementById('goldPrice')
+      .textContent = money(goldGram);
+
+    document.getElementById('p24')
+      .textContent = money(goldGram);
+
+    document.getElementById('p22')
+      .textContent = money(goldGram * 0.916);
+
+    document.getElementById('p18')
+      .textContent = money(goldGram * 0.750);
+
+    document.getElementById('p14')
+      .textContent = money(goldGram * 0.585);
+
+    document.getElementById('p9')
+      .textContent = money(goldGram * 0.375);
+
+    document.getElementById('silverPrice')
+      .textContent = money(silverGram, 3);
+
+    document.getElementById('priceTime')
+      .textContent =
+      'Laatste beschikbare marktkoers: ' +
+      new Date().toLocaleString('nl-BE');
+
+  }
+
+  catch (error) {
+
+    document.getElementById('goldPrice')
+      .textContent = 'Niet beschikbaar';
+
+    document.getElementById('priceTime')
+      .textContent =
+      'De actuele koers kon momenteel niet worden opgehaald.';
+
+  }
+
+}
+
+loadPrices();
+
+</script>
+
+</body>
+</html>
