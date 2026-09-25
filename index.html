@@ -1,1242 +1,1730 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#111111">
-<meta name="description" content="DE GOUDMARSJAN — Inkoop van goud, zilver, juwelen en horloges.">
-<title>DE GOUDMARSJAN — Edelmetalen</title>
-
-<style>
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f6f1e7;
-  color: #171717;
-}
-
-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: #101010;
-  border-bottom: 1px solid #292929;
-}
-
-.nav {
-  max-width: 1150px;
-  margin: auto;
-  padding: 15px 22px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-}
-
-.logo {
-  color: white;
-  text-decoration: none;
-  font-weight: 900;
-  letter-spacing: 2px;
-  font-size: 20px;
-}
-
-.logo span {
-  display: block;
-  color: #e3c568;
-  font-size: 11px;
-  letter-spacing: 1.5px;
-  margin-top: 3px;
-}
-
-nav {
-  display: flex;
-  gap: 7px;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-}
-
-nav button {
-  border: 0;
-  background: transparent;
-  color: #ddd;
-  padding: 10px 12px;
-  border-radius: 8px;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-nav button:hover,
-nav button.active {
-  background: #252525;
-  color: #e3c568;
-}
-
-.page {
-  display: none;
-}
-
-.page.active {
-  display: block;
-}
-
-/* HOME */
-
-.hero {
-  min-height: 650px;
-  display: flex;
-  align-items: center;
-  background:
-    linear-gradient(120deg, rgba(16,16,16,.98), rgba(16,16,16,.84)),
-    radial-gradient(circle at 80% 30%, rgba(201,168,77,.22), transparent 38%);
-}
-
-.hero-inner {
-  max-width: 1150px;
-  width: 100%;
-  margin: auto;
-  padding: 80px 22px;
-}
-
-.kicker {
-  color: #e3c568;
-  font-weight: 800;
-  letter-spacing: 3px;
-  font-size: 13px;
-}
-
-h1 {
-  color: white;
-  font-size: clamp(42px, 7vw, 78px);
-  line-height: .98;
-  margin: 14px 0 20px;
-  letter-spacing: 2px;
-}
-
-.hero p {
-  color: #ddd;
-  font-size: 19px;
-  line-height: 1.6;
-  max-width: 650px;
-}
-
-.buttons {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 30px;
-}
-
-.btn {
-  display: inline-block;
-  border: 0;
-  border-radius: 9px;
-  padding: 14px 20px;
-  text-decoration: none;
-  font-weight: 800;
-  cursor: pointer;
-  font-size: 15px;
-}
-
-.btn.gold {
-  background: #e3c568;
-  color: #111;
-}
-
-.btn.dark {
-  background: #252525;
-  color: #fff;
-  border: 1px solid #444;
-}
-
-.section {
-  max-width: 1100px;
-  margin: auto;
-  padding: 80px 22px;
-}
-
-.section-head {
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto 42px;
-}
-
-h2 {
-  font-size: 36px;
-  margin: 10px 0 12px;
-}
-
-.section-head p {
-  color: #777;
-  line-height: 1.6;
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-}
-
-.card {
-  background: white;
-  border: 1px solid #e3ded3;
-  border-radius: 15px;
-  padding: 25px;
-  box-shadow: 0 8px 30px rgba(0,0,0,.05);
-}
-
-.icon {
-  font-size: 31px;
-  margin-bottom: 15px;
-}
-
-.card h3 {
-  margin: 0 0 8px;
-  font-size: 20px;
-}
-
-.card p {
-  margin: 0;
-  color: #666;
-  line-height: 1.55;
-}
-
-/* DARK SECTION */
-
-.dark-section {
-  background: #101010;
-  color: white;
-}
-
-.dark-section .section-head p {
-  color: #aaa;
-}
-
-.process {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-}
-
-.step {
-  background: #191919;
-  border: 1px solid #2d2d2d;
-  border-radius: 15px;
-  padding: 28px;
-}
-
-.num {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: #e3c568;
-  color: #111;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 900;
-  margin-bottom: 17px;
-}
-
-.step h3 {
-  margin: 0 0 8px;
-}
-
-.step p {
-  color: #aaa;
-  line-height: 1.55;
-  margin: 0;
-}
-
-/* KOERS */
-
-.price-box {
-  max-width: 800px;
-  margin: auto;
-  background: white;
-  border-radius: 18px;
-  border: 1px solid #e3ded3;
-  overflow: hidden;
-  box-shadow: 0 15px 45px rgba(0,0,0,.07);
-}
-
-.price-top {
-  background: #111;
-  color: white;
-  padding: 24px;
-  text-align: center;
-}
-
-.price-top .label {
-  color: #aaa;
-  font-size: 13px;
-}
-
-.price {
-  font-size: 46px;
-  color: #e3c568;
-  font-weight: 900;
-  margin: 8px 0;
-}
-
-.price-time {
-  font-size: 12px;
-  color: #aaa;
-}
-
-.price-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-.price-item {
-  padding: 22px;
-  border-top: 1px solid #e3ded3;
-}
-
-.price-item:nth-child(odd) {
-  border-right: 1px solid #e3ded3;
-}
-
-.price-item span {
-  display: block;
-  color: #777;
-  font-size: 13px;
-  margin-bottom: 5px;
-}
-
-.price-item strong {
-  font-size: 23px;
-}
-
-.notice {
-  font-size: 12px;
-  color: #888;
-  text-align: center;
-  margin-top: 15px;
-}
-
-/* CONTACT */
-
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
-.contact-box {
-  background: white;
-  border: 1px solid #e3ded3;
-  border-radius: 15px;
-  padding: 28px;
-}
-
-.contact-row {
-  display: flex;
-  gap: 15px;
-  align-items: flex-start;
-  padding: 16px 0;
-  border-bottom: 1px solid #e3ded3;
-}
-
-.contact-row:last-child {
-  border-bottom: 0;
-}
-
-.contact-icon {
-  font-size: 23px;
-}
-
-.contact-row strong {
-  display: block;
-  margin-bottom: 4px;
-}
-
-.contact-row span,
-.contact-row a {
-  color: #666;
-  text-decoration: none;
-}
-
-.cta {
-  background: linear-gradient(120deg,#171717,#242424);
-  border-radius: 18px;
-  padding: 40px;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 25px;
-}
-
-.cta h2 {
-  margin: 0;
-  color: white;
-  font-size: 30px;
-}
-
-footer {
-  background: #0b0b0b;
-  color: #aaa;
-  padding: 30px 22px;
-  text-align: center;
-  font-size: 13px;
-}
-
-footer strong {
-  color: white;
-}
-
-/* MOBILE */
-
-@media(max-width:850px) {
-  .cards {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .process {
-    grid-template-columns: 1fr;
-  }
-
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .cta {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
-
-@media(max-width:600px) {
-
-  .nav {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .nav nav {
-    width: 100%;
-    justify-content: flex-start;
-  }
-
-  nav button {
-    padding: 8px 9px;
-  }
-
-  .hero {
-    min-height: 590px;
-  }
-
-  .hero-inner {
-    padding: 65px 18px;
-  }
-
-  h1 {
-    font-size: 45px;
-  }
-
-  .hero p {
-    font-size: 17px;
-  }
-
-  .section {
-    padding: 60px 18px;
-  }
-
-  .cards {
-    grid-template-columns: 1fr;
-  }
-
-  .price-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .price-item:nth-child(odd) {
-    border-right: 0;
-  }
-
-  .cta {
-    padding: 28px;
-  }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>De Goudmarsjan | Edelmetalen</title>
+  <meta name="description" content="De Goudmarsjan koopt goud, zilver, juwelen en horloges in heel België. Transparante waardebepaling en professionele service op locatie.">
+
+  <style>
+    :root {
+      --gold: #c9a227;
+      --gold-light: #e4c766;
+      --gold-dark: #8f7012;
+      --cream: #f8f5ed;
+      --cream-dark: #eee8d9;
+      --black: #111111;
+      --gray: #666;
+      --white: #ffffff;
+      --border: #e6dfcf;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--cream);
+      color: var(--black);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* =========================
+       NAVIGATIE
+    ========================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      max-width: 1180px;
+      margin: auto;
+      min-height: 82px;
+      padding: 15px 25px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .logo-mark {
+      width: 45px;
+      height: 45px;
+      border: 3px solid var(--gold);
+      border-radius: 50%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-dark);
+      font-weight: 900;
+      font-size: 13px;
+    }
+
+    .logo-mark::after {
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 8px;
+      background: var(--gold);
+      bottom: 5px;
+      border-radius: 2px;
+    }
+
+    .logo-text {
+      font-size: 16px;
+      line-height: 1.1;
+    }
+
+    .logo-text span {
+      display: block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      margin-top: 3px;
+      color: var(--gray);
+    }
+
+    nav {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    nav a {
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--gold-dark);
+    }
+
+    .nav-button {
+      background: var(--black);
+      color: white;
+      padding: 11px 18px;
+      border-radius: 7px;
+    }
+
+    .nav-button:hover {
+      background: var(--gold-dark);
+      color: white;
+    }
+
+    /* =========================
+       ALGEMEEN
+    ========================= */
+
+    .container {
+      max-width: 1180px;
+      margin: auto;
+      padding: 0 25px;
+    }
+
+    section {
+      padding: 90px 0;
+    }
+
+    .section-label {
+      color: var(--gold-dark);
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .section-intro {
+      max-width: 720px;
+      color: var(--gray);
+      font-size: 17px;
+    }
+
+    /* =========================
+       HOME / HERO
+    ========================= */
+
+    .hero {
+      min-height: 680px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 80% 30%, rgba(201,162,39,0.20), transparent 30%),
+        linear-gradient(135deg, #fffdf7 0%, #f5efe0 100%);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      border: 1px solid rgba(201,162,39,0.25);
+      border-radius: 50%;
+      right: -160px;
+      top: -100px;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border: 1px solid rgba(201,162,39,0.18);
+      border-radius: 50%;
+      right: 20px;
+      bottom: -160px;
+    }
+
+    .hero-content {
+      max-width: 760px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      border: 1px solid var(--border);
+      padding: 8px 13px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 25px;
+    }
+
+    .hero-kicker::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+    }
+
+    .hero h1 {
+      font-size: clamp(45px, 7vw, 82px);
+      line-height: 0.98;
+      letter-spacing: -3px;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 span {
+      color: var(--gold-dark);
+    }
+
+    .hero p {
+      font-size: 19px;
+      color: #555;
+      max-width: 650px;
+      margin-bottom: 32px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 48px;
+      padding: 0 22px;
+      border-radius: 7px;
+      font-weight: 700;
+      transition: 0.2s;
+      border: 1px solid transparent;
+    }
+
+    .button-primary {
+      background: var(--black);
+      color: white;
+    }
+
+    .button-primary:hover {
+      background: var(--gold-dark);
+    }
+
+    .button-secondary {
+      background: white;
+      border-color: var(--border);
+    }
+
+    .button-secondary:hover {
+      border-color: var(--gold);
+    }
+
+    /* =========================
+       USP BALK
+    ========================= */
+
+    .usp-bar {
+      background: var(--black);
+      color: white;
+    }
+
+    .usp-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .usp {
+      padding: 28px 20px;
+      border-right: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .usp:last-child {
+      border-right: none;
+    }
+
+    .usp strong {
+      display: block;
+      color: var(--gold-light);
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .usp span {
+      color: #ccc;
+      font-size: 13px;
+    }
+
+    /* =========================
+       PRODUCTEN
+    ========================= */
+
+    .products {
+      background: white;
+    }
+
+    .product-grid {
+      margin-top: 45px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .product-card {
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #fffdf8;
+      transition: 0.25s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.07);
+      border-color: #d8c17a;
+    }
+
+    .product-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: #f4ead0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 23px;
+      margin-bottom: 20px;
+    }
+
+    .product-card h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .product-card p {
+      color: var(--gray);
+      font-size: 14px;
+    }
+
+    /* =========================
+       HOE WERKT HET
+    ========================= */
+
+    .steps {
+      background: var(--cream);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 45px;
+    }
+
+    .step {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .step-number {
+      font-size: 13px;
+      color: var(--gold-dark);
+      font-weight: 800;
+      margin-bottom: 15px;
+    }
+
+    .step h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .step p {
+      color: var(--gray);
+      font-size: 14px;
+    }
+
+    /* =========================
+       WAT DOEN WE
+    ========================= */
+
+    .what-we-do {
+      background: white;
+    }
+
+    .service-block {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 60px;
+      padding: 65px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .service-block:last-child {
+      border-bottom: none;
+    }
+
+    .service-title {
+      position: sticky;
+      top: 110px;
+      align-self: start;
+    }
+
+    .service-title h3 {
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+
+    .service-title p {
+      color: var(--gray);
+    }
+
+    .service-content p {
+      color: #555;
+      margin-bottom: 18px;
+    }
+
+    .purity-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin: 22px 0;
+    }
+
+    .purity {
+      padding: 8px 13px;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .service-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .service-list li {
+      position: relative;
+      padding-left: 25px;
+      color: #555;
+    }
+
+    .service-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--gold-dark);
+      font-weight: 800;
+    }
+
+    /* =========================
+       WAARDEBEPALING
+    ========================= */
+
+    .valuation {
+      background: var(--cream);
+    }
+
+    .valuation-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 45px;
+    }
+
+    .valuation-card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .valuation-card strong {
+      display: block;
+      font-size: 19px;
+      margin-bottom: 9px;
+    }
+
+    .valuation-card p {
+      color: var(--gray);
+      font-size: 14px;
+    }
+
+    /* =========================
+       KOERS
+    ========================= */
+
+    .rates {
+      background: #151515;
+      color: white;
+    }
+
+    .rates .section-label {
+      color: var(--gold-light);
+    }
+
+    .rates .section-intro {
+      color: #bbb;
+    }
+
+    .rates-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      align-items: end;
+      margin-bottom: 40px;
+    }
+
+    .updated {
+      color: #aaa;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .rate-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+
+    .rate-card {
+      background: #202020;
+      border: 1px solid #333;
+      padding: 23px 18px;
+      border-radius: 10px;
+    }
+
+    .rate-card .metal {
+      color: #aaa;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 7px;
+    }
+
+    .rate-card h3 {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .rate-value {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--gold-light);
+    }
+
+    .rate-unit {
+      color: #999;
+      font-size: 12px;
+      margin-top: 3px;
+    }
+
+    .silver-rate {
+      margin-top: 15px;
+      background: #202020;
+      border: 1px solid #333;
+      padding: 20px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .silver-rate strong {
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .silver-rate span {
+      color: #999;
+      font-size: 13px;
+    }
+
+    .silver-price {
+      color: #ddd;
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .rate-note {
+      margin-top: 20px;
+      color: #888;
+      font-size: 12px;
+    }
+
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact {
+      background: white;
+    }
+
+    .contact-grid {
+      margin-top: 45px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .contact-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      background: #fffdf8;
+    }
+
+    .contact-card h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .contact-card p {
+      color: var(--gray);
+      margin-bottom: 8px;
+    }
+
+    .contact-link {
+      display: inline-block;
+      color: var(--gold-dark);
+      font-weight: 700;
+      margin-top: 8px;
+    }
+
+    .contact-link:hover {
+      text-decoration: underline;
+    }
+
+    .belgium-box {
+      grid-column: 1 / -1;
+      background: var(--black);
+      color: white;
+      border-radius: 12px;
+      padding: 38px;
+    }
+
+    .belgium-box h3 {
+      color: var(--gold-light);
+      font-size: 25px;
+      margin-bottom: 8px;
+    }
+
+    .belgium-box p {
+      color: #ccc;
+      max-width: 700px;
+      margin: 0;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: #0d0d0d;
+      color: white;
+      padding: 35px 0;
+    }
+
+    .footer-inner {
+      max-width: 1180px;
+      padding: 0 25px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer-logo {
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .footer-logo span {
+      color: var(--gold-light);
+    }
+
+    .footer-inner p {
+      color: #777;
+      font-size: 12px;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 900px) {
+
+      nav {
+        gap: 14px;
+      }
+
+      nav a {
+        font-size: 12px;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .usp-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .usp:nth-child(2) {
+        border-right: none;
+      }
+
+      .usp:nth-child(-n+2) {
+        border-bottom: 1px solid rgba(255,255,255,0.12);
+      }
+
+      .rate-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .service-block {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+      .service-title {
+        position: static;
+      }
+    }
+
+    @media (max-width: 650px) {
+
+      .nav {
+        min-height: 70px;
+        padding: 10px 16px;
+      }
+
+      .logo-text {
+        font-size: 13px;
+      }
+
+      .logo-text span {
+        font-size: 9px;
+      }
+
+      nav {
+        gap: 10px;
+      }
+
+      nav a:not(.nav-button) {
+        display: none;
+      }
+
+      .nav-button {
+        padding: 9px 12px;
+        font-size: 12px;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+
+      .container {
+        padding: 0 17px;
+      }
+
+      .hero {
+        min-height: 610px;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+        letter-spacing: -2px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .product-grid,
+      .steps-grid,
+      .valuation-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .usp-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .usp {
+        border-right: none !important;
+        border-bottom: 1px solid rgba(255,255,255,0.12);
+      }
+
+      .usp:last-child {
+        border-bottom: none;
+      }
+
+      .rate-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .rates-top {
+        display: block;
+      }
+
+      .updated {
+        margin-top: 15px;
+      }
+
+      .silver-rate {
+        display: block;
+      }
+
+      .silver-price {
+        margin-top: 10px;
+      }
+
+      .belgium-box {
+        grid-column: auto;
+      }
+
+      .footer-inner {
+        display: block;
+      }
+
+      .footer-inner p {
+        margin-top: 10px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
+<!-- =========================
+     NAVIGATIE
+========================= -->
+
 <header>
+  <div class="nav">
 
-<div class="nav">
+    <a href="#home" class="logo">
+      <div class="logo-mark">DE</div>
 
-<a href="#" class="logo" onclick="showPage('home');return false">
-DE GOUDMARSJAN
-<span>EDELMETALEN</span>
-</a>
+      <div class="logo-text">
+        DE GOUDMARSJAN
+        <span>EDELMETALEN</span>
+      </div>
+    </a>
 
-<nav>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#wat-doen-we">Wat doen we?</a>
+      <a href="#koers">Actuele goudkoers</a>
+      <a href="#contact" class="nav-button">Contact</a>
+    </nav>
 
-<button id="nav-home"
-class="active"
-onclick="showPage('home')">
-Home
-</button>
-
-<button id="nav-doen"
-onclick="showPage('doen')">
-Wat doen we?
-</button>
-
-<button id="nav-koers"
-onclick="showPage('koers')">
-Actuele goudkoers
-</button>
-
-<button id="nav-contact"
-onclick="showPage('contact')">
-Contact
-</button>
-
-</nav>
-
-</div>
-
+  </div>
 </header>
 
-<main>
 
-<!-- HOME -->
+<!-- =========================
+     HOME
+========================= -->
 
-<section id="home" class="page active">
+<main id="home">
 
-<div class="hero">
+  <section class="hero">
 
-<div class="hero-inner">
+    <div class="container">
 
-<div class="kicker">
-EDELMETALEN — INKOOP
-</div>
+      <div class="hero-content">
 
-<h1>
-Uw goud.<br>
-Onze expertise.
-</h1>
+        <div class="hero-kicker">
+          Edelmetalen inkopen in heel België
+        </div>
 
-<p>
-DE GOUDMARSJAN koopt goud, zilver, juwelen en horloges in.
-Transparante waardebepaling, duidelijke informatie en een correcte afhandeling.
-</p>
+        <h1>
+          Uw goud.<br>
+          <span>Onze expertise.</span>
+        </h1>
 
-<div class="buttons">
+        <p>
+          DE GOUDMARSJAN koopt goud, zilver, juwelen en horloges.
+          We werken op locatie in heel België en zorgen voor een
+          duidelijke en professionele waardebepaling.
+        </p>
 
-<a class="btn gold"
-href="#"
-onclick="showPage('doen');return false">
-Wat doen we?
-</a>
+        <div class="hero-buttons">
+          <a href="#contact" class="button button-primary">
+            Neem contact op
+          </a>
 
-<a class="btn dark"
-href="#"
-onclick="showPage('contact');return false">
-Contact opnemen
-</a>
+          <a href="#koers" class="button button-secondary">
+            Bekijk actuele koers
+          </a>
+        </div>
 
-</div>
+      </div>
 
-</div>
+    </div>
 
-</div>
+  </section>
 
 
-<div class="section">
+  <!-- USP -->
 
-<div class="section-head">
+  <section class="usp-bar">
+    <div class="container">
 
-<div class="kicker">
-WAARVOOR KUNT U BIJ ONS TERECHT?
-</div>
+      <div class="usp-grid">
 
-<h2>
-Wij kopen edelmetalen in
-</h2>
+        <div class="usp">
+          <strong>Goud & zilver</strong>
+          <span>Verschillende gehaltes en vormen</span>
+        </div>
 
-<p>
-Van een enkel juweel tot een verzameling.
-We bekijken elk stuk afzonderlijk.
-</p>
+        <div class="usp">
+          <strong>Juwelen & horloges</strong>
+          <span>Ook stukken met andere waardecomponenten</span>
+        </div>
 
-</div>
+        <div class="usp">
+          <strong>Heel België</strong>
+          <span>Wij komen op locatie</span>
+        </div>
 
+        <div class="usp">
+          <strong>Duidelijke waardebepaling</strong>
+          <span>Transparante informatie over de waarde</span>
+        </div>
 
-<div class="cards">
+      </div>
 
-<div class="card">
-<div class="icon">🪙</div>
-<h3>Goud</h3>
-<p>
-Gouden juwelen, munten, baren en andere gouden voorwerpen.
-</p>
-</div>
+    </div>
+  </section>
 
-<div class="card">
-<div class="icon">🥈</div>
-<h3>Zilver</h3>
-<p>
-Zilveren juwelen, munten en andere zilveren voorwerpen.
-</p>
-</div>
 
-<div class="card">
-<div class="icon">💍</div>
-<h3>Juwelen</h3>
-<p>
-Ringen, kettingen, armbanden, oorbellen en andere juwelen.
-</p>
-</div>
+  <!-- PRODUCTEN -->
 
-<div class="card">
-<div class="icon">⌚</div>
-<h3>Horloges</h3>
-<p>
-Horloges worden afzonderlijk bekeken en beoordeeld.
-</p>
-</div>
+  <section class="products">
 
-</div>
-</div>
+    <div class="container">
 
+      <div class="section-label">Wat kopen wij?</div>
 
-<div class="dark-section">
+      <h2>Van goud tot zilver.</h2>
 
-<div class="section">
+      <p class="section-intro">
+        Wij bekijken verschillende soorten edelmetalen en waardevolle
+        stukken. Elk item wordt afzonderlijk bekeken op basis van
+        de relevante kenmerken.
+      </p>
 
-<div class="section-head">
+      <div class="product-grid">
 
-<div class="kicker">
-ZO WERKT HET
-</div>
+        <div class="product-card">
+          <div class="product-icon">◆</div>
+          <h3>Goud</h3>
+          <p>
+            Gouden juwelen, munten, baren en andere gouden voorwerpen.
+          </p>
+        </div>
 
-<h2>
-Drie eenvoudige stappen
-</h2>
+        <div class="product-card">
+          <div class="product-icon">◇</div>
+          <h3>Zilver</h3>
+          <p>
+            Zilveren voorwerpen, munten, bestek, juwelen en meer.
+          </p>
+        </div>
 
-<p>
-We houden het duidelijk en persoonlijk.
-</p>
+        <div class="product-card">
+          <div class="product-icon">✦</div>
+          <h3>Juwelen</h3>
+          <p>
+            Ringen, kettingen, armbanden, oorbellen en andere juwelen.
+          </p>
+        </div>
 
-</div>
+        <div class="product-card">
+          <div class="product-icon">◷</div>
+          <h3>Horloges</h3>
+          <p>
+            We bekijken ook horloges en beoordelen de relevante
+            waardecomponenten.
+          </p>
+        </div>
 
+      </div>
 
-<div class="process">
+    </div>
 
-<div class="step">
+  </section>
 
-<div class="num">1</div>
 
-<h3>
-Breng uw stukken mee
-</h3>
+  <!-- HOE WERKT HET -->
 
-<p>
-Neem uw goud, zilver, juwelen of horloges mee naar een van onze opkoopmomenten of neem contact op.
-</p>
+  <section class="steps">
 
-</div>
+    <div class="container">
+
+      <div class="section-label">Eenvoudig geregeld</div>
 
+      <h2>Zo gaan we te werk.</h2>
 
-<div class="step">
+      <p class="section-intro">
+        Geen ingewikkelde procedure. We bekijken uw stukken,
+        bepalen de relevante kenmerken en bespreken de waarde.
+      </p>
 
-<div class="num">2</div>
+      <div class="steps-grid">
 
-<h3>
-Waardebepaling
-</h3>
+        <div class="step">
+          <div class="step-number">01 — BEKIJKEN</div>
+          <h3>We bekijken uw stukken</h3>
+          <p>
+            We bekijken het materiaal, het gehalte, het gewicht
+            en andere relevante kenmerken.
+          </p>
+        </div>
 
-<p>
-We bekijken het materiaal, het gewicht en de zuiverheid van de stukken.
-</p>
+        <div class="step">
+          <div class="step-number">02 — WAARDEBEPALING</div>
+          <h3>We bepalen de waarde</h3>
+          <p>
+            We houden rekening met het gehalte, gewicht en de
+            actuele marktkoers.
+          </p>
+        </div>
 
-</div>
+        <div class="step">
+          <div class="step-number">03 — BESPREKEN</div>
+          <h3>U weet waar u aan toe bent</h3>
+          <p>
+            We leggen duidelijk uit hoe de waardebepaling tot stand
+            komt en bespreken de verdere afhandeling.
+          </p>
+        </div>
 
+      </div>
 
-<div class="step">
+    </div>
 
-<div class="num">3</div>
+  </section>
 
-<h3>
-U beslist
-</h3>
 
-<p>
-U krijgt een duidelijk voorstel en beslist zelf of u wilt verkopen.
-</p>
+  <!-- =========================
+       WAT DOEN WE
+  ========================= -->
 
-</div>
+  <section class="what-we-do" id="wat-doen-we">
 
-</div>
+    <div class="container">
 
-</div>
+      <div class="section-label">Onze diensten</div>
 
-</div>
+      <h2>Wat doen we?</h2>
 
+      <p class="section-intro">
+        DE GOUDMARSJAN is gespecialiseerd in de inkoop van
+        edelmetalen en waardevolle stukken. Hieronder vindt u
+        meer informatie over wat we bekijken en waarop we letten.
+      </p>
 
-<div class="section">
 
-<div class="cta">
+      <!-- GOUD -->
 
-<div>
+      <div class="service-block">
 
-<h2>
-Een vraag over uw goud of zilver?
-</h2>
+        <div class="service-title">
+          <h3>Goud</h3>
+          <p>
+            Verschillende goudgehaltes worden afzonderlijk bekeken.
+          </p>
+        </div>
 
-<p style="color:#aaa;margin:8px 0 0">
-Neem vrijblijvend contact met ons op.
-</p>
+        <div class="service-content">
 
-</div>
+          <p>
+            Bij goud is het gehalte één van de belangrijkste factoren
+            voor de waarde. Daarom bekijken we steeds welk goudgehalte
+            aanwezig is en combineren we dit met het gewicht en de
+            actuele marktkoers.
+          </p>
 
-<a class="btn gold"
-href="#"
-onclick="showPage('contact');return false">
-Contact
-</a>
+          <div class="purity-list">
+            <div class="purity">9K — 37,5%</div>
+            <div class="purity">14K — 58,5%</div>
+            <div class="purity">18K — 75%</div>
+            <div class="purity">22K — 91,6%</div>
+            <div class="purity">24K — 99,9%</div>
+          </div>
 
-</div>
+          <ul class="service-list">
+            <li>Gouden juwelen</li>
+            <li>Gouden munten</li>
+            <li>Gouden baren</li>
+            <li>Losse gouden voorwerpen</li>
+            <li>Goud in verschillende gehaltes</li>
+          </ul>
 
-</div>
+        </div>
 
-</section>
+      </div>
 
 
-<!-- WAT DOEN WE -->
+      <!-- ZILVER -->
 
-<section id="doen" class="page">
+      <div class="service-block">
 
-<div class="section">
+        <div class="service-title">
+          <h3>Zilver</h3>
+          <p>
+            Ook zilver wordt op basis van gehalte en gewicht beoordeeld.
+          </p>
+        </div>
 
-<div class="section-head">
+        <div class="service-content">
 
-<div class="kicker">
-WAT DOEN WE?
-</div>
+          <p>
+            Zilver komt voor in verschillende gehaltes. Het aanwezige
+            gehalte heeft een rechtstreekse invloed op de hoeveelheid
+            zuiver zilver in een voorwerp.
+          </p>
 
-<h2>
-Inkoop van edelmetalen
-</h2>
+          <div class="purity-list">
+            <div class="purity">800 — 80%</div>
+            <div class="purity">835 — 83,5%</div>
+            <div class="purity">925 — 92,5%</div>
+            <div class="purity">999 — 99,9%</div>
+          </div>
 
-<p>
-DE GOUDMARSJAN is gespecialiseerd in de inkoop van goud, zilver, juwelen en horloges.
-</p>
+          <ul class="service-list">
+            <li>Zilveren juwelen</li>
+            <li>Zilveren munten</li>
+            <li>Zilveren bestek</li>
+            <li>Zilveren voorwerpen</li>
+            <li>Andere zilveren stukken</li>
+          </ul>
 
-</div>
+        </div>
 
+      </div>
 
-<div class="cards">
 
-<div class="card">
+      <!-- JUWELEN -->
 
-<div class="icon">🟡</div>
+      <div class="service-block">
 
-<h3>
-Goud
-</h3>
+        <div class="service-title">
+          <h3>Juwelen</h3>
+          <p>
+            Van eenvoudige gouden stukken tot bijzondere juwelen.
+          </p>
+        </div>
 
-<p>
-Wij bekijken onder andere gouden juwelen, munten, baren en andere voorwerpen.
-De zuiverheid kan verschillen, bijvoorbeeld 9K, 14K, 18K, 22K of 24K.
-</p>
+        <div class="service-content">
 
-</div>
+          <p>
+            Juwelen kunnen uit verschillende materialen bestaan.
+            Daarom bekijken we het stuk als geheel en bepalen we
+            welke factoren relevant zijn voor de waardebepaling.
+          </p>
 
+          <ul class="service-list">
+            <li>Ringen</li>
+            <li>Kettingen</li>
+            <li>Armbanden</li>
+            <li>Oorbellen</li>
+            <li>Hangers</li>
+            <li>Broches</li>
+            <li>Andere juwelen</li>
+          </ul>
 
-<div class="card">
+        </div>
 
-<div class="icon">⚪</div>
+      </div>
 
-<h3>
-Zilver
-</h3>
 
-<p>
-Ook zilveren voorwerpen kunnen worden aangeboden.
-We houden rekening met de zuiverheid, zoals 800‰, 835‰, 925‰ of 999‰.
-</p>
+      <!-- HORLOGES -->
 
-</div>
+      <div class="service-block">
 
+        <div class="service-title">
+          <h3>Horloges</h3>
+          <p>
+            We bekijken ook horloges en hun relevante waardecomponenten.
+          </p>
+        </div>
 
-<div class="card">
+        <div class="service-content">
 
-<div class="icon">💎</div>
+          <p>
+            Bij horloges kan de waarde afhankelijk zijn van verschillende
+            factoren. Naast het materiaal kunnen onder andere het type,
+            de staat en de kenmerken van het horloge een rol spelen.
+          </p>
 
-<h3>
-Juwelen
-</h3>
+          <ul class="service-list">
+            <li>Gouden horloges</li>
+            <li>Zilveren horloges</li>
+            <li>Horloges met edelmetalen onderdelen</li>
+            <li>Oude en vintage horloges</li>
+            <li>Andere waardevolle horloges</li>
+          </ul>
 
-<p>
-Ringen, kettingen, armbanden, oorbellen en andere juwelen worden stuk per stuk bekeken.
-</p>
+        </div>
 
-</div>
+      </div>
 
 
-<div class="card">
+      <!-- WAARDEBEPALING -->
 
-<div class="icon">⌚</div>
+      <div class="service-block">
 
-<h3>
-Horloges
-</h3>
+        <div class="service-title">
+          <h3>Waardebepaling</h3>
+          <p>
+            Duidelijkheid over hoe een waarde tot stand komt.
+          </p>
+        </div>
 
-<p>
-Horloges worden afzonderlijk bekeken.
-Neem gerust contact op als u wilt weten of uw horloge in aanmerking komt.
-</p>
+        <div class="service-content">
 
-</div>
+          <p>
+            Een waardebepaling bestaat niet uit één enkel cijfer.
+            We bekijken verschillende factoren voordat we tot een
+            voorstel komen.
+          </p>
 
-</div>
+          <ul class="service-list">
+            <li>Materiaal</li>
+            <li>Gehalte</li>
+            <li>Gewicht</li>
+            <li>Actuele marktkoers</li>
+            <li>Type en kenmerken van het stuk</li>
+            <li>Eventuele bijkomende waardecomponenten</li>
+          </ul>
 
-</div>
+        </div>
 
+      </div>
 
-<div class="dark-section">
 
-<div class="section">
+      <!-- OP LOCATIE -->
 
-<div class="section-head">
+      <div class="service-block">
 
-<div class="kicker">
-DUIDELIJKHEID
-</div>
+        <div class="service-title">
+          <h3>Op locatie</h3>
+          <p>
+            We werken door heel België.
+          </p>
+        </div>
 
-<h2>
-Hoe wordt de waarde bepaald?
-</h2>
+        <div class="service-content">
 
-<p>
-De uiteindelijke waarde hangt af van verschillende factoren.
-</p>
+          <p>
+            DE GOUDMARSJAN werkt op locatie in heel België.
+            Zo kunnen we klanten op een praktische manier helpen
+            zonder dat zij zich noodzakelijk moeten verplaatsen.
+          </p>
 
-</div>
+          <p>
+            Neem contact met ons op om te bespreken wat mogelijk is
+            en om verdere afspraken te maken.
+          </p>
 
+        </div>
 
-<div class="process">
+      </div>
 
-<div class="step">
+    </div>
 
-<div class="num">01</div>
+  </section>
 
-<h3>
-Materiaal
-</h3>
 
-<p>
-We bepalen of het om goud, zilver, verzilverde materialen of een ander materiaal gaat.
-</p>
+  <!-- =========================
+       WAARDEBEPALING
+  ========================= -->
 
-</div>
+  <section class="valuation">
 
+    <div class="container">
 
-<div class="step">
+      <div class="section-label">Waar letten we op?</div>
 
-<div class="num">02</div>
+      <h2>Een duidelijke waardebepaling.</h2>
 
-<h3>
-Zuiverheid & gewicht
-</h3>
+      <p class="section-intro">
+        De waarde van een edelmetaal hangt af van meerdere factoren.
+        Daarom bekijken we ieder stuk afzonderlijk.
+      </p>
 
-<p>
-Het gehalte en het netto gewicht spelen een belangrijke rol bij de berekening.
-</p>
+      <div class="valuation-grid">
 
-</div>
+        <div class="valuation-card">
+          <strong>Gehalte</strong>
+          <p>
+            Het gehalte bepaalt hoeveel zuiver edelmetaal aanwezig is.
+          </p>
+        </div>
 
+        <div class="valuation-card">
+          <strong>Gewicht</strong>
+          <p>
+            Het gewicht wordt meegenomen in de berekening van de
+            hoeveelheid edelmetaal.
+          </p>
+        </div>
 
-<div class="step">
+        <div class="valuation-card">
+          <strong>Marktkoers</strong>
+          <p>
+            De actuele marktprijs van het betreffende edelmetaal
+            vormt een belangrijke referentie.
+          </p>
+        </div>
 
-<div class="num">03</div>
+      </div>
 
-<h3>
-Marktprijs
-</h3>
+    </div>
 
-<p>
-De actuele marktprijs van het betreffende edelmetaal wordt meegenomen in de waardebepaling.
-</p>
+  </section>
 
-</div>
 
-</div>
+  <!-- =========================
+       ACTUELE KOERS
+  ========================= -->
 
-</div>
+  <section class="rates" id="koers">
 
-</div>
+    <div class="container">
 
-</section>
+      <div class="rates-top">
 
+        <div>
+          <div class="section-label">Live marktinformatie</div>
 
-<!-- GOUDKOERS -->
+          <h2>Actuele goudkoers</h2>
 
-<section id="koers" class="page">
+          <p class="section-intro">
+            Indicatieve actuele marktkoersen per gram.
+          </p>
+        </div>
 
-<div class="section">
+        <div class="updated" id="lastUpdated">
+          Koers wordt opgehaald...
+        </div>
 
-<div class="section-head">
+      </div>
 
-<div class="kicker">
-MARKTGEGEVENS
-</div>
 
-<h2>
-Actuele goudkoers
-</h2>
+      <div class="rate-grid">
 
-<p>
-De koers hieronder wordt automatisch opgehaald wanneer de pagina geopend wordt.
-</p>
+        <div class="rate-card">
+          <div class="metal">Goud</div>
+          <h3>24 karaat</h3>
+          <div class="rate-value" id="gold24">—</div>
+          <div class="rate-unit">per gram</div>
+        </div>
 
-</div>
+        <div class="rate-card">
+          <div class="metal">Goud</div>
+          <h3>22 karaat</h3>
+          <div class="rate-value" id="gold22">—</div>
+          <div class="rate-unit">per gram</div>
+        </div>
 
+        <div class="rate-card">
+          <div class="metal">Goud</div>
+          <h3>18 karaat</h3>
+          <div class="rate-value" id="gold18">—</div>
+          <div class="rate-unit">per gram</div>
+        </div>
 
-<div class="price-box">
+        <div class="rate-card">
+          <div class="metal">Goud</div>
+          <h3>14 karaat</h3>
+          <div class="rate-value" id="gold14">—</div>
+          <div class="rate-unit">per gram</div>
+        </div>
 
-<div class="price-top">
+        <div class="rate-card">
+          <div class="metal">Goud</div>
+          <h3>9 karaat</h3>
+          <div class="rate-value" id="gold9">—</div>
+          <div class="rate-unit">per gram</div>
+        </div>
 
-<div class="label">
-24K GOUD — PER GRAM
-</div>
+      </div>
 
-<div class="price" id="goldPrice">
-Laden...
-</div>
 
-<div class="price-time" id="priceTime">
-Koers wordt opgehaald...
-</div>
+      <div class="silver-rate">
 
-</div>
+        <div>
+          <strong>999 zilver</strong>
+          <span>Indicatieve marktkoers per gram</span>
+        </div>
 
+        <div class="silver-price" id="silver999">
+          —
+        </div>
 
-<div class="price-grid">
+      </div>
 
-<div class="price-item">
-<span>24K / 999</span>
-<strong id="p24">—</strong>
-</div>
 
-<div class="price-item">
-<span>22K / 916</span>
-<strong id="p22">—</strong>
-</div>
+      <div class="rate-note">
+        * Deze koersen zijn indicatieve marktkoersen en zijn geen
+        gegarandeerde inkoopprijzen. De uiteindelijke waardebepaling
+        kan afhangen van onder andere gehalte, gewicht, type en staat
+        van het voorwerp.
+      </div>
 
-<div class="price-item">
-<span>18K / 750</span>
-<strong id="p18">—</strong>
-</div>
+    </div>
 
-<div class="price-item">
-<span>14K / 585</span>
-<strong id="p14">—</strong>
-</div>
+  </section>
 
-<div class="price-item">
-<span>9K / 375</span>
-<strong id="p9">—</strong>
-</div>
 
-<div class="price-item">
-<span>999 zilver / gram</span>
-<strong id="silverPrice">—</strong>
-</div>
+  <!-- =========================
+       CONTACT
+  ========================= -->
 
-</div>
+  <section class="contact" id="contact">
 
-</div>
+    <div class="container">
 
+      <div class="section-label">Contact</div>
 
-<p class="notice">
-Indicatieve marktkoers.
-De uiteindelijke inkoopwaarde kan afwijken en wordt bepaald op basis van het aangeboden stuk, gewicht, zuiverheid en de geldende voorwaarden.
-</p>
+      <h2>Neem contact met ons op.</h2>
 
-</div>
+      <p class="section-intro">
+        Heeft u goud, zilver, juwelen of horloges en wilt u weten
+        wat de mogelijkheden zijn? Neem gerust contact met ons op.
+      </p>
 
-</section>
 
+      <div class="contact-grid">
 
-<!-- CONTACT -->
+        <div class="contact-card">
 
-<section id="contact" class="page">
+          <h3>Telefonisch</h3>
 
-<div class="section">
+          <p>
+            U kunt ons telefonisch bereiken via:
+          </p>
 
-<div class="section-head">
+          <a
+            class="contact-link"
+            href="tel:+32456721892"
+          >
+            +32 456 72 18 92
+          </a>
 
-<div class="kicker">
-CONTACT
-</div>
+        </div>
 
-<h2>
-Neem contact op
-</h2>
 
-<p>
-Heeft u goud, zilver, juwelen of een horloge en wilt u meer informatie?
-Neem contact met ons op.
-</p>
+        <div class="contact-card">
 
-</div>
+          <h3>E-mail</h3>
 
+          <p>
+            Stuur ons gerust een bericht via:
+          </p>
 
-<div class="contact-grid">
+          <a
+            class="contact-link"
+            href="mailto:info@goudmarsjan.com"
+          >
+            info@goudmarsjan.com
+          </a>
 
+        </div>
 
-<div class="contact-box">
 
-<h3>
-DE GOUDMARSJAN
-</h3>
+        <div class="belgium-box">
 
+          <h3>Op locatie in heel België</h3>
 
-<div class="contact-row">
+          <p>
+            DE GOUDMARSJAN werkt op locatie door heel België.
+            Neem telefonisch of via e-mail contact met ons op
+            om uw situatie te bespreken.
+          </p>
 
-<div class="contact-icon">
-✉️
-</div>
+        </div>
 
-<div>
+      </div>
 
-<strong>
-E-mail
-</strong>
+    </div>
 
-<span>
-contact@rhsolutions.info
-</span>
-
-</div>
-
-</div>
-
-
-<div class="contact-row">
-
-<div class="contact-icon">
-📍
-</div>
-
-<div>
-
-<strong>
-Regio
-</strong>
-
-<span>
-Oost-Vlaanderen, België
-</span>
-
-</div>
-
-</div>
-
-
-<div class="contact-row">
-
-<div class="contact-icon">
-📅
-</div>
-
-<div>
-
-<strong>
-Opkoopdagen
-</strong>
-
-<span>
-Bekijk onze actuele aankondigingen of neem contact op voor meer informatie.
-</span>
-
-</div>
-
-</div>
-
-</div>
-
-
-<div class="contact-box">
-
-<h3>
-Een bericht sturen
-</h3>
-
-<p style="color:#777;line-height:1.6">
-
-Voor vragen of informatie kunt u ons rechtstreeks mailen.
-Vermeld eventueel wat u wilt aanbieden en in welke regio u zich bevindt.
-
-</p>
-
-<a class="btn gold"
-href="mailto:contact@rhsolutions.info">
-✉️ E-mail sturen
-</a>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
+  </section>
 
 </main>
 
 
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
 
-<strong>
-DE GOUDMARSJAN
-</strong>
+  <div class="footer-inner">
 
-— EDELMETALEN
+    <div class="footer-logo">
+      DE GOUDMARSJAN — <span>EDELMETALEN</span>
+    </div>
 
-<br>
+    <p>
+      © 2026 DE GOUDMARSJAN. Alle rechten voorbehouden.
+    </p>
 
-<span>
-© 2026 DE GOUDMARSJAN
-</span>
+  </div>
 
 </footer>
 
 
+<!-- =========================
+     LIVE KOERS SCRIPT
+========================= -->
+
 <script>
 
-function showPage(id) {
-
-  document.querySelectorAll('.page')
-    .forEach(function(page) {
-      page.classList.remove('active');
-    });
-
-  document.getElementById(id)
-    .classList.add('active');
-
-  document.querySelectorAll('nav button')
-    .forEach(function(button) {
-      button.classList.remove('active');
-    });
-
-  var btn = document.getElementById('nav-' + id);
-
-  if (btn) {
-    btn.classList.add('active');
-  }
-
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
+  const euroFormatter = new Intl.NumberFormat("nl-BE", {
+    style: "currency",
+    currency: "EUR",
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
   });
-}
 
 
-function money(value, digits) {
-
-  return new Intl.NumberFormat('nl-BE', {
-    style: 'currency',
-    currency: 'EUR',
-    minimumFractionDigits: digits || 2,
-    maximumFractionDigits: digits || 2
-  }).format(value);
-
-}
-
-
-async function loadPrices() {
-
-  try {
-
-    var goldResponse =
-      await fetch('https://api.gold-api.com/price/XAU');
-
-    var silverResponse =
-      await fetch('https://api.gold-api.com/price/XAG');
-
-    var goldData =
-      await goldResponse.json();
-
-    var silverData =
-      await silverResponse.json();
-
-    var goldOunce =
-      Number(goldData.price);
-
-    var silverOunce =
-      Number(silverData.price);
-
-    if (!goldOunce || !silverOunce) {
-      throw new Error();
+  function formatEuro(value) {
+    if (!Number.isFinite(value)) {
+      return "—";
     }
 
-    var goldGram =
-      goldOunce / 31.1034768;
-
-    var silverGram =
-      silverOunce / 31.1034768;
-
-
-    document.getElementById('goldPrice')
-      .textContent = money(goldGram);
-
-    document.getElementById('p24')
-      .textContent = money(goldGram);
-
-    document.getElementById('p22')
-      .textContent = money(goldGram * 0.916);
-
-    document.getElementById('p18')
-      .textContent = money(goldGram * 0.750);
-
-    document.getElementById('p14')
-      .textContent = money(goldGram * 0.585);
-
-    document.getElementById('p9')
-      .textContent = money(goldGram * 0.375);
-
-    document.getElementById('silverPrice')
-      .textContent = money(silverGram, 3);
-
-    document.getElementById('priceTime')
-      .textContent =
-      'Laatste beschikbare marktkoers: ' +
-      new Date().toLocaleString('nl-BE');
-
+    return euroFormatter.format(value);
   }
 
-  catch (error) {
 
-    document.getElementById('goldPrice')
-      .textContent = 'Niet beschikbaar';
+  function setText(id, value) {
+    const element = document.getElementById(id);
 
-    document.getElementById('priceTime')
-      .textContent =
-      'De actuele koers kon momenteel niet worden opgehaald.';
-
+    if (element) {
+      element.textContent = value;
+    }
   }
 
-}
 
-loadPrices();
+  async function getMetalPrice(symbol) {
+
+    const url =
+      "https://api.gold-api.com/price/" +
+      symbol +
+      "/EUR";
+
+    const response = await fetch(url, {
+      cache: "no-store"
+    });
+
+    if (!response.ok) {
+      throw new Error("Koers kon niet worden opgehaald.");
+    }
+
+    const data = await response.json();
+
+    /*
+      Gold API kan de prijs onder verschillende
+      velden teruggeven. Daarom proberen we
+      meerdere mogelijke velden.
+    */
+
+    const possibleValues = [
+      data.price,
+      data.value,
+      data.rate,
+      data.close
+    ];
+
+    const price = possibleValues
+      .map(Number)
+      .find(value => Number.isFinite(value));
+
+    if (!Number.isFinite(price)) {
+      throw new Error("Ongeldige koers ontvangen.");
+    }
+
+    return price;
+  }
+
+
+  async function loadRates() {
+
+    const updated = document.getElementById("lastUpdated");
+
+    try {
+
+      updated.textContent = "Koersen worden opgehaald...";
+
+      /*
+        XAU = goud
+        XAG = zilver
+
+        De API geeft de prijs per troy ounce.
+        Daarna rekenen we om naar prijs per gram.
+      */
+
+      const [goldOunce, silverOunce] = await Promise.all([
+        getMetalPrice("XAU"),
+        getMetalPrice("XAG")
+      ]);
+
+
+      const TROY_OUNCE_GRAMS = 31.1034768;
+
+
+      // Marktprijs zuiver goud per gram
+      const gold24 =
+        goldOunce / TROY_OUNCE_GRAMS;
+
+
+      // Marktprijs zuiver zilver per gram
+      const silver999 =
+        silverOunce / TROY_OUNCE_GRAMS;
+
+
+      // Goud per gehalte
+      const gold22 =
+        gold24 * (22 / 24);
+
+      const gold18 =
+        gold24 * (18 / 24);
+
+      const gold14 =
+        gold24 * (14 / 24);
+
+      const gold9 =
+        gold24 * (9 / 24);
+
+
+      setText("gold24", formatEuro(gold24));
+      setText("gold22", formatEuro(gold22));
+      setText("gold18", formatEuro(gold18));
+      setText("gold14", formatEuro(gold14));
+      setText("gold9", formatEuro(gold9));
+      setText("silver999", formatEuro(silver999));
+
+
+      const now = new Date();
+
+      updated.textContent =
+        "Laatst bijgewerkt: " +
+        now.toLocaleTimeString("nl-BE", {
+          hour: "2-digit",
+          minute: "2-digit"
+        });
+
+    } catch (error) {
+
+      console.error(error);
+
+      updated.textContent =
+        "Koers tijdelijk niet beschikbaar";
+
+      setText("gold24", "—");
+      setText("gold22", "—");
+      setText("gold18", "—");
+      setText("gold14", "—");
+      setText("gold9", "—");
+      setText("silver999", "—");
+    }
+  }
+
+
+  // Meteen laden
+  loadRates();
+
+
+  // Iedere 5 minuten vernieuwen
+  setInterval(loadRates, 5 * 60 * 1000);
 
 </script>
 
