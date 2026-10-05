@@ -149,7 +149,7 @@ a{
 
   display:grid;
 
-  grid-template-columns:.9fr 1.1fr;
+  grid-template-columns:1fr;
 
   align-items:center;
 
@@ -271,14 +271,19 @@ h1 em{
 }
 
 
-/* HERO MUNTEN */
+/* PROMO BANNER */
 
 .hero-art{
+  width:100%;
+  max-width:1200px;
+
+  margin:0 auto;
+
   overflow:hidden;
 
   border-radius:28px;
 
-  border:8px solid rgba(255,255,255,.6);
+  border:8px solid rgba(255,255,255,.72);
 
   background:#f8e9bf;
 
@@ -292,15 +297,39 @@ h1 em{
   width:100%;
   height:auto;
 
-  aspect-ratio:16/10;
+  aspect-ratio:auto;
 
-  object-fit:cover;
+  object-fit:contain;
+}
+
+.hero-content{
+  max-width:1200px;
+
+  margin:0 auto;
+
+  padding:0 22px 75px;
+}
+
+.hero-copy{
+  max-width:820px;
+
+  margin:0 auto;
+
+  text-align:center;
+}
+
+.hero-copy .lead{
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.hero-copy .hero-actions{
+  justify-content:center;
 }
 
 
 /* ==================================================
    ELIXIR & CHOCOLADE RECLAME
-   ENIGE NIEUWE TOEVOEGING
 ================================================== */
 
 .elixir-banner-section{
@@ -327,18 +356,6 @@ h1 em{
 
   box-shadow:
     0 18px 55px rgba(0,0,0,.35);
-}
-
-@media(max-width:600px){
-
-  .elixir-banner-section{
-    padding:25px 14px;
-  }
-
-  .elixir-banner{
-    border-radius:14px;
-  }
-
 }
 
 
@@ -401,6 +418,7 @@ h1 em{
 
 .next-inner{
   position:relative;
+
   z-index:2;
 
   max-width:1050px;
@@ -518,60 +536,70 @@ h1 em{
 }
 
 
+/* FOTO VAN HET BAKHUIS */
+
 .next-side{
-  min-height:260px;
+  position:relative;
 
-  display:flex;
+  min-height:320px;
 
-  align-items:center;
+  overflow:hidden;
 
-  justify-content:center;
+  background:#211b12;
+}
 
-  padding:35px;
+.next-photo{
+  display:block;
 
-  text-align:center;
+  width:100%;
+  height:100%;
+
+  min-height:320px;
+
+  object-fit:cover;
+}
+
+.next-photo-overlay{
+  position:absolute;
+
+  left:0;
+  right:0;
+  bottom:0;
+
+  padding:25px 25px 22px;
 
   background:
-    radial-gradient(
-      circle at 50% 35%,
-      #f7d967,
-      #bd8b18 55%,
-      #77520c 100%
+    linear-gradient(
+      to top,
+      rgba(0,0,0,.88),
+      rgba(0,0,0,.05)
     );
 
   color:white;
 }
 
+.next-photo-overlay .pin{
+  font-size:30px;
 
-.next-side-inner{
-  max-width:260px;
+  margin-bottom:4px;
 }
 
-
-.next-side .pin{
-  font-size:58px;
-
-  margin-bottom:8px;
-}
-
-
-.next-side strong{
+.next-photo-overlay strong{
   display:block;
 
-  font-size:25px;
+  font-size:23px;
 
   line-height:1.1;
 }
 
-
-.next-side span{
+.next-photo-overlay span{
   display:block;
 
-  margin-top:10px;
+  margin-top:7px;
 
-  font-size:14px;
+  font-size:13px;
 
-  line-height:1.5;
+  line-height:1.4;
 
   opacity:.95;
 }
@@ -1147,16 +1175,16 @@ section{
 
 @media(max-width:900px){
 
-  .hero-inner{
-    grid-template-columns:1fr;
-  }
-
-  .hero-art{
-    order:-1;
-  }
-
   .next-card{
     grid-template-columns:1fr;
+  }
+
+  .next-side{
+    min-height:300px;
+  }
+
+  .next-photo{
+    min-height:300px;
   }
 
   .cards{
@@ -1200,14 +1228,18 @@ section{
     font-size:11px;
   }
 
-  .hero-inner{
-    padding:45px 16px;
-  }
-
   .hero-art{
     border-width:4px;
 
     border-radius:18px;
+
+    margin:0 10px;
+
+    width:calc(100% - 20px);
+  }
+
+  .hero-content{
+    padding:42px 16px 55px;
   }
 
   h1{
@@ -1216,6 +1248,14 @@ section{
 
   .lead{
     font-size:17px;
+  }
+
+  .elixir-banner-section{
+    padding:25px 14px;
+  }
+
+  .elixir-banner{
+    border-radius:14px;
   }
 
   .next-location{
@@ -1239,7 +1279,19 @@ section{
   }
 
   .next-side{
-    min-height:210px;
+    min-height:240px;
+  }
+
+  .next-photo{
+    min-height:240px;
+  }
+
+  .next-photo-overlay{
+    padding:20px;
+  }
+
+  .next-photo-overlay strong{
+    font-size:21px;
   }
 
   .cards,
@@ -1362,10 +1414,19 @@ section{
   id="home"
 >
 
-  <div class="hero-inner">
+  <div class="hero-art">
+
+    <img
+      src="goudmarsjan-banner.png"
+      alt="DE GOUDMARSJAN — Waar zelfs den drank van goud is"
+    >
+
+  </div>
 
 
-    <div>
+  <div class="hero-content">
+
+    <div class="hero-copy">
 
 
       <div class="eyebrow">
@@ -1374,13 +1435,8 @@ section{
 
 
       <h1>
-
         Uw goud.<br>
-
-        <em>
-          Onze expertise.
-        </em>
-
+        <em>Onze expertise.</em>
       </h1>
 
 
@@ -1419,20 +1475,6 @@ section{
 
     </div>
 
-
-
-    <div class="hero-art">
-
-
-      <img
-        src="munten-hero.png"
-        alt="Gouden munten"
-      >
-
-
-    </div>
-
-
   </div>
 
 </header>
@@ -1461,8 +1503,6 @@ section{
 
 <!-- ==================================================
      NEXT LOCATION
-
-     DEZE GEGEVENS ZIJN VAN OPWIJK
 ================================================== -->
 
 <script>
@@ -1538,11 +1578,18 @@ const nextLocation = {
 
 
 
+      <!-- FOTO HET BAKHUIS -->
+
       <div class="next-side">
 
+        <img
+          class="next-photo"
+          src="opwijk-zaal.png"
+          alt="Het Bakhuis Hof ten Hemelrijk in Opwijk"
+        >
 
-        <div class="next-side-inner">
 
+        <div class="next-photo-overlay">
 
           <div class="pin">
             📍
@@ -1555,14 +1602,10 @@ const nextLocation = {
 
 
           <span>
-            Wij zijn daar aanwezig
-            om uw goud, zilver, juwelen
-            en horloges te bekijken.
+            Zondag 11 oktober · 09:00 – 17:30
           </span>
 
-
         </div>
-
 
       </div>
 
