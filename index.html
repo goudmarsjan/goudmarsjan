@@ -56,32 +56,22 @@ a{
   position:sticky;
   top:0;
   z-index:100;
-
   background:rgba(23,19,13,.97);
-
   backdrop-filter:blur(12px);
-
   color:white;
-
   border-bottom:1px solid rgba(255,255,255,.08);
 }
 
 .nav-inner{
   max-width:1200px;
   min-height:82px;
-
   margin:auto;
   padding:10px 22px;
-
   display:flex;
   align-items:center;
   justify-content:space-between;
-
   gap:30px;
 }
-
-
-/* LOGO */
 
 .brand-logo{
   display:flex;
@@ -95,14 +85,10 @@ a{
   display:block;
 }
 
-
-/* NAVIGATIE LINKS */
-
 .navlinks{
   display:flex;
   align-items:center;
   gap:30px;
-
   font-weight:800;
   font-size:14px;
 }
@@ -124,10 +110,8 @@ a{
 
 .hero{
   min-height:680px;
-
   display:flex;
   align-items:center;
-
   overflow:hidden;
 
   background:
@@ -142,110 +126,71 @@ a{
 .hero-inner{
   width:100%;
   max-width:1200px;
-
   margin:auto;
-
   padding:70px 22px;
 
   display:grid;
-
-  grid-template-columns:1fr;
-
+  grid-template-columns:.9fr 1.1fr;
   align-items:center;
-
   gap:40px;
 }
 
-
 .eyebrow{
   display:inline-flex;
-
   align-items:center;
-
   gap:9px;
-
   padding:9px 15px;
-
   border-radius:999px;
-
   background:#fff8e6;
-
   border:1px solid #ead29a;
-
   color:#765512;
-
   font-size:13px;
-
   font-weight:900;
 }
 
 .eyebrow:before{
   content:"";
-
   width:8px;
   height:8px;
-
   border-radius:50%;
-
   background:var(--gold2);
-
   box-shadow:0 0 12px #e8bd32;
 }
 
-
 h1{
   margin:22px 0 18px;
-
   font-size:clamp(46px,6vw,78px);
-
   line-height:.96;
-
   letter-spacing:-3px;
-
   color:var(--dark);
 }
 
 h1 em{
   color:#b48313;
-
   font-style:normal;
 }
 
-
 .lead{
   max-width:560px;
-
   color:#514a3d;
-
   font-size:20px;
-
   line-height:1.55;
 }
 
-
 .hero-actions{
   display:flex;
-
   flex-wrap:wrap;
-
   gap:12px;
-
   margin-top:30px;
 }
 
-
 .btn{
   display:inline-flex;
-
   align-items:center;
   justify-content:center;
-
   padding:15px 22px;
-
   border-radius:12px;
-
   font-weight:900;
-
   transition:.2s;
 }
 
@@ -253,38 +198,26 @@ h1 em{
   transform:translateY(-2px);
 }
 
-
 .btn-gold{
   background:var(--gold);
-
   color:#17130d;
-
-  box-shadow:
-    0 8px 25px rgba(166,121,10,.22);
+  box-shadow:0 8px 25px rgba(166,121,10,.22);
 }
-
 
 .btn-dark{
   background:var(--dark);
-
   color:white;
 }
 
 
-/* PROMO BANNER */
+/* ==================================================
+   HERO / ELIXIR RECLAME
+================================================== */
 
 .hero-art{
-  width:100%;
-  max-width:1200px;
-
-  margin:0 auto;
-
   overflow:hidden;
-
   border-radius:28px;
-
-  border:8px solid rgba(255,255,255,.72);
-
+  border:8px solid rgba(255,255,255,.6);
   background:#f8e9bf;
 
   box-shadow:
@@ -293,69 +226,9 @@ h1 em{
 
 .hero-art img{
   display:block;
-
   width:100%;
   height:auto;
-
-  aspect-ratio:auto;
-
   object-fit:contain;
-}
-
-.hero-content{
-  max-width:1200px;
-
-  margin:0 auto;
-
-  padding:0 22px 75px;
-}
-
-.hero-copy{
-  max-width:820px;
-
-  margin:0 auto;
-
-  text-align:center;
-}
-
-.hero-copy .lead{
-  margin-left:auto;
-  margin-right:auto;
-}
-
-.hero-copy .hero-actions{
-  justify-content:center;
-}
-
-
-/* ==================================================
-   ELIXIR & CHOCOLADE RECLAME
-================================================== */
-
-.elixir-banner-section{
-  padding:45px 22px;
-
-  background:#17130d;
-}
-
-.elixir-banner-wrap{
-  max-width:1200px;
-
-  margin:0 auto;
-}
-
-.elixir-banner{
-  display:block;
-
-  width:100%;
-  height:auto;
-
-  border-radius:22px;
-
-  border:1px solid rgba(240,201,75,.55);
-
-  box-shadow:
-    0 18px 55px rgba(0,0,0,.35);
 }
 
 
@@ -365,7 +238,6 @@ h1 em{
 
 .next-location{
   position:relative;
-
   padding:70px 22px;
 
   background:
@@ -377,230 +249,145 @@ h1 em{
     );
 
   color:white;
-
   overflow:hidden;
 }
-
 
 .next-location:before{
   content:"";
-
   position:absolute;
-
   width:500px;
   height:500px;
-
   border-radius:50%;
-
   right:-220px;
   top:-250px;
-
   border:1px solid rgba(240,201,75,.22);
 }
 
-
 .next-location:after{
   content:"";
-
   position:absolute;
-
   width:300px;
   height:300px;
-
   border-radius:50%;
-
   left:-170px;
   bottom:-180px;
-
   border:1px solid rgba(240,201,75,.15);
 }
 
-
 .next-inner{
   position:relative;
-
   z-index:2;
-
   max-width:1050px;
-
   margin:auto;
 }
 
-
 .next-label{
   text-align:center;
-
   color:var(--gold2);
-
   font-size:13px;
-
   font-weight:900;
-
   letter-spacing:3px;
-
   margin-bottom:10px;
 }
 
-
 .next-title{
   text-align:center;
-
   font-size:clamp(34px,5vw,54px);
-
   margin:0 0 35px;
-
   letter-spacing:-1px;
 }
 
-
 .next-card{
   display:grid;
-
   grid-template-columns:1fr 1fr;
-
   overflow:hidden;
-
   border-radius:25px;
-
   background:#fffaf0;
-
   color:var(--dark);
-
   border:2px solid var(--gold);
 
   box-shadow:
     0 20px 60px rgba(0,0,0,.25);
 }
 
-
 .next-main{
   padding:38px;
 }
 
-
 .next-date{
   display:inline-block;
-
   padding:9px 14px;
-
   border-radius:999px;
-
   background:#ead29a;
-
   color:#5e430d;
-
   font-weight:900;
-
   font-size:13px;
-
   letter-spacing:1px;
 }
 
-
 .next-main h3{
   margin:20px 0 12px;
-
   font-size:32px;
-
   line-height:1.1;
 }
 
-
 .next-address{
   font-size:18px;
-
   line-height:1.6;
-
   color:#665d50;
-
   margin-bottom:24px;
 }
 
-
 .next-time{
   display:inline-flex;
-
   align-items:center;
-
   gap:10px;
-
   padding:13px 18px;
-
   border-radius:12px;
-
   background:#17130d;
-
   color:white;
-
   font-weight:900;
 }
 
-
-/* FOTO VAN HET BAKHUIS */
-
 .next-side{
-  position:relative;
-
-  min-height:320px;
-
-  overflow:hidden;
-
-  background:#211b12;
-}
-
-.next-photo{
-  display:block;
-
-  width:100%;
-  height:100%;
-
-  min-height:320px;
-
-  object-fit:cover;
-}
-
-.next-photo-overlay{
-  position:absolute;
-
-  left:0;
-  right:0;
-  bottom:0;
-
-  padding:25px 25px 22px;
+  min-height:260px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:35px;
+  text-align:center;
 
   background:
-    linear-gradient(
-      to top,
-      rgba(0,0,0,.88),
-      rgba(0,0,0,.05)
+    radial-gradient(
+      circle at 50% 35%,
+      #f7d967,
+      #bd8b18 55%,
+      #77520c 100%
     );
 
   color:white;
 }
 
-.next-photo-overlay .pin{
-  font-size:30px;
-
-  margin-bottom:4px;
+.next-side-inner{
+  max-width:260px;
 }
 
-.next-photo-overlay strong{
+.next-side .pin{
+  font-size:58px;
+  margin-bottom:8px;
+}
+
+.next-side strong{
   display:block;
-
-  font-size:23px;
-
+  font-size:25px;
   line-height:1.1;
 }
 
-.next-photo-overlay span{
+.next-side span{
   display:block;
-
-  margin-top:7px;
-
-  font-size:13px;
-
-  line-height:1.4;
-
+  margin-top:10px;
+  font-size:14px;
+  line-height:1.5;
   opacity:.95;
 }
 
@@ -611,49 +398,34 @@ h1 em{
 
 .strip{
   background:var(--dark);
-
   color:white;
 }
-
 
 .strip-inner{
   max-width:1200px;
-
   margin:auto;
 
   display:grid;
-
   grid-template-columns:repeat(3,1fr);
-
   gap:1px;
 }
 
-
 .strip-item{
   padding:22px;
-
   text-align:center;
-
   background:#211b12;
 }
 
-
 .strip-item strong{
   display:block;
-
   color:white;
-
   font-size:18px;
 }
 
-
 .strip-item span{
   display:block;
-
   margin-top:5px;
-
   color:#cfc7b7;
-
   font-size:13px;
 }
 
@@ -666,52 +438,35 @@ section{
   padding:90px 22px;
 }
 
-
 .wrap{
   max-width:1200px;
-
   margin:auto;
 }
 
-
 .section-head{
   max-width:760px;
-
   margin:0 auto 45px;
-
   text-align:center;
 }
 
-
 .section-head .tag{
   color:#92701d;
-
   font-size:12px;
-
   font-weight:900;
-
   letter-spacing:2px;
-
   text-transform:uppercase;
 }
 
-
 .section-head h2{
   margin:10px 0 12px;
-
   color:var(--dark);
-
   font-size:clamp(34px,4vw,50px);
-
   letter-spacing:-1.5px;
 }
 
-
 .section-head p{
   color:var(--muted);
-
   font-size:17px;
-
   line-height:1.65;
 }
 
@@ -722,20 +477,14 @@ section{
 
 .cards{
   display:grid;
-
   grid-template-columns:repeat(4,1fr);
-
   gap:18px;
 }
 
-
 .card{
   padding:27px;
-
   border:1px solid var(--line);
-
   border-radius:20px;
-
   background:white;
 
   box-shadow:
@@ -744,7 +493,6 @@ section{
   transition:.2s;
 }
 
-
 .card:hover{
   transform:translateY(-4px);
 
@@ -752,24 +500,18 @@ section{
     0 16px 40px rgba(83,58,13,.12);
 }
 
-
 .card .icon{
   font-size:32px;
 }
 
-
 .card h3{
   margin:17px 0 9px;
-
   font-size:21px;
 }
 
-
 .card p{
   margin:0;
-
   color:var(--muted);
-
   line-height:1.6;
 }
 
@@ -787,77 +529,52 @@ section{
     );
 }
 
-
 .gold-grid{
   display:grid;
-
   grid-template-columns:1fr 1fr;
-
   gap:25px;
 }
 
-
 .gold-panel{
   padding:34px;
-
   border-radius:24px;
-
   background:var(--dark);
-
   color:white;
 }
 
-
 .gold-panel h3{
   margin:0 0 15px;
-
   font-size:29px;
 }
 
-
 .gold-panel p{
   color:#d4ccbd;
-
   line-height:1.7;
 }
 
-
 .purities{
   display:grid;
-
   grid-template-columns:repeat(5,1fr);
-
   gap:9px;
-
   margin-top:24px;
 }
 
-
 .purity{
   padding:13px 8px;
-
   border:1px solid #4b402d;
-
   border-radius:12px;
-
   background:#211c14;
-
   text-align:center;
 }
 
-
 .purity strong{
   display:block;
-
   color:#f1c947;
-
   font-size:20px;
 }
 
-
 .purity span{
   color:#bdb5a5;
-
   font-size:11px;
 }
 
@@ -866,60 +583,40 @@ section{
 
 .silver-panel{
   padding:34px;
-
   border:1px solid var(--line);
-
   border-radius:24px;
-
   background:white;
 }
 
-
 .silver-panel h3{
   margin-top:0;
-
   font-size:29px;
 }
 
-
 .silver-panel p{
   color:var(--muted);
-
   line-height:1.6;
 }
 
-
 .silver-rates{
   display:grid;
-
   grid-template-columns:repeat(4,1fr);
-
   gap:10px;
-
   margin-top:24px;
 }
 
-
 .silver-rate{
   padding:17px 10px;
-
   border-radius:13px;
-
   background:#f5f1e8;
-
   text-align:center;
-
   font-weight:800;
 }
 
-
 .silver-rate span{
   display:block;
-
   margin-top:5px;
-
   color:#8b7e68;
-
   font-size:11px;
 }
 
@@ -930,55 +627,39 @@ section{
 
 .steps{
   display:grid;
-
   grid-template-columns:repeat(3,1fr);
-
   gap:18px;
 }
 
-
 .step{
   padding:30px;
-
   border:1px solid var(--line);
-
   border-radius:20px;
-
   background:white;
 }
 
-
 .number{
   display:flex;
-
   align-items:center;
   justify-content:center;
 
   width:42px;
   height:42px;
-
   margin-bottom:17px;
 
   border-radius:50%;
-
   background:var(--gold2);
-
   color:var(--dark);
-
   font-weight:900;
 }
-
 
 .step h3{
   margin:0 0 9px;
 }
 
-
 .step p{
   margin:0;
-
   color:var(--muted);
-
   line-height:1.6;
 }
 
@@ -989,65 +670,44 @@ section{
 
 .location{
   background:var(--dark);
-
   color:white;
 }
 
-
 .location-grid{
   display:grid;
-
   grid-template-columns:1.1fr .9fr;
-
   gap:30px;
-
   align-items:center;
 }
 
-
 .location h2{
   margin:0 0 15px;
-
   font-size:clamp(35px,4vw,55px);
-
   letter-spacing:-1px;
 }
 
-
 .location p{
   color:#d1c9ba;
-
   font-size:17px;
-
   line-height:1.7;
 }
 
-
 .location-box{
   padding:28px;
-
   border:1px solid #4b402e;
-
   border-radius:22px;
-
   background:#211c14;
 }
 
-
 .location-box strong{
   display:block;
-
   margin-bottom:9px;
-
   color:#f0c94b;
-
   font-size:23px;
 }
 
-
 .location-box span{
   color:#d2c9b9;
-
   line-height:1.6;
 }
 
@@ -1065,82 +725,56 @@ section{
     );
 }
 
-
 .contact-grid{
   display:grid;
-
   grid-template-columns:1fr 1fr;
-
   gap:25px;
 }
 
-
 .contact-card{
   padding:35px;
-
   border:1px solid var(--line);
-
   border-radius:24px;
-
   background:white;
 }
 
-
 .contact-card h2{
   margin:0 0 12px;
-
   font-size:39px;
 }
 
-
 .contact-line{
   display:flex;
-
   align-items:flex-start;
-
   gap:15px;
-
   padding:18px 0;
-
   border-bottom:1px solid var(--line);
 }
-
 
 .contact-line:last-child{
   border-bottom:0;
 }
 
-
 .contact-icon{
   font-size:25px;
 }
 
-
 .contact-line strong{
   display:block;
-
   margin-bottom:4px;
-
   color:var(--muted);
-
   font-size:12px;
-
   letter-spacing:1px;
-
   text-transform:uppercase;
 }
 
-
 .contact-line a{
   font-size:20px;
-
   font-weight:900;
 }
 
-
 .contact-line span{
   font-size:18px;
-
   font-weight:700;
 }
 
@@ -1151,20 +785,14 @@ section{
 
 .footer{
   padding:30px 20px;
-
   background:#111;
-
   color:#a9a295;
-
   text-align:center;
-
   font-size:13px;
 }
 
-
 .footer strong{
   color:white;
-
   letter-spacing:2px;
 }
 
@@ -1175,16 +803,16 @@ section{
 
 @media(max-width:900px){
 
-  .next-card{
+  .hero-inner{
     grid-template-columns:1fr;
   }
 
-  .next-side{
-    min-height:300px;
+  .hero-art{
+    order:-1;
   }
 
-  .next-photo{
-    min-height:300px;
+  .next-card{
+    grid-template-columns:1fr;
   }
 
   .cards{
@@ -1212,9 +840,7 @@ section{
 
   .nav-inner{
     min-height:68px;
-
     padding:9px 14px;
-
     gap:12px;
   }
 
@@ -1224,22 +850,16 @@ section{
 
   .navlinks{
     gap:9px;
-
     font-size:11px;
+  }
+
+  .hero-inner{
+    padding:45px 16px;
   }
 
   .hero-art{
     border-width:4px;
-
     border-radius:18px;
-
-    margin:0 10px;
-
-    width:calc(100% - 20px);
-  }
-
-  .hero-content{
-    padding:42px 16px 55px;
   }
 
   h1{
@@ -1248,14 +868,6 @@ section{
 
   .lead{
     font-size:17px;
-  }
-
-  .elixir-banner-section{
-    padding:25px 14px;
-  }
-
-  .elixir-banner{
-    border-radius:14px;
   }
 
   .next-location{
@@ -1279,19 +891,7 @@ section{
   }
 
   .next-side{
-    min-height:240px;
-  }
-
-  .next-photo{
-    min-height:240px;
-  }
-
-  .next-photo-overlay{
-    padding:20px;
-  }
-
-  .next-photo-overlay strong{
-    font-size:21px;
+    min-height:210px;
   }
 
   .cards,
@@ -1342,7 +942,6 @@ section{
 
   .navlinks{
     gap:7px;
-
     font-size:10px;
   }
 
@@ -1367,7 +966,6 @@ section{
 <nav class="nav">
 
   <div class="nav-inner">
-
 
     <a
       href="#home"
@@ -1398,11 +996,9 @@ section{
 
     </div>
 
-
   </div>
 
 </nav>
-
 
 
 <!-- ==================================================
@@ -1414,20 +1010,10 @@ section{
   id="home"
 >
 
-  <div class="hero-art">
-
-    <img
-      src="goudmarsjan-banner.png"
-      alt="DE GOUDMARSJAN — Waar zelfs den drank van goud is"
-    >
-
-  </div>
+  <div class="hero-inner">
 
 
-  <div class="hero-content">
-
-    <div class="hero-copy">
-
+    <div>
 
       <div class="eyebrow">
         INKOOP VAN EDELMETALEN
@@ -1435,8 +1021,13 @@ section{
 
 
       <h1>
+
         Uw goud.<br>
-        <em>Onze expertise.</em>
+
+        <em>
+          Onze expertise.
+        </em>
+
       </h1>
 
 
@@ -1453,7 +1044,6 @@ section{
 
       <div class="hero-actions">
 
-
         <a
           class="btn btn-gold"
           href="#next-location"
@@ -1469,36 +1059,26 @@ section{
           Contact opnemen
         </a>
 
-
       </div>
 
+    </div>
+
+
+    <!-- ELIXIR RECLAME -->
+
+    <div class="hero-art">
+
+      <img
+        src="Goudmarsjan%20Elixir%20and%20Chocolate%20Luxury%20Ad.png"
+        alt="DE GOUDMARSJAN — Waar zelfs den drank van goud is"
+      >
 
     </div>
+
 
   </div>
 
 </header>
-
-
-
-<!-- ==================================================
-     ELIXIR & CHOCOLADE RECLAME
-================================================== -->
-
-<section class="elixir-banner-section">
-
-  <div class="elixir-banner-wrap">
-
-    <img
-      class="elixir-banner"
-      src="Goudmarsjan Elixir and Chocolate Luxury Ad.png"
-      alt="DE GOUDMARSJAN Elixir en chocolade"
-    >
-
-  </div>
-
-</section>
-
 
 
 <!-- ==================================================
@@ -1522,15 +1102,12 @@ const nextLocation = {
 </script>
 
 
-
 <section
   class="next-location"
   id="next-location"
 >
 
-
   <div class="next-inner">
-
 
     <div class="next-label">
       NEXT LOCATION
@@ -1546,7 +1123,6 @@ const nextLocation = {
 
 
       <div class="next-main">
-
 
         <div
           class="next-date"
@@ -1573,23 +1149,12 @@ const nextLocation = {
           🕘
         </div>
 
-
       </div>
 
 
-
-      <!-- FOTO HET BAKHUIS -->
-
       <div class="next-side">
 
-        <img
-          class="next-photo"
-          src="opwijk-zaal.png"
-          alt="Het Bakhuis Hof ten Hemelrijk in Opwijk"
-        >
-
-
-        <div class="next-photo-overlay">
+        <div class="next-side-inner">
 
           <div class="pin">
             📍
@@ -1602,7 +1167,9 @@ const nextLocation = {
 
 
           <span>
-            Zondag 11 oktober · 09:00 – 17:30
+            Wij zijn daar aanwezig
+            om uw goud, zilver, juwelen
+            en horloges te bekijken.
           </span>
 
         </div>
@@ -1615,7 +1182,6 @@ const nextLocation = {
   </div>
 
 </section>
-
 
 
 <script>
@@ -1633,7 +1199,6 @@ document.getElementById("next-time").innerHTML =
   "🕘 " + nextLocation.time;
 
 </script>
-
 
 
 <!-- ==================================================
@@ -1689,7 +1254,6 @@ document.getElementById("next-time").innerHTML =
 </div>
 
 
-
 <!-- ==================================================
      WAT DOEN WE
 ================================================== -->
@@ -1724,7 +1288,6 @@ document.getElementById("next-time").innerHTML =
     </div>
 
 
-
     <div class="cards">
 
 
@@ -1751,7 +1314,6 @@ document.getElementById("next-time").innerHTML =
       </article>
 
 
-
       <article class="card">
 
         <div class="icon">
@@ -1775,7 +1337,6 @@ document.getElementById("next-time").innerHTML =
       </article>
 
 
-
       <article class="card">
 
         <div class="icon">
@@ -1797,7 +1358,6 @@ document.getElementById("next-time").innerHTML =
         </p>
 
       </article>
-
 
 
       <article class="card">
@@ -1826,7 +1386,6 @@ document.getElementById("next-time").innerHTML =
   </div>
 
 </section>
-
 
 
 <!-- ==================================================
@@ -1858,7 +1417,6 @@ document.getElementById("next-time").innerHTML =
       </p>
 
     </div>
-
 
 
     <div class="gold-grid">
@@ -1918,7 +1476,6 @@ document.getElementById("next-time").innerHTML =
       </div>
 
 
-
       <div class="silver-panel">
 
         <h3>
@@ -1973,7 +1530,6 @@ document.getElementById("next-time").innerHTML =
 </section>
 
 
-
 <!-- ==================================================
      WERKWIJZE
 ================================================== -->
@@ -2002,7 +1558,6 @@ document.getElementById("next-time").innerHTML =
     </div>
 
 
-
     <div class="steps">
 
 
@@ -2028,7 +1583,6 @@ document.getElementById("next-time").innerHTML =
       </div>
 
 
-
       <div class="step">
 
         <div class="number">
@@ -2049,7 +1603,6 @@ document.getElementById("next-time").innerHTML =
         </p>
 
       </div>
-
 
 
       <div class="step">
@@ -2082,7 +1635,6 @@ document.getElementById("next-time").innerHTML =
 </section>
 
 
-
 <!-- ==================================================
      HEEL BELGIË
 ================================================== -->
@@ -2112,7 +1664,6 @@ document.getElementById("next-time").innerHTML =
     </div>
 
 
-
     <div class="location-box">
 
       <strong>
@@ -2139,7 +1690,6 @@ document.getElementById("next-time").innerHTML =
   </div>
 
 </section>
-
 
 
 <!-- ==================================================
@@ -2182,7 +1732,6 @@ document.getElementById("next-time").innerHTML =
       </p>
 
 
-
       <div class="contact-line">
 
 
@@ -2208,7 +1757,6 @@ document.getElementById("next-time").innerHTML =
       </div>
 
 
-
       <div class="contact-line">
 
 
@@ -2232,7 +1780,6 @@ document.getElementById("next-time").innerHTML =
 
 
       </div>
-
 
 
       <div class="contact-line">
@@ -2261,7 +1808,6 @@ document.getElementById("next-time").innerHTML =
 
 
     </div>
-
 
 
     <div
@@ -2321,7 +1867,6 @@ document.getElementById("next-time").innerHTML =
   </div>
 
 </section>
-
 
 
 <!-- ==================================================
