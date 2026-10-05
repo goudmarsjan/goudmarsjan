@@ -80,6 +80,9 @@ a{
   gap:30px;
 }
 
+
+/* LOGO */
+
 .brand-logo{
   display:flex;
   align-items:center;
@@ -91,6 +94,9 @@ a{
   height:auto;
   display:block;
 }
+
+
+/* NAVIGATIE LINKS */
 
 .navlinks{
   display:flex;
@@ -150,6 +156,7 @@ a{
   gap:40px;
 }
 
+
 .eyebrow{
   display:inline-flex;
 
@@ -185,6 +192,7 @@ a{
   box-shadow:0 0 12px #e8bd32;
 }
 
+
 h1{
   margin:22px 0 18px;
 
@@ -199,8 +207,10 @@ h1{
 
 h1 em{
   color:#b48313;
+
   font-style:normal;
 }
+
 
 .lead{
   max-width:560px;
@@ -212,6 +222,7 @@ h1 em{
   line-height:1.55;
 }
 
+
 .hero-actions{
   display:flex;
 
@@ -221,6 +232,7 @@ h1 em{
 
   margin-top:30px;
 }
+
 
 .btn{
   display:inline-flex;
@@ -241,6 +253,7 @@ h1 em{
   transform:translateY(-2px);
 }
 
+
 .btn-gold{
   background:var(--gold);
 
@@ -250,11 +263,15 @@ h1 em{
     0 8px 25px rgba(166,121,10,.22);
 }
 
+
 .btn-dark{
   background:var(--dark);
 
   color:white;
 }
+
+
+/* HERO MUNTEN */
 
 .hero-art{
   overflow:hidden;
@@ -282,7 +299,8 @@ h1 em{
 
 
 /* ==================================================
-   ELIXIR & CHOCOLADE BANNER
+   ELIXIR & CHOCOLADE RECLAME
+   ENIGE NIEUWE TOEVOEGING
 ================================================== */
 
 .elixir-banner-section{
@@ -309,17 +327,18 @@ h1 em{
 
   box-shadow:
     0 18px 55px rgba(0,0,0,.35);
-
-  transition:
-    transform .25s ease,
-    box-shadow .25s ease;
 }
 
-.elixir-banner:hover{
-  transform:translateY(-3px);
+@media(max-width:600px){
 
-  box-shadow:
-    0 25px 65px rgba(0,0,0,.45);
+  .elixir-banner-section{
+    padding:25px 14px;
+  }
+
+  .elixir-banner{
+    border-radius:14px;
+  }
+
 }
 
 
@@ -345,6 +364,7 @@ h1 em{
   overflow:hidden;
 }
 
+
 .next-location:before{
   content:"";
 
@@ -360,6 +380,7 @@ h1 em{
 
   border:1px solid rgba(240,201,75,.22);
 }
+
 
 .next-location:after{
   content:"";
@@ -377,6 +398,7 @@ h1 em{
   border:1px solid rgba(240,201,75,.15);
 }
 
+
 .next-inner{
   position:relative;
   z-index:2;
@@ -385,6 +407,7 @@ h1 em{
 
   margin:auto;
 }
+
 
 .next-label{
   text-align:center;
@@ -400,6 +423,7 @@ h1 em{
   margin-bottom:10px;
 }
 
+
 .next-title{
   text-align:center;
 
@@ -409,6 +433,7 @@ h1 em{
 
   letter-spacing:-1px;
 }
+
 
 .next-card{
   display:grid;
@@ -429,9 +454,11 @@ h1 em{
     0 20px 60px rgba(0,0,0,.25);
 }
 
+
 .next-main{
   padding:38px;
 }
+
 
 .next-date{
   display:inline-block;
@@ -451,6 +478,7 @@ h1 em{
   letter-spacing:1px;
 }
 
+
 .next-main h3{
   margin:20px 0 12px;
 
@@ -458,6 +486,7 @@ h1 em{
 
   line-height:1.1;
 }
+
 
 .next-address{
   font-size:18px;
@@ -468,6 +497,7 @@ h1 em{
 
   margin-bottom:24px;
 }
+
 
 .next-time{
   display:inline-flex;
@@ -486,6 +516,7 @@ h1 em{
 
   font-weight:900;
 }
+
 
 .next-side{
   min-height:260px;
@@ -511,15 +542,18 @@ h1 em{
   color:white;
 }
 
+
 .next-side-inner{
   max-width:260px;
 }
+
 
 .next-side .pin{
   font-size:58px;
 
   margin-bottom:8px;
 }
+
 
 .next-side strong{
   display:block;
@@ -528,6 +562,7 @@ h1 em{
 
   line-height:1.1;
 }
+
 
 .next-side span{
   display:block;
@@ -552,6 +587,7 @@ h1 em{
   color:white;
 }
 
+
 .strip-inner{
   max-width:1200px;
 
@@ -564,6 +600,7 @@ h1 em{
   gap:1px;
 }
 
+
 .strip-item{
   padding:22px;
 
@@ -572,6 +609,7 @@ h1 em{
   background:#211b12;
 }
 
+
 .strip-item strong{
   display:block;
 
@@ -579,6 +617,7 @@ h1 em{
 
   font-size:18px;
 }
+
 
 .strip-item span{
   display:block;
@@ -599,11 +638,13 @@ section{
   padding:90px 22px;
 }
 
+
 .wrap{
   max-width:1200px;
 
   margin:auto;
 }
+
 
 .section-head{
   max-width:760px;
@@ -612,6 +653,7 @@ section{
 
   text-align:center;
 }
+
 
 .section-head .tag{
   color:#92701d;
@@ -625,6 +667,7 @@ section{
   text-transform:uppercase;
 }
 
+
 .section-head h2{
   margin:10px 0 12px;
 
@@ -634,6 +677,7 @@ section{
 
   letter-spacing:-1.5px;
 }
+
 
 .section-head p{
   color:var(--muted);
@@ -656,6 +700,7 @@ section{
   gap:18px;
 }
 
+
 .card{
   padding:27px;
 
@@ -671,6 +716,7 @@ section{
   transition:.2s;
 }
 
+
 .card:hover{
   transform:translateY(-4px);
 
@@ -678,15 +724,18 @@ section{
     0 16px 40px rgba(83,58,13,.12);
 }
 
+
 .card .icon{
   font-size:32px;
 }
+
 
 .card h3{
   margin:17px 0 9px;
 
   font-size:21px;
 }
+
 
 .card p{
   margin:0;
@@ -710,6 +759,7 @@ section{
     );
 }
 
+
 .gold-grid{
   display:grid;
 
@@ -717,6 +767,7 @@ section{
 
   gap:25px;
 }
+
 
 .gold-panel{
   padding:34px;
@@ -728,17 +779,20 @@ section{
   color:white;
 }
 
+
 .gold-panel h3{
   margin:0 0 15px;
 
   font-size:29px;
 }
 
+
 .gold-panel p{
   color:#d4ccbd;
 
   line-height:1.7;
 }
+
 
 .purities{
   display:grid;
@@ -749,6 +803,7 @@ section{
 
   margin-top:24px;
 }
+
 
 .purity{
   padding:13px 8px;
@@ -762,6 +817,7 @@ section{
   text-align:center;
 }
 
+
 .purity strong{
   display:block;
 
@@ -770,11 +826,15 @@ section{
   font-size:20px;
 }
 
+
 .purity span{
   color:#bdb5a5;
 
   font-size:11px;
 }
+
+
+/* ZILVER */
 
 .silver-panel{
   padding:34px;
@@ -786,17 +846,20 @@ section{
   background:white;
 }
 
+
 .silver-panel h3{
   margin-top:0;
 
   font-size:29px;
 }
 
+
 .silver-panel p{
   color:var(--muted);
 
   line-height:1.6;
 }
+
 
 .silver-rates{
   display:grid;
@@ -807,6 +870,7 @@ section{
 
   margin-top:24px;
 }
+
 
 .silver-rate{
   padding:17px 10px;
@@ -819,6 +883,7 @@ section{
 
   font-weight:800;
 }
+
 
 .silver-rate span{
   display:block;
@@ -843,6 +908,7 @@ section{
   gap:18px;
 }
 
+
 .step{
   padding:30px;
 
@@ -852,6 +918,7 @@ section{
 
   background:white;
 }
+
 
 .number{
   display:flex;
@@ -873,9 +940,11 @@ section{
   font-weight:900;
 }
 
+
 .step h3{
   margin:0 0 9px;
 }
+
 
 .step p{
   margin:0;
@@ -896,6 +965,7 @@ section{
   color:white;
 }
 
+
 .location-grid{
   display:grid;
 
@@ -906,6 +976,7 @@ section{
   align-items:center;
 }
 
+
 .location h2{
   margin:0 0 15px;
 
@@ -914,6 +985,7 @@ section{
   letter-spacing:-1px;
 }
 
+
 .location p{
   color:#d1c9ba;
 
@@ -921,6 +993,7 @@ section{
 
   line-height:1.7;
 }
+
 
 .location-box{
   padding:28px;
@@ -932,6 +1005,7 @@ section{
   background:#211c14;
 }
 
+
 .location-box strong{
   display:block;
 
@@ -941,6 +1015,7 @@ section{
 
   font-size:23px;
 }
+
 
 .location-box span{
   color:#d2c9b9;
@@ -962,6 +1037,7 @@ section{
     );
 }
 
+
 .contact-grid{
   display:grid;
 
@@ -969,6 +1045,7 @@ section{
 
   gap:25px;
 }
+
 
 .contact-card{
   padding:35px;
@@ -980,11 +1057,13 @@ section{
   background:white;
 }
 
+
 .contact-card h2{
   margin:0 0 12px;
 
   font-size:39px;
 }
+
 
 .contact-line{
   display:flex;
@@ -998,13 +1077,16 @@ section{
   border-bottom:1px solid var(--line);
 }
 
+
 .contact-line:last-child{
   border-bottom:0;
 }
 
+
 .contact-icon{
   font-size:25px;
 }
+
 
 .contact-line strong{
   display:block;
@@ -1020,11 +1102,13 @@ section{
   text-transform:uppercase;
 }
 
+
 .contact-line a{
   font-size:20px;
 
   font-weight:900;
 }
+
 
 .contact-line span{
   font-size:18px;
@@ -1048,6 +1132,7 @@ section{
 
   font-size:13px;
 }
+
 
 .footer strong{
   color:white;
@@ -1131,14 +1216,6 @@ section{
 
   .lead{
     font-size:17px;
-  }
-
-  .elixir-banner-section{
-    padding:25px 14px;
-  }
-
-  .elixir-banner{
-    border-radius:14px;
   }
 
   .next-location{
@@ -1363,7 +1440,7 @@ section{
 
 
 <!-- ==================================================
-     ELIXIR & CHOCOLADE
+     ELIXIR & CHOCOLADE RECLAME
 ================================================== -->
 
 <section class="elixir-banner-section">
@@ -1384,19 +1461,21 @@ section{
 
 <!-- ==================================================
      NEXT LOCATION
+
+     DEZE GEGEVENS ZIJN VAN OPWIJK
 ================================================== -->
 
 <script>
 
 const nextLocation = {
 
-  date: "ZATERDAG 17 OKTOBER",
+  date: "ZONDAG 11 OKTOBER",
 
-  name: "Polyvalente zaal Baardegem",
+  name: "Het Bakhuis Hof ten Hemelrijk",
 
-  address: "Baardegem Dorp, 9310 Baardegem",
+  address: "Kloosterstraat 7, 1745 Opwijk",
 
-  time: "10:00 – 17:30"
+  time: "09:00 – 17:30"
 
 };
 
