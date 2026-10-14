@@ -13,252 +13,218 @@
 >
 
 <style>
-/* DE GOUDMARSJAN — rustige, overzichtelijke huisstijl */
-:root {
-  --cream: #f6f3ec;
-  --cream2: #fbfaf7;
-  --gold: #b58b3b;
-  --gold2: #d4b36c;
-  --dark: #28251f;
-  --brown: #514432;
-  --text: #302e29;
-  --muted: #716d64;
-  --line: #e7e1d5;
-  --white: #ffffff;
-  --shadow: 0 12px 34px rgba(42, 36, 24, .07);
-  --radius: 16px;
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root{
+  --ink:#171713; --ink-soft:#24231e; --gold:#c6a15b; --gold-light:#e5cf9d;
+  --cream:#f5f0e6; --paper:#fcfaf6; --white:#fff; --text:#343229;
+  --muted:#777265; --line:#e7dfcf; --shadow:0 22px 60px rgba(30,25,15,.09);
+  --radius:18px; --serif:'Playfair Display',Georgia,serif;
+  --sans:'DM Sans',Inter,'Segoe UI',Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{margin:0;background:var(--paper);color:var(--text);font:16px/1.7 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+button,a{-webkit-tap-highlight-color:transparent}
+::selection{background:var(--gold-light);color:var(--ink)}
+.nav{position:sticky;top:0;z-index:100;background:rgba(23,23,19,.97);backdrop-filter:blur(14px);border-bottom:1px solid rgba(229,207,157,.28)}
+.nav-inner{width:min(1200px,calc(100% - 48px));min-height:86px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:28px}
+.brand-logo{display:flex;align-items:center;flex-shrink:0}
+.brand-logo img{display:block;width:164px;height:auto;filter:drop-shadow(0 2px 8px rgba(0,0,0,.15))}
+.navlinks{display:flex;align-items:center;gap:clamp(18px,3vw,38px);font-size:13px;font-weight:600;letter-spacing:.04em}
+.navlinks a{color:#f4efe4;transition:color .2s ease}
+.navlinks a:hover,.navlinks a:focus-visible{color:var(--gold-light)}
+.navlinks a:last-child{padding:10px 17px;border:1px solid rgba(229,207,157,.55);border-radius:4px}
+.hero{position:relative;overflow:hidden;background:radial-gradient(ellipse at 85% 45%,rgba(198,161,91,.12),transparent 34%),linear-gradient(115deg,#fdfbf7 0%,#f4eee2 100%);border-bottom:1px solid var(--line)}
+.hero:before{content:"";position:absolute;left:-140px;top:-210px;width:420px;height:420px;border:1px solid rgba(198,161,91,.2);border-radius:50%;box-shadow:0 0 0 34px rgba(198,161,91,.035),0 0 0 70px rgba(198,161,91,.025);pointer-events:none}
+.hero-inner{position:relative;width:min(1200px,calc(100% - 48px));min-height:610px;margin:auto;padding:78px 0;display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);align-items:center;gap:clamp(38px,6vw,82px)}
+.eyebrow{display:inline-flex;align-items:center;gap:11px;padding:8px 0;color:#8d6b30;font-size:10px;font-weight:800;letter-spacing:2.4px;text-transform:uppercase}
+.eyebrow:before{content:"";width:30px;height:1px;background:var(--gold)}
+h1{max-width:570px;margin:19px 0 22px;color:var(--ink);font:600 clamp(46px,5.5vw,76px)/1.02 var(--serif);letter-spacing:-2.1px}
+h1 em{display:inline-block;color:#a47d38;font-style:normal}
+.lead{max-width:490px;margin:0;color:#625d50;font-size:17px;line-height:1.85}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:31px}
+.btn{min-height:49px;display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 20px;border-radius:4px;font-size:13px;font-weight:700;letter-spacing:.02em;transition:background .2s ease,transform .2s ease,border-color .2s ease;cursor:pointer}
+.btn:hover{transform:translateY(-2px)}
+.btn:focus-visible,a:focus-visible{outline:3px solid rgba(198,161,91,.5);outline-offset:4px}
+.btn-gold{background:var(--gold);color:#191811;border:1px solid var(--gold)}
+.btn-gold:hover{background:var(--gold-light);border-color:var(--gold-light)}
+.btn-dark{background:var(--ink);color:#fff;border:1px solid var(--ink)}
+.btn-dark:hover{background:#343128}
+.hero-art{position:relative;overflow:hidden;border:1px solid rgba(198,161,91,.45);border-radius:3px;background:#e9e0d0;box-shadow:0 28px 70px rgba(36,29,17,.16)}
+.hero-art:after{content:"";position:absolute;inset:12px;border:1px solid rgba(255,255,255,.55);pointer-events:none}
+.hero-art img{display:block;width:100%;height:auto;object-fit:contain}
+.hero-trust{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:26px;color:#716b5e;font-size:12px}
+.hero-trust span{display:inline-flex;align-items:center;gap:7px}
+.hero-trust i{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:#e9dfc9;color:#785b28;font-size:10px;font-style:normal}
+.brand-slogan{margin:23px 0 0;color:#92703a;font:italic 15px var(--serif)}
+.strip{background:var(--ink);border-bottom:1px solid rgba(229,207,157,.22)}
+.strip-inner{width:min(1200px,calc(100% - 48px));margin:auto;display:grid;grid-template-columns:repeat(3,1fr)}
+.strip-item{position:relative;padding:25px 20px;text-align:center;border-right:1px solid rgba(229,207,157,.18)}
+.strip-item:first-child{border-left:1px solid rgba(229,207,157,.18)}
+.strip-item strong{display:block;color:#f8f2e7;font:500 18px var(--serif)}
+.strip-item span{display:block;margin-top:3px;color:#c3bba9;font-size:12px}
+section{padding:94px 24px}
+.wrap{width:min(1200px,100%);margin:auto}
+.section-head{max-width:730px;margin:0 auto 45px;text-align:center}
+.section-head .tag,.contact-card>.tag{color:#9b783b;font-size:10px;font-weight:800;letter-spacing:2.3px;text-transform:uppercase}
+.section-head h2{margin:10px 0 15px;color:var(--ink);font:600 clamp(32px,4vw,48px)/1.14 var(--serif);letter-spacing:-.8px}
+.section-head p{margin:0;color:var(--muted);font-size:15px;line-height:1.85}
+.next-location{background:linear-gradient(135deg,#f0e8d8,#faf7f0);border-bottom:1px solid var(--line)}
+.next-inner{width:min(1000px,100%);margin:auto}
+.next-label{margin-bottom:8px;text-align:center;color:#987337;font-size:10px;font-weight:800;letter-spacing:2.5px}
+.next-title{margin:0 0 34px;text-align:center;color:var(--ink);font:600 clamp(32px,4vw,46px)/1.15 var(--serif);letter-spacing:-.7px}
+.next-card{display:grid;grid-template-columns:1.05fr .95fr;overflow:hidden;border:1px solid #ded2bc;border-radius:5px;background:white;box-shadow:var(--shadow)}
+.next-main{padding:clamp(28px,4.5vw,48px)}
+.next-date{display:inline-block;padding:7px 11px;background:#f1e6d0;color:#745626;font-size:10px;font-weight:800;letter-spacing:1.1px}
+.next-main h3{margin:20px 0 8px;color:var(--ink);font:600 clamp(24px,3vw,34px)/1.2 var(--serif)}
+.next-address{margin-bottom:23px;color:var(--muted);font-size:14px;line-height:1.8}
+.next-time{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-left:2px solid var(--gold);background:#f8f5ee;color:#4c4538;font-size:13px;font-weight:700}
+.next-side{position:relative;min-height:270px;display:flex;align-items:center;justify-content:center;padding:32px;text-align:center;background:linear-gradient(145deg,#24231e,#11110f);color:white}
+.next-side:before{content:"";position:absolute;inset:14px;border:1px solid rgba(229,207,157,.24);pointer-events:none}
+.next-side-inner{position:relative;max-width:280px}
+.next-side .pin{margin-bottom:10px;color:var(--gold-light);font-size:30px}
+.next-side strong{display:block;font:500 27px/1.25 var(--serif)}
+.next-side span{display:block;margin-top:12px;color:#d0c8b8;font-size:13px;line-height:1.8}
+#diensten{background:var(--paper)}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:17px}
+.card{position:relative;padding:28px 25px 30px;border:1px solid var(--line);border-radius:5px;background:white;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.card:before{content:"";position:absolute;top:0;left:25px;right:25px;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+.card:hover{transform:translateY(-5px);border-color:#d3c19d;box-shadow:0 18px 45px rgba(35,29,18,.08)}
+.card:hover:before{transform:scaleX(1)}
+.card .icon{display:grid;place-items:center;width:51px;height:51px;border:1px solid #e7dac0;border-radius:50%;background:#f8f3e9;font-size:24px}
+.card h3{margin:19px 0 8px;color:var(--ink);font:600 23px var(--serif)}
+.card p{margin:0;color:var(--muted);font-size:13px;line-height:1.85}
+.gold-section{background:#eee7da}
+.gold-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.gold-panel,.silver-panel{padding:clamp(27px,3.5vw,40px);border-radius:4px}
+.gold-panel{position:relative;overflow:hidden;background:linear-gradient(135deg,#26251f,#141410);color:white}
+.gold-panel:after{content:"Au";position:absolute;right:16px;top:-35px;color:rgba(229,207,157,.07);font:700 150px var(--serif);pointer-events:none}
+.gold-panel h3,.silver-panel h3{position:relative;margin:0 0 12px;font:600 31px var(--serif)}
+.gold-panel p,.silver-panel p{position:relative;margin:0;line-height:1.8;font-size:14px}
+.gold-panel p{color:#d5cdbd}
+.silver-panel{border:1px solid #ddd3c1;background:#fcfaf6}
+.silver-panel p{color:var(--muted)}
+.purities{position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-top:25px}
+.purity{padding:13px 5px;border:1px solid #4a473b;background:rgba(255,255,255,.035);text-align:center}
+.purity strong{display:block;color:var(--gold-light);font:600 20px var(--serif)}
+.purity span{color:#cfc6b4;font-size:10px}
+.silver-rates{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin-top:25px}
+.silver-rate{padding:16px 7px;background:#f0eadf;text-align:center;color:#3c382f;font:600 19px var(--serif)}
+.silver-rate span{display:block;margin-top:4px;color:#7b7468;font:400 11px var(--sans)}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;counter-reset:steps}
+.step{padding:29px 27px;border:1px solid var(--line);border-radius:4px;background:white}
+.number{display:grid;place-items:center;width:42px;height:42px;margin-bottom:19px;border:1px solid #d8c49a;border-radius:50%;background:#f7f0e2;color:#7b5c28;font:600 17px var(--serif)}
+.step h3{margin:0 0 9px;color:var(--ink);font:600 22px var(--serif)}
+.step p{margin:0;color:var(--muted);font-size:13px;line-height:1.85}
+.location{background:#f0eadd}
+.location-grid{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:clamp(30px,5vw,65px)}
+.location h2{margin:0 0 17px;color:var(--ink);font:600 clamp(32px,4vw,47px)/1.14 var(--serif);letter-spacing:-.7px}
+.location p{max-width:550px;margin:0;color:var(--muted);line-height:1.9}
+.location-box{padding:32px;border:1px solid #ddd0b7;background:var(--paper);box-shadow:0 14px 35px rgba(35,29,18,.04)}
+.location-box>strong{display:block;margin-bottom:10px;color:var(--ink);font:600 22px var(--serif)}
+.location-box>span{display:block;color:var(--muted);font-size:14px;line-height:1.9}
+.location-box>span strong{color:#987337!important}
+.contact{background:var(--paper)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.contact-card{padding:clamp(28px,4vw,44px);border:1px solid var(--line);border-radius:4px;background:white}
+.contact-card h2{margin:10px 0 14px;color:var(--ink);font:600 clamp(31px,3.5vw,43px)/1.15 var(--serif);letter-spacing:-.7px}
+.contact-card p{margin-top:0}
+.contact-line{display:flex;align-items:center;gap:15px;padding:17px 0;border-top:1px solid var(--line)}
+.contact-icon{display:grid;place-items:center;width:43px;height:43px;flex:0 0 43px;border:1px solid #e5d7bb;border-radius:50%;background:#f7f0e2;font-size:18px}
+.contact-line strong,.contact-line a,.contact-line span{display:block}
+.contact-line strong{margin-bottom:3px;color:#8b806d;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1.2px}
+.contact-line a,.contact-line span{color:var(--ink);font-size:14px;overflow-wrap:anywhere}
+.contact-line a:hover{color:#987337}
+.contact-card[style*="background:var(--dark)"]{position:relative;overflow:hidden;background:linear-gradient(145deg,#292820,#151510)!important;border-color:#292820!important}
+.contact-card[style*="background:var(--dark)"]:after{content:"Au";position:absolute;right:-5px;bottom:-70px;color:rgba(229,207,157,.05);font:700 190px var(--serif);pointer-events:none}
+.contact-card[style*="background:var(--dark)"] h2{position:relative;color:white}
+.contact-card[style*="background:var(--dark)"] p{position:relative;color:#d5cdbd!important}
+.contact-card[style*="background:var(--dark)"] .tag{position:relative;color:var(--gold-light)!important}
+.contact-card[style*="background:var(--dark)"] .btn,.contact-card[style*="background:var(--dark)"] .social-links{position:relative;z-index:1}
+.social-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:25px}
+.social-link{display:inline-flex;align-items:center;gap:8px;padding:10px 13px;border:1px solid #575246;border-radius:3px;color:#f5f1e8;font-size:12px;font-weight:650;transition:background .2s ease,border-color .2s ease}
+.social-link:hover{background:#3b392f;border-color:#8e794e}
+.social-link span{display:inline-grid;place-items:center;width:19px;height:19px;border-radius:50%;background:var(--gold-light);color:#29271f;font-weight:800}
+.footer{padding:34px 22px;background:#11110f;color:#bdb5a5;text-align:center;font-size:12px;line-height:1.8;border-top:1px solid rgba(229,207,157,.25)}
+.footer strong{color:#f9f3e8;font:600 16px var(--serif);letter-spacing:.7px}
+.footer-socials{display:flex;justify-content:center;gap:22px;margin-top:13px}
+.footer-socials a{color:var(--gold-light)}
+.footer-socials a:hover{color:white}
+@media(max-width:950px){
+ .hero-inner{min-height:auto;padding:62px 0;gap:34px}
+ .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .next-card{grid-template-columns:1fr .85fr}
+ .location-grid{gap:28px}
+}
+@media(max-width:680px){
+ html{scroll-padding-top:72px}
+ .nav-inner{width:calc(100% - 30px);min-height:72px;gap:12px}
+ .brand-logo img{width:120px}
+ .navlinks{gap:13px;font-size:11px}
+ .navlinks a:last-child{padding:8px 10px}
+ .hero-inner{width:calc(100% - 36px);grid-template-columns:1fr;padding:43px 0 38px;gap:30px}
+ h1{margin-top:17px;font-size:clamp(44px,11vw,60px);letter-spacing:-1.5px}
+ .lead{font-size:15px}
+ .hero-art{max-width:540px}
+ .hero-trust{display:grid;grid-template-columns:1fr;gap:8px}
+ .brand-slogan{margin-top:18px;font-size:14px}
+ .strip-inner{width:100%;grid-template-columns:1fr}
+ .strip-item,.strip-item:first-child{padding:15px 18px;border:0;border-bottom:1px solid rgba(229,207,157,.18)}
+ section{padding:64px 18px}
+ .next-card,.gold-grid,.location-grid,.contact-grid{grid-template-columns:1fr}
+ .next-title{margin-bottom:25px}
+ .next-side{min-height:215px}
+ .cards{gap:12px}
+ .card{padding:22px 18px}
+ .card p{font-size:12px}
+ .steps{grid-template-columns:1fr}
+ .location-grid{gap:23px}
+ .section-head{margin-bottom:32px}
+}
+@media(max-width:420px){
+ .nav-inner{width:calc(100% - 22px)}
+ .brand-logo img{width:96px}
+ .navlinks{gap:9px;font-size:10px}
+ .hero-inner{width:calc(100% - 28px)}
+ .hero-actions{display:grid;grid-template-columns:1fr}
+ .btn{width:100%}
+ .cards{grid-template-columns:1fr}
+ .purities{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .silver-rates{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .contact-card{padding:24px 19px}
+}
+/* Klikbare kaarten en informatievenster */
+.card[role="button"]{cursor:pointer}.card[role="button"]:focus-visible{outline:3px solid #b58b3b;outline-offset:4px}.card .learn-more{display:inline-flex;gap:6px;margin-top:14px;color:#92713a;font-size:12px;font-weight:800}.info-modal{position:fixed;inset:0;z-index:999;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(24,22,18,.7);backdrop-filter:blur(5px)}.info-modal.is-open{display:flex}.info-dialog{position:relative;width:min(520px,100%);max-height:80vh;overflow-y:auto;padding:clamp(24px,5vw,36px);border:1px solid #e7dcc5;border-radius:18px;background:#fffdf8;box-shadow:0 24px 80px #0004}.info-close{position:absolute;top:12px;right:13px;width:38px;height:38px;border:1px solid #e7e1d5;border-radius:50%;background:white;font-size:24px;cursor:pointer}.info-kicker{color:#92713a;font-size:11px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase}.info-dialog h2{margin:8px 40px 12px 0;color:#28251f;font-size:clamp(28px,5vw,36px);line-height:1.15}.info-dialog p{color:#716d64;line-height:1.75}.info-list{display:grid;gap:9px;margin:20px 0;padding:0;list-style:none}.info-list li{display:flex;gap:12px;padding:13px;border:1px solid #eee7da;border-radius:10px;background:#fff}.info-list strong{min-width:90px;color:#8b692e}.info-note{margin-top:18px;padding:14px 16px;border-left:3px solid #b58b3b;border-radius:0 8px 8px 0;background:#f4efe5;color:#514432;font-size:13px;line-height:1.7}
+
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important}
 }
 
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 90px; }
-body {
-  margin: 0;
-  color: var(--text);
-  background: var(--white);
-  font-family: Inter, "Segoe UI", Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-a { color: inherit; text-decoration: none; }
-img { max-width: 100%; }
-button, a { -webkit-tap-highlight-color: transparent; }
-
-/* Navigatie */
-.nav {
-  position: sticky; top: 0; z-index: 100;
-  background: rgba(255,255,255,.96);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--line);
-}
-.nav-inner {
-  width: min(1160px, calc(100% - 44px)); min-height: 76px;
-  margin: auto; display: flex; align-items: center;
-  justify-content: space-between; gap: 24px;
-}
-.brand-logo { display: flex; align-items: center; flex-shrink: 0; }
-.brand-logo img { display: block; width: 148px; height: auto; }
-.navlinks { display: flex; align-items: center; gap: 30px; font-size: 14px; font-weight: 650; }
-.navlinks a { color: #4a463e; transition: color .18s ease; }
-.navlinks a:hover, .navlinks a:focus-visible { color: var(--gold); }
-
-/* Startbanner */
-.hero {
-  overflow: hidden;
-  background: var(--cream2);
-  border-bottom: 1px solid var(--line);
-}
-.hero-inner {
-  width: min(1160px, calc(100% - 44px)); min-height: 560px;
-  margin: auto; padding: 64px 0;
-  display: grid; grid-template-columns: minmax(0, .96fr) minmax(0, 1.04fr);
-  align-items: center; gap: clamp(32px, 5vw, 68px);
-}
-.eyebrow {
-  display: inline-flex; align-items: center; gap: 9px;
-  padding: 7px 11px; border-radius: 5px;
-  background: #f0e8d8; color: #6d5428;
-  font-size: 11px; font-weight: 750; letter-spacing: 1.25px;
-}
-.eyebrow:before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
-h1 {
-  max-width: 560px; margin: 22px 0 18px;
-  color: var(--dark); font-size: clamp(42px, 5vw, 66px);
-  line-height: 1.04; letter-spacing: -2.4px; font-weight: 760;
-}
-h1 em { color: #9c7733; font-style: normal; }
-.lead { max-width: 500px; margin: 0; color: #625e55; font-size: 17px; line-height: 1.75; }
-.hero-actions { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 26px; }
-.btn {
-  min-height: 46px; display: inline-flex; align-items: center; justify-content: center;
-  padding: 12px 18px; border-radius: 7px; font-size: 14px; font-weight: 700;
-  transition: background .18s ease, transform .18s ease, border-color .18s ease;
-}
-.btn:hover { transform: translateY(-1px); }
-.btn:focus-visible, a:focus-visible { outline: 3px solid rgba(181,139,59,.35); outline-offset: 3px; }
-.btn-gold { background: var(--gold); color: #fff; border: 1px solid var(--gold); }
-.btn-gold:hover { background: #9d762e; border-color: #9d762e; }
-.btn-dark { background: var(--dark); color: #fff; border: 1px solid var(--dark); }
-.btn-dark:hover { background: #403a30; }
-.hero-art {
-  overflow: hidden; border: 1px solid #e9e2d5; border-radius: 12px;
-  background: #fff; box-shadow: var(--shadow);
-}
-.hero-art img { display: block; width: 100%; height: auto; object-fit: contain; }
-.hero-trust { display: flex; flex-wrap: wrap; gap: 9px 16px; margin-top: 23px; color: #6e695f; font-size: 12px; }
-.hero-trust span { display: inline-flex; align-items: center; gap: 7px; }
-.hero-trust i { display: inline-grid; place-items: center; width: 17px; height: 17px; border-radius: 50%; background: #e9e1d1; color: #6e5426; font-size: 10px; font-style: normal; }
-.brand-slogan { margin: 22px 0 0; color: #8b6b31; font-size: 13px; font-style: italic; }
-
-/* Kerninformatie */
-.strip { background: #f1eee7; border-bottom: 1px solid var(--line); }
-.strip-inner { width: min(1160px, calc(100% - 44px)); margin: auto; display: grid; grid-template-columns: repeat(3, 1fr); }
-.strip-item { padding: 20px 18px; text-align: center; border-right: 1px solid #e2dccf; }
-.strip-item:first-child { border-left: 1px solid #e2dccf; }
-.strip-item strong { display: block; color: #3e3a32; font-size: 14px; font-weight: 750; }
-.strip-item span { display: block; margin-top: 3px; color: var(--muted); font-size: 12px; }
-
-/* Algemene secties en titels */
-section { padding: 76px 22px; }
-.wrap { width: min(1160px, 100%); margin: auto; }
-.section-head { max-width: 700px; margin: 0 auto 38px; text-align: center; }
-.section-head .tag, .contact-card > .tag { color: #92713a; font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; }
-.section-head h2 { margin: 8px 0 12px; color: var(--dark); font-size: clamp(30px, 3.5vw, 43px); line-height: 1.16; letter-spacing: -1.2px; }
-.section-head p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.75; }
-
-/* Volgende opkoopdag */
-.next-location { background: #f5f2eb; border-bottom: 1px solid var(--line); }
-.next-inner { width: min(960px, 100%); margin: auto; }
-.next-label { margin-bottom: 5px; text-align: center; color: #92713a; font-size: 11px; font-weight: 800; letter-spacing: 1.8px; }
-.next-title { margin: 0 0 28px; text-align: center; color: var(--dark); font-size: clamp(29px, 3.5vw, 40px); line-height: 1.2; letter-spacing: -1px; }
-.next-card { display: grid; grid-template-columns: 1.1fr .9fr; overflow: hidden; border: 1px solid var(--line); border-radius: 12px; background: white; box-shadow: var(--shadow); }
-.next-main { padding: clamp(25px, 4vw, 38px); }
-.next-date { display: inline-block; padding: 6px 10px; border-radius: 5px; background: #f1e8d6; color: #725626; font-size: 11px; font-weight: 800; letter-spacing: .8px; }
-.next-main h3 { margin: 17px 0 7px; color: var(--dark); font-size: clamp(23px, 2.6vw, 30px); line-height: 1.2; }
-.next-address { margin-bottom: 20px; color: var(--muted); font-size: 15px; line-height: 1.65; }
-.next-time { display: inline-flex; align-items: center; gap: 8px; padding: 10px 13px; border-radius: 6px; background: #f4f1ea; color: #514634; font-size: 13px; font-weight: 750; }
-.next-side { min-height: 240px; display: flex; align-items: center; justify-content: center; padding: 30px; text-align: center; background: #e9e1d2; color: #39342b; }
-.next-side-inner { max-width: 270px; }
-.next-side .pin { margin-bottom: 7px; font-size: 34px; }
-.next-side strong { display: block; font-size: 20px; line-height: 1.3; }
-.next-side span { display: block; margin-top: 8px; color: #625a4c; font-size: 14px; line-height: 1.65; }
-
-/* Producten */
-#diensten { background: white; }
-.cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
-.card { padding: 24px; border: 1px solid var(--line); border-radius: 10px; background: #fff; transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease; }
-.card:hover { transform: translateY(-2px); border-color: #d4c5a5; box-shadow: var(--shadow); }
-.card .icon { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 9px; background: #f4f0e8; font-size: 24px; }
-.card h3 { margin: 16px 0 7px; color: var(--dark); font-size: 19px; }
-.card p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.75; }
-
-/* Zuiverheid */
-.gold-section { background: #f6f3ec; }
-.gold-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-.gold-panel, .silver-panel { padding: clamp(23px, 3vw, 32px); border-radius: 11px; }
-.gold-panel { background: #302d26; color: white; }
-.gold-panel h3, .silver-panel h3 { margin: 0 0 10px; font-size: 25px; }
-.gold-panel p, .silver-panel p { margin: 0; line-height: 1.7; font-size: 14px; }
-.gold-panel p { color: #d5d0c5; }
-.silver-panel { border: 1px solid var(--line); background: white; }
-.silver-panel p { color: var(--muted); }
-.purities { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 7px; margin-top: 22px; }
-.purity { padding: 11px 5px; border: 1px solid #504a3e; border-radius: 6px; background: #39352d; text-align: center; }
-.purity strong { display: block; color: #e0c58d; font-size: 17px; }
-.purity span { color: #d4cfc4; font-size: 10px; }
-.silver-rates { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin-top: 22px; }
-.silver-rate { padding: 14px 7px; border-radius: 6px; background: #f4f1ea; text-align: center; color: #403b32; font-size: 15px; font-weight: 750; }
-.silver-rate span { display: block; margin-top: 3px; color: #7b7468; font-size: 11px; font-weight: 500; }
-
-/* Stappen */
-.steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-.step { padding: 25px; border: 1px solid var(--line); border-radius: 10px; background: white; }
-.number { display: grid; place-items: center; width: 36px; height: 36px; margin-bottom: 15px; border-radius: 50%; background: #eee5d4; color: #765b2c; font-size: 14px; font-weight: 800; }
-.step h3 { margin: 0 0 8px; color: var(--dark); font-size: 18px; }
-.step p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
-
-/* Werken op locatie */
-.location { background: #f1eee7; }
-.location-grid { display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 42px; }
-.location h2 { margin: 0 0 12px; color: var(--dark); font-size: clamp(29px, 3.5vw, 42px); line-height: 1.18; letter-spacing: -1px; }
-.location p { max-width: 540px; margin: 0; color: var(--muted); line-height: 1.8; }
-.location-box { padding: 25px; border: 1px solid #dfd6c5; border-radius: 10px; background: white; }
-.location-box > strong { display: block; margin-bottom: 8px; color: var(--dark); font-size: 16px; }
-.location-box > span { display: block; color: var(--muted); font-size: 14px; line-height: 1.75; }
-.location-box > span strong { color: #92713a !important; }
-
-/* Contact */
-.contact { background: white; }
-.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-.contact-card { padding: clamp(25px, 3.5vw, 36px); border: 1px solid var(--line); border-radius: 11px; background: #fbfaf7; }
-.contact-card h2 { margin: 8px 0 12px; color: var(--dark); font-size: clamp(28px, 3vw, 37px); line-height: 1.2; letter-spacing: -.8px; }
-.contact-card p { margin-top: 0; }
-.contact-line { display: flex; align-items: center; gap: 13px; padding: 15px 0; border-top: 1px solid var(--line); }
-.contact-icon { display: grid; place-items: center; width: 40px; height: 40px; flex: 0 0 40px; border-radius: 8px; background: #eee7da; font-size: 18px; }
-.contact-line strong, .contact-line a, .contact-line span { display: block; }
-.contact-line strong { margin-bottom: 2px; color: #777064; font-size: 11px; font-weight: 750; text-transform: uppercase; letter-spacing: .8px; }
-.contact-line a, .contact-line span { color: var(--dark); font-size: 14px; overflow-wrap: anywhere; }
-.contact-line a:hover { color: #92713a; }
-.contact-card[style*="background:var(--dark)"] { background: #302d26 !important; border-color: #302d26 !important; }
-.contact-card[style*="background:var(--dark)"] h2 { color: white; }
-.contact-card[style*="background:var(--dark)"] p { color: #d5d0c5 !important; }
-.contact-card[style*="background:var(--dark)"] .tag { color: #d8bd83 !important; }
-.social-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
-.social-link { display: inline-flex; align-items: center; gap: 8px; padding: 9px 12px; border: 1px solid #514b40; border-radius: 6px; color: #f5f1e8; font-size: 12px; font-weight: 650; }
-.social-link:hover { background: #403b32; }
-.social-link span { display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; background: #e4d1a6; color: #302d26; font-weight: 800; }
-
-/* Footer */
-.footer { padding: 28px 22px; background: #28251f; color: #e8e3d9; text-align: center; font-size: 12px; line-height: 1.7; }
-.footer strong { color: white; font-size: 13px; letter-spacing: .4px; }
-.footer-socials { display: flex; justify-content: center; gap: 18px; margin-top: 12px; }
-.footer-socials a { color: #d8bd83; }
-.footer-socials a:hover { color: white; }
-
-@media (max-width: 900px) {
-  .hero-inner { min-height: auto; padding: 50px 0; gap: 28px; }
-  .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .next-card { grid-template-columns: 1fr  .8fr; }
-  .location-grid { gap: 25px; }
-}
-@media (max-width: 680px) {
-  html { scroll-padding-top: 72px; }
-  .nav-inner { width: calc(100% - 32px); min-height: 68px; gap: 14px; }
-  .brand-logo img { width: 118px; }
-  .navlinks { gap: 15px; font-size: 12px; }
-  .hero-inner { width: calc(100% - 36px); grid-template-columns: 1fr; padding: 42px 0 36px; gap: 28px; }
-  h1 { margin-top: 18px; font-size: clamp(42px, 11vw, 58px); letter-spacing: -1.8px; }
-  .lead { font-size: 16px; }
-  .hero-art { max-width: 540px; }
-  .hero-trust { display: grid; grid-template-columns: 1fr; gap: 8px; }
-  .brand-slogan { margin-top: 17px; }
-  .strip-inner { width: 100%; grid-template-columns: 1fr; }
-  .strip-item, .strip-item:first-child { padding: 13px 18px; border: 0; border-bottom: 1px solid #e2dccf; }
-  section { padding: 58px 18px; }
-  .next-card, .gold-grid, .location-grid, .contact-grid { grid-template-columns: 1fr; }
-  .next-title { margin-bottom: 22px; }
-  .next-side { min-height: 190px; }
-  .cards { gap: 12px; }
-  .card { padding: 19px; }
-  .card p { font-size: 13px; }
-  .steps { grid-template-columns: 1fr; }
-  .location-grid { gap: 22px; }
-}
-@media (max-width: 420px) {
-  .nav-inner { width: calc(100% - 24px); }
-  .brand-logo img { width: 100px; }
-  .navlinks { gap: 10px; font-size: 11px; }
-  .hero-inner { width: calc(100% - 28px); }
-  .hero-actions { display: grid; grid-template-columns: 1fr; }
-  .btn { width: 100%; }
-  .cards { grid-template-columns: 1fr; }
-  .purities { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .silver-rates { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .contact-card { padding: 23px 19px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
-}
+/* Afspraakformulier en koerspagina */
+.page-view{display:none;min-height:55vh;animation:pageFade .22s ease}
+.page-view.is-active{display:block}
+@keyframes pageFade{from{opacity:.65;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+.navlinks a[aria-current="page"]{color:var(--gold-light)}
+@media(prefers-reduced-motion:reduce){.page-view{animation:none}}
+.appointment-section,.rates-section{background:#f5f0e6}
+.appointment-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:34px;align-items:start}
+.appointment-intro h2,.rates-section h2{font-family:Georgia,serif;font-size:clamp(30px,4vw,44px);line-height:1.12;margin:10px 0 14px;color:var(--dark)}
+.appointment-intro p{color:var(--muted);line-height:1.8}
+.appointment-form{background:#fffdf8;border:1px solid var(--line);border-radius:14px;padding:clamp(20px,3vw,32px);box-shadow:var(--shadow);display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.appointment-form label{display:block;font-size:12px;font-weight:750;color:#66583e;margin-bottom:6px;letter-spacing:.03em}
+.appointment-form input,.appointment-form select,.appointment-form textarea{width:100%;border:1px solid #ded5c4;border-radius:7px;padding:12px 13px;background:#fff;color:var(--text);font:inherit;min-width:0}
+.appointment-form textarea{min-height:100px;resize:vertical}.form-full{grid-column:1/-1}.form-note{font-size:12px;color:var(--muted);line-height:1.6;margin:0}
+.rate-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:30px}
+.rate-card{background:#fffdf8;border:1px solid var(--line);border-radius:14px;padding:clamp(22px,3vw,34px);box-shadow:var(--shadow)}
+.rate-card .rate-label{font-size:11px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:#94713a}
+.rate-card h3{font-family:Georgia,serif;font-size:28px;margin:8px 0 12px}
+.rate-value{font-size:clamp(32px,4vw,46px);font-weight:750;letter-spacing:-1.5px;color:var(--dark)}
+.rate-unit{font-size:14px;color:var(--muted)}.rate-disclaimer{margin:20px 0 0;color:var(--muted);font-size:12px;line-height:1.7}
+.rate-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}.rate-link{display:inline-flex;padding:10px 14px;border:1px solid #d8c8a6;border-radius:6px;color:#5d4722;font-weight:700;font-size:13px}
+@media(max-width:720px){.appointment-grid,.rate-cards{grid-template-columns:1fr}.appointment-form{grid-template-columns:1fr}.form-full{grid-column:auto}}
 
 </style>
 
@@ -298,6 +264,9 @@ section { padding: 76px 22px; }
       <a href="#diensten">
         Wat doen we?
       </a>
+
+      <a href="#afspraak">Afspraak</a>
+      <a href="#koersen">Koersen</a>
 
       <a href="#contact">
         Contact
@@ -608,7 +577,7 @@ document.getElementById("next-time").innerHTML =
     <div class="cards">
 
 
-      <article class="card">
+      <article class="card" role="button" tabindex="0" data-info="gold" aria-haspopup="dialog" aria-label="Meer informatie over goud">
 
         <div class="icon">
           🪙
@@ -623,15 +592,13 @@ document.getElementById("next-time").innerHTML =
           Gouden juwelen, munten, baren
           en andere gouden voorwerpen.
 
-          Onder andere 9K, 14K, 18K,
-          22K en 24K.
-
         </p>
+        <span class="learn-more">Klik voor meer informatie ↗</span>
 
       </article>
 
 
-      <article class="card">
+      <article class="card" role="button" tabindex="0" data-info="silver" aria-haspopup="dialog" aria-label="Meer informatie over zilver">
 
         <div class="icon">
           ⚪
@@ -646,13 +613,18 @@ document.getElementById("next-time").innerHTML =
           Zilveren munten, bestek,
           sieraden en andere voorwerpen.
 
-          Onder andere 800, 835,
-          925 en 999.
-
         </p>
+        <span class="learn-more">Klik voor meer informatie ↗</span>
 
       </article>
 
+
+      <article class="card" role="button" tabindex="0" data-info="plated" aria-haspopup="dialog" aria-label="Meer informatie over verzilverde voorwerpen">
+        <div class="icon">✨</div>
+        <h3>Verzilverd</h3>
+        <p>Ook verzilverde voorwerpen nemen we aan en bekijken we. Het gaat om voorwerpen met een dun laagje zilver op een ander metaal.</p>
+        <span class="learn-more">Klik voor meer informatie ↗</span>
+      </article>
 
       <article class="card">
 
@@ -706,146 +678,40 @@ document.getElementById("next-time").innerHTML =
 
 
 <!-- ==================================================
-     GOUD & ZILVER
+     GEHALTES GOUD EN ZILVER
 ================================================== -->
-
-<section class="gold-section">
-
+<section class="gold-section" id="gehaltes">
   <div class="wrap">
-
-
     <div class="section-head">
-
-      <div class="tag">
-        Zuiverheid
-      </div>
-
-
-      <h2>
-        Elke legering heeft zijn eigen waarde.
-      </h2>
-
-
-      <p>
-
-        De hoeveelheid puur edelmetaal speelt
-        een belangrijke rol bij de waardebepaling.
-
-      </p>
-
+      <div class="tag">Zuiverheid</div>
+      <h2>Elke legering heeft zijn eigen waarde.</h2>
+      <p>De hoeveelheid puur edelmetaal speelt een belangrijke rol bij de waardebepaling.</p>
     </div>
-
-
     <div class="gold-grid">
-
-
       <div class="gold-panel">
-
-        <h3>
-          Goud
-        </h3>
-
-
-        <p>
-
-          Van 9 karaat tot 24 karaat.
-          Hoe hoger het karaat,
-          hoe groter het aandeel puur goud.
-
-        </p>
-
-
+        <h3>Goud</h3>
+        <p>Van 9 karaat tot 24 karaat. Hoe hoger het karaat, hoe groter het aandeel puur goud.</p>
         <div class="purities">
-
-
-          <div class="purity">
-            <strong>9K</strong>
-            <span>37,5%</span>
-          </div>
-
-
-          <div class="purity">
-            <strong>14K</strong>
-            <span>58,5%</span>
-          </div>
-
-
-          <div class="purity">
-            <strong>18K</strong>
-            <span>75,0%</span>
-          </div>
-
-
-          <div class="purity">
-            <strong>22K</strong>
-            <span>91,6%</span>
-          </div>
-
-
-          <div class="purity">
-            <strong>24K</strong>
-            <span>99,9%+</span>
-          </div>
-
-
+          <div class="purity"><strong>9K</strong><span>37,5%</span></div>
+          <div class="purity"><strong>14K</strong><span>58,5%</span></div>
+          <div class="purity"><strong>18K</strong><span>75,0%</span></div>
+          <div class="purity"><strong>22K</strong><span>91,6%</span></div>
+          <div class="purity"><strong>24K</strong><span>99,9%+</span></div>
         </div>
-
       </div>
-
-
       <div class="silver-panel">
-
-        <h3>
-          Zilver
-        </h3>
-
-
-        <p>
-
-          Ook bij zilver maakt de
-          zuiverheid een verschil.
-
-        </p>
-
-
+        <h3>Zilver</h3>
+        <p>Ook bij zilver maakt de zuiverheid een verschil.</p>
         <div class="silver-rates">
-
-
-          <div class="silver-rate">
-            800
-            <span>80,0%</span>
-          </div>
-
-
-          <div class="silver-rate">
-            835
-            <span>83,5%</span>
-          </div>
-
-
-          <div class="silver-rate">
-            925
-            <span>92,5%</span>
-          </div>
-
-
-          <div class="silver-rate">
-            999
-            <span>99,9%</span>
-          </div>
-
-
+          <div class="silver-rate">800<span>80,0%</span></div>
+          <div class="silver-rate">835<span>83,5%</span></div>
+          <div class="silver-rate">925<span>92,5%</span></div>
+          <div class="silver-rate">999<span>99,9%</span></div>
         </div>
-
       </div>
-
-
     </div>
-
   </div>
-
 </section>
-
 
 <!-- ==================================================
      WERKWIJZE
@@ -1008,6 +874,50 @@ document.getElementById("next-time").innerHTML =
 
 </section>
 
+
+<!-- ==================================================
+     AFSPRAAK MAKEN
+================================================== -->
+<section class="appointment-section" id="afspraak">
+  <div class="wrap appointment-grid">
+    <div class="appointment-intro">
+      <div class="tag">OP AFSPRAAK</div>
+      <h2>Maak een afspraak</h2>
+      <p>Wilt u uw goud, zilver, juwelen of horloges laten bekijken? Vul het formulier in. Uw e-mailprogramma opent met uw gegevens, zodat u de aanvraag eenvoudig naar ons kunt versturen.</p>
+      <p><strong>DE GOUDMARSJAN</strong><br>Persoonlijk, duidelijk en op afspraak.</p>
+    </div>
+    <form class="appointment-form" id="appointment-form">
+      <div><label for="afspraak-naam">Naam *</label><input id="afspraak-naam" name="naam" autocomplete="name" required></div>
+      <div><label for="afspraak-email">E-mailadres *</label><input id="afspraak-email" name="email" type="email" autocomplete="email" required></div>
+      <div><label for="afspraak-telefoon">Telefoonnummer</label><input id="afspraak-telefoon" name="telefoon" type="tel" autocomplete="tel"></div>
+      <div><label for="afspraak-type">Wat wilt u laten bekijken? *</label><select id="afspraak-type" name="type" required><option value="">Maak een keuze</option><option>Goud</option><option>Zilver</option><option>Verzilverd</option><option>Juwelen</option><option>Horloges</option><option>Verschillende voorwerpen</option></select></div>
+      <div><label for="afspraak-datum">Gewenste datum</label><input id="afspraak-datum" name="datum" type="date"></div>
+      <div><label for="afspraak-tijd">Gewenst moment</label><select id="afspraak-tijd" name="tijd"><option value="Geen voorkeur">Geen voorkeur</option><option>Voormiddag</option><option>Namiddag</option><option>Avond</option></select></div>
+      <div class="form-full"><label for="afspraak-bericht">Extra informatie</label><textarea id="afspraak-bericht" name="bericht" placeholder="Vertel eventueel kort waarover het gaat."></textarea></div>
+      <p class="form-note form-full">Na het klikken opent uw e-mailprogramma met de aanvraag klaar. De afspraak is pas bevestigd nadat we contact met u hebben opgenomen.</p>
+      <button class="btn btn-gold form-full" type="submit">Afspraak aanvragen</button>
+    </form>
+  </div>
+</section>
+
+<!-- ==================================================
+     ACTUELE EDELMETAALKOERSEN
+================================================== -->
+<section class="rates-section" id="koersen">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="tag">MARKTINDICATIE</div>
+      <h2>Actuele goud- en zilverkoers</h2>
+      <p>Bekijk de indicatieve internationale marktprijs per kilogram in euro. De uiteindelijke waardebepaling hangt onder meer af van het voorwerp en de samenstelling.</p>
+    </div>
+    <div class="rate-cards">
+      <article class="rate-card"><div class="rate-label">Goud · 24 karaat</div><h3>Goudkoers</h3><div class="rate-value" id="gold-rate-value" aria-live="polite">Koers laden…</div><div class="rate-unit">per kilogram · indicatieve marktprijs</div></article>
+      <article class="rate-card"><div class="rate-label">Zilver · 999</div><h3>Zilverkoers</h3><div class="rate-value" id="silver-rate-value" aria-live="polite">Koers laden…</div><div class="rate-unit">per kilogram · indicatieve marktprijs</div></article>
+    </div>
+    <p class="rate-disclaimer">Dit zijn indicatieve internationale marktprijzen, geen gegarandeerde aankoopprijzen van DE GOUDMARSJAN. De koersen worden automatisch vernieuwd. Bij een probleem met de koersbron tonen we geen verzonnen of verouderde prijs. De uiteindelijke waardebepaling gebeurt na beoordeling van de voorwerpen.</p>
+    <p class="rate-updated" id="rates-updated" role="status">Actuele koersen ophalen…</p>
+  </div>
+</section>
 
 <!-- ==================================================
      CONTACT
@@ -1231,6 +1141,133 @@ document.getElementById("next-time").innerHTML =
 
 </footer>
 
+
+
+<div class="info-modal" id="metal-info-modal" aria-hidden="true">
+ <section class="info-dialog" role="dialog" aria-modal="true" aria-labelledby="metal-info-title" tabindex="-1">
+  <button class="info-close" type="button" aria-label="Venster sluiten">×</button>
+  <div class="info-kicker" id="metal-info-kicker">Edelmetalen uitgelegd</div><h2 id="metal-info-title">Meer informatie</h2><div id="metal-info-content"></div>
+ </section>
+</div>
+<script>
+(()=>{
+ const form=document.getElementById('appointment-form');
+ if(!form)return;
+ form.addEventListener('submit',e=>{
+  e.preventDefault();
+  const v=id=>document.getElementById(id).value.trim()||'Niet opgegeven';
+  const subject=encodeURIComponent('Afspraak aanvragen - DE GOUDMARSJAN');
+  const body=encodeURIComponent(`Beste DE GOUDMARSJAN,
+
+Ik wil graag een afspraak aanvragen.
+
+Naam: ${v('afspraak-naam')}
+E-mail: ${v('afspraak-email')}
+Telefoon: ${v('afspraak-telefoon')}
+Voorwerpen: ${v('afspraak-type')}
+Gewenste datum: ${v('afspraak-datum')}
+Gewenst moment: ${v('afspraak-tijd')}
+Extra informatie: ${v('afspraak-bericht')}
+
+Met vriendelijke groeten`);
+  window.location.href=`mailto:info@goudmarsjan.com?subject=${subject}&body=${body}`;
+ });
+})();
+</script>
+
+<script>
+/* Live goud- en zilverkoersen in EUR per kilogram via XAUS. */
+(()=>{
+ const goldEl=document.getElementById('gold-rate-value');
+ const silverEl=document.getElementById('silver-rate-value');
+ const statusEl=document.getElementById('rates-updated');
+ if(!goldEl||!silverEl||!statusEl)return;
+ const endpoint='https://xaus.com/api/v1/spot?currency=EUR&unit=kg&compact=1';
+ const fmt=new Intl.NumberFormat('nl-BE',{style:'currency',currency:'EUR',maximumFractionDigits:0});
+ let busy=false;
+ async function updateRates(){
+   if(busy)return; busy=true;
+   try{
+     const response=await fetch(endpoint,{cache:'no-store',headers:{'Accept':'application/json'}});
+     if(!response.ok)throw new Error('Koersbron niet beschikbaar');
+     const data=await response.json();
+     // XAUS returns xau/xag objects in the requested currency and unit.
+     const gold=Number(data?.xau?.price ?? data?.gold?.price);
+     const silver=Number(data?.xag?.price ?? data?.silver?.price ?? data?.spot_eur_kg?.silver);
+     const state=data?.data_state?.status;
+     const ageSeconds=Number(data?.data_state?.age_seconds);
+     const timestamp=data?.data_state?.as_of || data?.price_as_of || data?.updated_at;
+     const ageMs=timestamp ? Date.now()-new Date(timestamp).getTime() : Infinity;
+     if(!Number.isFinite(gold)||gold<=0||!Number.isFinite(silver)||silver<=0)throw new Error('Ongeldige koersgegevens');
+     if(state && state!=='fresh')throw new Error('Koersgegevens zijn niet actueel');
+     if(Number.isFinite(ageSeconds) && ageSeconds>600)throw new Error('Koersgegevens zijn verouderd');
+     if(!Number.isFinite(ageMs)||ageMs<0||ageMs>10*60*1000)throw new Error('Koersgegevens zijn niet recent genoeg');
+     goldEl.textContent=fmt.format(gold);
+     silverEl.textContent=fmt.format(silver);
+     statusEl.textContent='Laatst bijgewerkt: '+new Intl.DateTimeFormat('nl-BE',{dateStyle:'medium',timeStyle:'short',timeZone:'Europe/Brussels'}).format(new Date(timestamp))+' · vernieuwt automatisch';
+   }catch(error){
+     goldEl.textContent='Tijdelijk niet beschikbaar';
+     silverEl.textContent='Tijdelijk niet beschikbaar';
+     statusEl.textContent='De actuele koers is momenteel niet beschikbaar. Probeer later opnieuw.';
+   }finally{busy=false;}
+ }
+ updateRates();
+ window.setInterval(updateRates,60*1000);
+ document.addEventListener('visibilitychange',()=>{if(!document.hidden)updateRates()});
+})();
+</script>
+
+<script>
+(()=>{
+const modal=document.getElementById('metal-info-modal'),title=document.getElementById('metal-info-title'),kicker=document.getElementById('metal-info-kicker'),content=document.getElementById('metal-info-content'),close=modal.querySelector('.info-close');let last=null;
+const data={
+gold:{k:'DE GOUDMARSJAN',t:'Goud',h:`<p>Wij bekijken gouden juwelen, munten, baren en andere gouden voorwerpen.</p><ul class="info-list"><li><strong>9 karaat</strong><span>37,5% goud</span></li><li><strong>14 karaat</strong><span>58,5% goud</span></li><li><strong>18 karaat</strong><span>75,0% goud</span></li><li><strong>22 karaat</strong><span>91,6% goud</span></li><li><strong>24 karaat</strong><span>99,9%+ goud</span></li></ul><p>Breng gerust uw stukken mee voor een persoonlijke beoordeling.</p>`},
+silver:{k:'DE GOUDMARSJAN',t:'Zilver',h:`<p>Wij bekijken zilveren juwelen, munten, bestek en andere zilveren voorwerpen.</p><ul class="info-list"><li><strong>800</strong><span>80,0% zilver</span></li><li><strong>835</strong><span>83,5% zilver</span></li><li><strong>925</strong><span>92,5% zilver</span></li><li><strong>999</strong><span>99,9% zilver</span></li></ul><p>Breng gerust uw stukken mee voor een persoonlijke beoordeling.</p>`},
+plated:{k:'DE GOUDMARSJAN',t:'Verzilverd',h:`<p>Ook verzilverde voorwerpen zijn welkom bij DE GOUDMARSJAN.</p><p>Breng ze gerust mee. We bekijken uw voorwerpen persoonlijk.</p>`}};
+function open(key,el){const d=data[key];if(!d)return;last=el;kicker.textContent=d.k;title.textContent=d.t;content.innerHTML=d.h;modal.classList.add('is-open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';close.focus()}
+function shut(){modal.classList.remove('is-open');modal.setAttribute('aria-hidden','true');document.body.style.overflow='';if(last)last.focus()}
+document.querySelectorAll('[data-info]').forEach(el=>{el.addEventListener('click',()=>open(el.dataset.info,el));el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open(el.dataset.info,el)}})});close.addEventListener('click',shut);modal.addEventListener('click',e=>{if(e.target===modal)shut()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('is-open'))shut()});
+})();
+</script>
+
+
+<script>
+(()=>{
+ const nav=document.querySelector('.navlinks');
+ if(!nav)return;
+ const specs=[
+  {id:'pagina-home',label:'Home',selectors:['header.hero','section#next-location','.strip']},
+  {id:'pagina-diensten',label:'Wat doen we?',selectors:['section#diensten','section.gold-section','body > section:not(#next-location):not(#diensten):not(.gold-section):not(#afspraak):not(#koersen):not(#contact):not(.appointment-section):not(.rates-section):not(.location):not(.next-location)','.location']},
+  {id:'pagina-afspraak',label:'Afspraak',selectors:['section#afspraak']},
+  {id:'pagina-koersen',label:'Koersen',selectors:['section#koersen']},
+  {id:'pagina-contact',label:'Contact',selectors:['section#contact']}
+ ];
+ const main=document.createElement('main');main.id='pagina-inhoud';
+ const views={};
+ specs.forEach((spec,i)=>{const view=document.createElement('div');view.className='page-view';view.id=spec.id;main.appendChild(view);views[spec.id]=view;});
+ const navEl=document.querySelector('.nav');navEl.insertAdjacentElement('afterend',main);
+ const moved=new Set();
+ specs.forEach(spec=>spec.selectors.forEach(sel=>{
+   document.querySelectorAll(sel).forEach(el=>{
+    if(moved.has(el)||el.closest('.info-modal')||el===main||el===navEl)return;
+    // Only move top-level page content, not nested sections inside another section.
+    if(el.matches('section')&&el.parentElement.closest('section'))return;
+    views[spec.id].appendChild(el);moved.add(el);
+   });
+ }));
+ // Catch the main contact section by id, plus any unassigned main content sections.
+ const contact=document.querySelector('section#contact');if(contact&&!moved.has(contact)){views['pagina-contact'].appendChild(contact);moved.add(contact)}
+ // Any remaining main-level content sections belong to the services page, except modal/footer.
+ [...document.body.children].forEach(el=>{
+   if(el===navEl||el===main||el.tagName==='FOOTER'||el.classList.contains('info-modal')||el.tagName==='SCRIPT')return;
+   if(el.matches('header.hero,section,.strip')&&!moved.has(el)){views['pagina-diensten'].appendChild(el);moved.add(el)}
+ });
+ function show(id,hash){const view=views[id]||views['pagina-home'];Object.values(views).forEach(v=>v.classList.toggle('is-active',v===view));nav.querySelectorAll('a').forEach(a=>{if(a.getAttribute('href')==='#'+(hash||'home'))a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});if(hash)history.replaceState(null,'','#'+hash);window.scrollTo({top:0,behavior:'smooth'});}
+ const route={'home':'pagina-home','next-location':'pagina-home','diensten':'pagina-diensten','gehaltes':'pagina-diensten','afspraak':'pagina-afspraak','koersen':'pagina-koersen','contact':'pagina-contact'};
+ document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(!a)return;const hash=a.getAttribute('href').slice(1);if(route[hash]){e.preventDefault();show(route[hash],hash);}});
+ show('pagina-home','home');
+})();
+</script>
 
 </body>
 </html>
