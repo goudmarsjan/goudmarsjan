@@ -266,7 +266,6 @@ section{padding:94px 24px}
       </a>
 
       <a href="#afspraak">Afspraak</a>
-      <a href="#koersen">Koersen</a>
 
       <a href="#contact">
         Contact
@@ -678,42 +677,6 @@ document.getElementById("next-time").innerHTML =
 
 
 <!-- ==================================================
-     GEHALTES GOUD EN ZILVER
-================================================== -->
-<section class="gold-section" id="gehaltes">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="tag">Zuiverheid</div>
-      <h2>Elke legering heeft zijn eigen waarde.</h2>
-      <p>De hoeveelheid puur edelmetaal speelt een belangrijke rol bij de waardebepaling.</p>
-    </div>
-    <div class="gold-grid">
-      <div class="gold-panel">
-        <h3>Goud</h3>
-        <p>Van 9 karaat tot 24 karaat. Hoe hoger het karaat, hoe groter het aandeel puur goud.</p>
-        <div class="purities">
-          <div class="purity"><strong>9K</strong><span>37,5%</span></div>
-          <div class="purity"><strong>14K</strong><span>58,5%</span></div>
-          <div class="purity"><strong>18K</strong><span>75,0%</span></div>
-          <div class="purity"><strong>22K</strong><span>91,6%</span></div>
-          <div class="purity"><strong>24K</strong><span>99,9%+</span></div>
-        </div>
-      </div>
-      <div class="silver-panel">
-        <h3>Zilver</h3>
-        <p>Ook bij zilver maakt de zuiverheid een verschil.</p>
-        <div class="silver-rates">
-          <div class="silver-rate">800<span>80,0%</span></div>
-          <div class="silver-rate">835<span>83,5%</span></div>
-          <div class="silver-rate">925<span>92,5%</span></div>
-          <div class="silver-rate">999<span>99,9%</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ==================================================
      WERKWIJZE
 ================================================== -->
 
@@ -897,25 +860,6 @@ document.getElementById("next-time").innerHTML =
       <p class="form-note form-full">Na het klikken opent uw e-mailprogramma met de aanvraag klaar. De afspraak is pas bevestigd nadat we contact met u hebben opgenomen.</p>
       <button class="btn btn-gold form-full" type="submit">Afspraak aanvragen</button>
     </form>
-  </div>
-</section>
-
-<!-- ==================================================
-     ACTUELE EDELMETAALKOERSEN
-================================================== -->
-<section class="rates-section" id="koersen">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="tag">MARKTINDICATIE</div>
-      <h2>Actuele goud- en zilverkoers</h2>
-      <p>Bekijk de indicatieve internationale marktprijs per kilogram in euro. De uiteindelijke waardebepaling hangt onder meer af van het voorwerp en de samenstelling.</p>
-    </div>
-    <div class="rate-cards">
-      <article class="rate-card"><div class="rate-label">Goud · 24 karaat</div><h3>Goudkoers</h3><div class="rate-value" id="gold-rate-value" aria-live="polite">Koers laden…</div><div class="rate-unit">per kilogram · indicatieve marktprijs</div></article>
-      <article class="rate-card"><div class="rate-label">Zilver · 999</div><h3>Zilverkoers</h3><div class="rate-value" id="silver-rate-value" aria-live="polite">Koers laden…</div><div class="rate-unit">per kilogram · indicatieve marktprijs</div></article>
-    </div>
-    <p class="rate-disclaimer">Dit zijn indicatieve internationale marktprijzen, geen gegarandeerde aankoopprijzen van DE GOUDMARSJAN. De koersen worden automatisch vernieuwd. Bij een probleem met de koersbron tonen we geen verzonnen of verouderde prijs. De uiteindelijke waardebepaling gebeurt na beoordeling van de voorwerpen.</p>
-    <p class="rate-updated" id="rates-updated" role="status">Actuele koersen ophalen…</p>
   </div>
 </section>
 
@@ -1175,47 +1119,7 @@ Met vriendelijke groeten`);
 })();
 </script>
 
-<script>
-/* Live goud- en zilverkoersen in EUR per kilogram via XAUS. */
-(()=>{
- const goldEl=document.getElementById('gold-rate-value');
- const silverEl=document.getElementById('silver-rate-value');
- const statusEl=document.getElementById('rates-updated');
- if(!goldEl||!silverEl||!statusEl)return;
- const endpoint='https://xaus.com/api/v1/spot?currency=EUR&unit=kg&compact=1';
- const fmt=new Intl.NumberFormat('nl-BE',{style:'currency',currency:'EUR',maximumFractionDigits:0});
- let busy=false;
- async function updateRates(){
-   if(busy)return; busy=true;
-   try{
-     const response=await fetch(endpoint,{cache:'no-store',headers:{'Accept':'application/json'}});
-     if(!response.ok)throw new Error('Koersbron niet beschikbaar');
-     const data=await response.json();
-     // XAUS returns xau/xag objects in the requested currency and unit.
-     const gold=Number(data?.xau?.price ?? data?.gold?.price);
-     const silver=Number(data?.xag?.price ?? data?.silver?.price ?? data?.spot_eur_kg?.silver);
-     const state=data?.data_state?.status;
-     const ageSeconds=Number(data?.data_state?.age_seconds);
-     const timestamp=data?.data_state?.as_of || data?.price_as_of || data?.updated_at;
-     const ageMs=timestamp ? Date.now()-new Date(timestamp).getTime() : Infinity;
-     if(!Number.isFinite(gold)||gold<=0||!Number.isFinite(silver)||silver<=0)throw new Error('Ongeldige koersgegevens');
-     if(state && state!=='fresh')throw new Error('Koersgegevens zijn niet actueel');
-     if(Number.isFinite(ageSeconds) && ageSeconds>600)throw new Error('Koersgegevens zijn verouderd');
-     if(!Number.isFinite(ageMs)||ageMs<0||ageMs>10*60*1000)throw new Error('Koersgegevens zijn niet recent genoeg');
-     goldEl.textContent=fmt.format(gold);
-     silverEl.textContent=fmt.format(silver);
-     statusEl.textContent='Laatst bijgewerkt: '+new Intl.DateTimeFormat('nl-BE',{dateStyle:'medium',timeStyle:'short',timeZone:'Europe/Brussels'}).format(new Date(timestamp))+' · vernieuwt automatisch';
-   }catch(error){
-     goldEl.textContent='Tijdelijk niet beschikbaar';
-     silverEl.textContent='Tijdelijk niet beschikbaar';
-     statusEl.textContent='De actuele koers is momenteel niet beschikbaar. Probeer later opnieuw.';
-   }finally{busy=false;}
- }
- updateRates();
- window.setInterval(updateRates,60*1000);
- document.addEventListener('visibilitychange',()=>{if(!document.hidden)updateRates()});
-})();
-</script>
+
 
 <script>
 (()=>{
@@ -1237,9 +1141,8 @@ document.querySelectorAll('[data-info]').forEach(el=>{el.addEventListener('click
  if(!nav)return;
  const specs=[
   {id:'pagina-home',label:'Home',selectors:['header.hero','section#next-location','.strip']},
-  {id:'pagina-diensten',label:'Wat doen we?',selectors:['section#diensten','section.gold-section','body > section:not(#next-location):not(#diensten):not(.gold-section):not(#afspraak):not(#koersen):not(#contact):not(.appointment-section):not(.rates-section):not(.location):not(.next-location)','.location']},
+  {id:'pagina-diensten',label:'Wat doen we?',selectors:['section#diensten','section.gold-section','body > section:not(#next-location):not(#diensten):not(.gold-section):not(#afspraak):not(#contact):not(.appointment-section):not(.location):not(.next-location)','.location']},
   {id:'pagina-afspraak',label:'Afspraak',selectors:['section#afspraak']},
-  {id:'pagina-koersen',label:'Koersen',selectors:['section#koersen']},
   {id:'pagina-contact',label:'Contact',selectors:['section#contact']}
  ];
  const main=document.createElement('main');main.id='pagina-inhoud';
@@ -1263,7 +1166,7 @@ document.querySelectorAll('[data-info]').forEach(el=>{el.addEventListener('click
    if(el.matches('header.hero,section,.strip')&&!moved.has(el)){views['pagina-diensten'].appendChild(el);moved.add(el)}
  });
  function show(id,hash){const view=views[id]||views['pagina-home'];Object.values(views).forEach(v=>v.classList.toggle('is-active',v===view));nav.querySelectorAll('a').forEach(a=>{if(a.getAttribute('href')==='#'+(hash||'home'))a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});if(hash)history.replaceState(null,'','#'+hash);window.scrollTo({top:0,behavior:'smooth'});}
- const route={'home':'pagina-home','next-location':'pagina-home','diensten':'pagina-diensten','gehaltes':'pagina-diensten','afspraak':'pagina-afspraak','koersen':'pagina-koersen','contact':'pagina-contact'};
+ const route={'home':'pagina-home','next-location':'pagina-home','diensten':'pagina-diensten','gehaltes':'pagina-diensten','afspraak':'pagina-afspraak','contact':'pagina-contact'};
  document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(!a)return;const hash=a.getAttribute('href').slice(1);if(route[hash]){e.preventDefault();show(route[hash],hash);}});
  show('pagina-home','home');
 })();
