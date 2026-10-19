@@ -238,6 +238,7 @@ section{padding:94px 24px}
 .coin-group>p{margin:0 0 22px;color:var(--muted);line-height:1.8}
 .coin-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
 .coin-card{overflow:hidden;border:1px solid var(--line);border-radius:6px;background:#fff;box-shadow:0 10px 28px rgba(30,25,15,.05)}
+.coin-image-missing{background:linear-gradient(135deg,#f5f0e6,#e7dfcf)}
 .coin-card img{display:block;width:100%;height:220px;object-fit:contain;padding:18px;background:linear-gradient(135deg,#f5f0e6,#fffdf8)}
 .coin-card-body{padding:21px 22px 24px}
 .coin-card h4{margin:0 0 8px;color:var(--ink);font:600 22px/1.25 var(--serif)}
@@ -880,27 +881,27 @@ document.getElementById("next-time").innerHTML =
       <p>Bekende gouden munten die wereldwijd worden verhandeld.</p>
       <div class="coin-grid">
         <article class="coin-card">
-          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Krugerrand%20obverse.jpg" alt="Voorbeeld van een gouden Krugerrand" loading="lazy">
+          <img onerror="this.onerror=null;this.style.display='none';this.parentElement.classList.add('coin-image-missing')" src="https://commons.wikimedia.org/wiki/Special:FilePath/Krugerrand%201oz%202017%20obverse.jpg" alt="Voorbeeld van een gouden Krugerrand" loading="lazy">
           <div class="coin-card-body"><h4>Krugerrand</h4><p>Een Zuid-Afrikaanse gouden beleggingsmunt, voor het eerst uitgegeven in 1967. De klassieke bullion-uitvoering bevat doorgaans één troy ounce fijn goud, met extra koper in de legering voor stevigheid.</p><span class="coin-fineness">22 karaat · 916,7‰</span></div>
         </article>
         <article class="coin-card">
-          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Canadian%20Gold%20Maple%20Leaf%20obverse.jpg" alt="Voorbeeld van een gouden Canadian Maple Leaf" loading="lazy">
+          <img onerror="this.onerror=null;this.style.display='none';this.parentElement.classList.add('coin-image-missing')" src="https://commons.wikimedia.org/wiki/Special:FilePath/Gold%20Bullion.JPG" alt="Voorbeeld van een gouden Canadian Maple Leaf" loading="lazy">
           <div class="coin-card-body"><h4>Canadian Maple Leaf</h4><p>De bekende Canadese beleggingsmunt met een esdoornblad op de keerzijde. Moderne gouden uitvoeringen zijn doorgaans zeer zuiver en worden in meerdere gewichten uitgegeven.</p><span class="coin-fineness">Meestal 999,9‰ goud</span></div>
         </article>
         <article class="coin-card">
-          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/American%20Gold%20Eagle%20obverse.jpg" alt="Voorbeeld van een gouden American Eagle" loading="lazy">
+          <img onerror="this.onerror=null;this.style.display='none';this.parentElement.classList.add('coin-image-missing')" src="https://commons.wikimedia.org/wiki/Special:FilePath/Goldeagle.jpg" alt="Voorbeeld van een gouden American Eagle" loading="lazy">
           <div class="coin-card-body"><h4>American Gold Eagle</h4><p>Een Amerikaanse gouden bullionmunt met het motief van Lady Liberty. De klassieke gouden uitvoering bevat een legering die de munt slijtvaster maakt.</p><span class="coin-fineness">22 karaat · 916,7‰</span></div>
         </article>
         <article class="coin-card">
-          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Vienna%20Philharmonic%20gold%20coin.jpg" alt="Voorbeeld van een gouden Wiener Philharmoniker" loading="lazy">
+          <img onerror="this.onerror=null;this.style.display='none';this.parentElement.classList.add('coin-image-missing')" src="https://commons.wikimedia.org/wiki/Special:FilePath/1%20oz%20Vienna%20Philharmonic%202017%20averse.png" alt="Voorbeeld van een gouden Wiener Philharmoniker" loading="lazy">
           <div class="coin-card-body"><h4>Wiener Philharmoniker</h4><p>Een Oostenrijkse beleggingsmunt die bekendstaat om de muziekinstrumenten op het ontwerp. De gouden versie wordt onder meer in een gewicht van één troy ounce uitgegeven.</p><span class="coin-fineness">999,9‰ goud</span></div>
         </article>
         <article class="coin-card">
-          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Gold%20British%20Britannia%20coin.jpg" alt="Voorbeeld van een gouden Britannia" loading="lazy">
+          <img onerror="this.onerror=null;this.style.display='none';this.parentElement.classList.add('coin-image-missing')" src="https://commons.wikimedia.org/wiki/Special:FilePath/Liberty%20%26%20Britannia%20Gold%20Coin.jpg" alt="Voorbeeld van een gouden Britannia" loading="lazy">
           <div class="coin-card-body"><h4>Britannia</h4><p>Een Britse munt met de personificatie van Britannia. De zuiverheid hangt af van de uitgifte: oudere en nieuwere edities kunnen verschillen.</p><span class="coin-fineness">Controleer jaartal en zuiverheid</span></div>
         </article>
         <article class="coin-card">
-          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/20%20francs%20Napoleon%20gold%20coin.jpg" alt="Voorbeeld van een historische gouden 20-frankmunt" loading="lazy">
+          <img onerror="this.onerror=null;this.style.display='none';this.parentElement.classList.add('coin-image-missing')" src="https://commons.wikimedia.org/wiki/Special:FilePath/Napoleon%20I%20Gold%20Coin.jpg" alt="Voorbeeld van een historische gouden 20-frankmunt" loading="lazy">
           <div class="coin-card-body"><h4>Gouden 20 frank</h4><p>Een bekende historische Europese munt, onder meer met Napoleon of andere staatshoofden op de voorzijde. Gewicht, legering en ontwerp verschillen per land en uitgifte.</p><span class="coin-fineness">Vaak 900‰ goud</span></div>
         </article>
       </div>
@@ -911,27 +912,27 @@ document.getElementById("next-time").innerHTML =
       <p>Van moderne zilveren beleggingsmunten tot klassieke historische munten.</p>
       <div class="coin-grid">
         <article class="coin-card">
-          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Canadian%20Silver%20Maple%20Leaf%20coin.jpg" alt="Voorbeeld van een zilveren Canadian Maple Leaf" loading="lazy">
+          <img onerror="this.onerror=null;this.style.display='none';this.parentElement.classList.add('coin-image-missing')" src="https://commons.wikimedia.org/wiki/Special:FilePath/1-ounce%20Silver%20Canadian%20Maple%20Leaf%20MADE%20OF%20.9999%25%20PURE%20SILVER.jpg" alt="Voorbeeld van een zilveren Canadian Maple Leaf" loading="lazy">
           <div class="coin-card-body"><h4>Silver Maple Leaf</h4><p>De zilveren Canadese beleggingsmunt met het esdoornblad. Veel moderne exemplaren bevatten één troy ounce fijn zilver.</p><span class="coin-fineness">Meestal 999,9‰ zilver</span></div>
         </article>
         <article class="coin-card">
-          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/American%20Silver%20Eagle%20obverse.jpg" alt="Voorbeeld van een zilveren American Eagle" loading="lazy">
+          <img onerror="this.onerror=null;this.style.display='none';this.parentElement.classList.add('coin-image-missing')" src="https://commons.wikimedia.org/wiki/Special:FilePath/American%20Silver%20Eagle%2C%20obverse%2C%202022.jpg" alt="Voorbeeld van een zilveren American Eagle" loading="lazy">
           <div class="coin-card-body"><h4>American Silver Eagle</h4><p>Een bekende Amerikaanse zilveren bullionmunt met het ontwerp Walking Liberty. De standaarduitvoering bevat één troy ounce zilver.</p><span class="coin-fineness">999‰ zilver</span></div>
         </article>
         <article class="coin-card">
-          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Silver%20Vienna%20Philharmonic%20coin.jpg" alt="Voorbeeld van een zilveren Wiener Philharmoniker" loading="lazy">
+          <img onerror="this.onerror=null;this.style.display='none';this.parentElement.classList.add('coin-image-missing')" src="https://commons.wikimedia.org/wiki/Special:FilePath/Austria%202009%20Silver%20Philharmonic%20%E2%80%93%20Reverse.png" alt="Voorbeeld van een zilveren Wiener Philharmoniker" loading="lazy">
           <div class="coin-card-body"><h4>Zilveren Philharmoniker</h4><p>Een Oostenrijkse zilveren beleggingsmunt met muziekinstrumenten als centraal thema. Een veelvoorkomende uitvoering weegt één troy ounce.</p><span class="coin-fineness">999‰ zilver</span></div>
         </article>
         <article class="coin-card">
-          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Britannia%20silver%20bullion%20coin.jpg" alt="Voorbeeld van een zilveren Britannia" loading="lazy">
+          <img onerror="this.onerror=null;this.style.display='none';this.parentElement.classList.add('coin-image-missing')" src="https://commons.wikimedia.org/wiki/Special:FilePath/British%20Britannia%20Silver%202021%201Oz.%20.999%20Fine%20Silver%202%20Pounds%20English%20coin.jpg" alt="Voorbeeld van een zilveren Britannia" loading="lazy">
           <div class="coin-card-body"><h4>Silver Britannia</h4><p>Een Britse zilveren beleggingsmunt waarop Britannia staat afgebeeld. De gebruikte zuiverheid is afhankelijk van de uitgifte en het jaartal.</p><span class="coin-fineness">Moderne edities vaak 999‰</span></div>
         </article>
         <article class="coin-card">
-          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Morgan%20dollar%20obverse.jpg" alt="Voorbeeld van een historische Morgan dollar" loading="lazy">
+          <img onerror="this.onerror=null;this.style.display='none';this.parentElement.classList.add('coin-image-missing')" src="https://commons.wikimedia.org/wiki/Special:FilePath/Morgan%20silver%20dollar.jpg" alt="Voorbeeld van een historische Morgan dollar" loading="lazy">
           <div class="coin-card-body"><h4>Morgan dollar</h4><p>Een klassieke Amerikaanse zilveren munt uit de late 19e en vroege 20e eeuw. De verzamelwaarde kan sterk afhangen van jaartal, muntteken en staat.</p><span class="coin-fineness">900‰ zilver</span></div>
         </article>
         <article class="coin-card">
-          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Swiss%205%20francs%20silver%20coin.jpg" alt="Voorbeeld van een historische Zwitserse zilveren munt" loading="lazy">
+          <img onerror="this.onerror=null;this.style.display='none';this.parentElement.classList.add('coin-image-missing')" src="https://commons.wikimedia.org/wiki/Special:FilePath/5fr%201923.png" alt="Voorbeeld van een historische Zwitserse zilveren munt" loading="lazy">
           <div class="coin-card-body"><h4>Zwitserse zilveren frank</h4><p>Historische Zwitserse frankmunten bestaan in verschillende uitgiften en legeringen. Kijk steeds naar het jaartal, de nominale waarde en de kenmerken van de munt.</p><span class="coin-fineness">Zuiverheid verschilt per uitgifte</span></div>
         </article>
       </div>
