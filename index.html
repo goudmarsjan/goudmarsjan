@@ -229,11 +229,45 @@ section{padding:94px 24px}
 .rate-unit{font-size:14px;color:var(--muted)}.rate-disclaimer{margin:20px 0 0;color:var(--muted);font-size:12px;line-height:1.7}
 .rate-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}.rate-link{display:inline-flex;padding:10px 14px;border:1px solid #d8c8a6;border-radius:6px;color:#5d4722;font-weight:700;font-size:13px}
 @media(max-width:720px){.appointment-grid,.rate-cards{grid-template-columns:1fr}.appointment-form{grid-template-columns:1fr}.form-full{grid-column:auto}}
+.rates-section{padding:clamp(48px,7vw,82px) 18px;background:var(--cream)}
+.rates-intro{max-width:780px;margin:0 auto;text-align:center}
+.rates-intro>p{color:var(--muted);line-height:1.85}
+.rates-status{display:flex;align-items:center;justify-content:center;gap:9px;margin-top:20px;color:var(--muted);font-size:12px;line-height:1.6}
+.rates-status-dot{width:8px;height:8px;flex:0 0 8px;border-radius:50%;background:#b7a985}
+.rates-status.is-live .rates-status-dot{background:#36845b}
+.rates-status.is-error .rates-status-dot{background:#b64236}
+.rate-card{min-width:0}
+.rate-card-top{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.rate-metal-icon{display:grid;place-items:center;width:44px;height:44px;border:1px solid #e7d6b1;border-radius:50%;background:#f7efdf;color:#9b742f;font-size:20px}
+.rate-card h3{margin:0}
+.rate-value{display:block;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+.rate-card .rate-unit{display:block;margin-top:7px}
+.rate-updated{margin-top:17px;color:var(--muted);font-size:11px;line-height:1.6}
+.rate-disclaimer{max-width:850px;margin:24px auto 0;text-align:center}
+@media(max-width:560px){.rate-cards{margin-top:22px}.rate-card{padding:22px 18px}.rate-value{font-size:clamp(29px,8vw,38px)}}
 
 
 /* Muntenpagina */
 .coins-section{background:var(--paper)}
-.coin-group{margin-top:44px}
+.coin-group{margin-top:30px;display:none}
+.coin-group.is-selected{display:block}
+.coin-choice{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;max-width:760px;margin:30px auto 12px}
+.coin-choice button{appearance:none;border:1px solid #d9c59e;border-radius:8px;padding:24px 18px;background:#fffdf8;color:var(--ink);font:600 27px/1.2 var(--serif);cursor:pointer;transition:transform .18s,background .18s,border-color .18s}
+.coin-choice button:hover,.coin-choice button:focus-visible{transform:translateY(-2px);border-color:var(--gold);outline:2px solid #c9a45d55}
+.coin-choice button[aria-pressed="true"]{background:#211f1b;color:#f4dfad;border-color:#b68b3a}
+.coin-choice button span{display:block;margin-top:8px;font:400 13px/1.6 var(--sans);color:inherit;opacity:.8}
+.coin-card{cursor:pointer;transition:transform .18s,box-shadow .18s}
+.coin-card:hover,.coin-card:focus-visible{transform:translateY(-3px);box-shadow:0 12px 28px rgba(30,25,15,.12);outline:2px solid #c9a45d66}
+.coin-card-body p,.coin-card-body .coin-fineness{display:none}
+.coin-details-modal{position:fixed;inset:0;z-index:10000;background:rgba(15,14,12,.78);display:none;align-items:center;justify-content:center;padding:20px}
+.coin-details-modal.is-open{display:flex}
+.coin-details-panel{position:relative;max-width:620px;width:100%;max-height:90vh;overflow:auto;background:#fffdf8;border:1px solid #d9c59e;border-radius:10px;padding:28px;box-shadow:0 25px 80px #0005}
+.coin-details-panel img{display:block;width:100%;height:260px;object-fit:contain;background:linear-gradient(135deg,#f5f0e6,#fffdf8);margin-bottom:20px}
+.coin-details-panel h3{font:600 30px/1.2 var(--serif);margin:0 0 12px;color:var(--ink)}
+.coin-details-panel p{color:var(--muted);font-size:15px;line-height:1.8}
+.coin-details-panel .coin-fineness{display:inline-block}
+.coin-details-close{position:absolute;top:10px;right:12px;border:1px solid #d9c59e;background:#fffdf8;border-radius:50%;width:38px;height:38px;font-size:24px;cursor:pointer;color:var(--ink)}
+@media(max-width:560px){.coin-choice{grid-template-columns:1fr}.coin-choice button{font-size:24px}.coin-details-panel{padding:22px}.coin-details-panel img{height:210px}}
 .coin-group h3{margin:0 0 8px;color:var(--ink);font:600 clamp(27px,3vw,36px)/1.2 var(--serif)}
 .coin-group>p{margin:0 0 22px;color:var(--muted);line-height:1.8}
 .coin-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
@@ -287,9 +321,11 @@ section{padding:94px 24px}
         Wat doen we?
       </a>
 
-      <a href="#afspraak">Afspraak</a>
-
       <a href="#munten">Munten</a>
+
+      <a href="#koersen">Koersen</a>
+
+      <a href="#afspraak">Afspraak</a>
 
       <a href="#contact">
         Contact
@@ -863,6 +899,53 @@ document.getElementById("next-time").innerHTML =
 
 
 <!-- ==================================================
+     GOUD- EN ZILVERKOERS
+================================================== -->
+<section class="rates-section" id="koersen">
+  <div class="wrap">
+    <div class="rates-intro">
+      <div class="tag">Internationale marktprijs</div>
+      <h2>Goud- en zilverkoers</h2>
+      <p>Bekijk de indicatieve internationale spotprijs van goud en zilver. De bedragen worden omgerekend naar euro per kilogram en automatisch bijgewerkt.</p>
+      <div class="rates-status" id="rates-status" role="status" aria-live="polite">
+        <span class="rates-status-dot" aria-hidden="true"></span>
+        <span id="rates-status-text">De actuele koersen worden opgehaald…</span>
+      </div>
+    </div>
+
+    <div class="rate-cards">
+      <article class="rate-card">
+        <div class="rate-card-top">
+          <span class="rate-metal-icon" aria-hidden="true">Au</span>
+          <div>
+            <div class="rate-label">Goud</div>
+            <h3>Goudkoers</h3>
+          </div>
+        </div>
+        <strong class="rate-value" id="gold-rate-value">—</strong>
+        <span class="rate-unit">per kilogram · internationale spotprijs</span>
+        <p class="rate-updated" id="gold-rate-updated">Wachten op koersgegevens…</p>
+      </article>
+
+      <article class="rate-card">
+        <div class="rate-card-top">
+          <span class="rate-metal-icon" aria-hidden="true">Ag</span>
+          <div>
+            <div class="rate-label">Zilver</div>
+            <h3>Zilverkoers</h3>
+          </div>
+        </div>
+        <strong class="rate-value" id="silver-rate-value">—</strong>
+        <span class="rate-unit">per kilogram · internationale spotprijs</span>
+        <p class="rate-updated" id="silver-rate-updated">Wachten op koersgegevens…</p>
+      </article>
+    </div>
+
+    <p class="rate-disclaimer">Bron: <a href="https://xaus.com/api/" target="_blank" rel="noopener noreferrer">XAUS — marktdata</a>. Belangrijk: dit zijn indicatieve internationale marktprijzen, geen aankoopbod of gegarandeerd uitbetalingsbedrag van DE GOUDMARSJAN. De prijs die voor een voorwerp wordt geboden, hangt onder meer af van het gewicht, de zuiverheid, de staat en eventuele verzamelwaarde. De koers wordt niet getoond als de gegevens niet correct kunnen worden opgehaald.</p>
+  </div>
+</section>
+
+<!-- ==================================================
      AFSPRAAK MAKEN
 ================================================== -->
 <!-- ==================================================
@@ -876,7 +959,12 @@ document.getElementById("next-time").innerHTML =
       <p>Ontdek enkele bekende beleggingsmunten en historische munten. De foto’s dienen als herkenningshulp: jaartal, uitvoering, staat en echtheid kunnen per munt verschillen.</p>
     </div>
 
-    <div class="coin-group">
+    <div class="coin-choice" aria-label="Kies het soort munten">
+      <button type="button" data-coin-type="gold" aria-pressed="false">Goud<span>Bekijk alle gouden munten</span></button>
+      <button type="button" data-coin-type="silver" aria-pressed="false">Zilver<span>Bekijk alle zilveren munten</span></button>
+    </div>
+
+    <div class="coin-group" data-coin-group="gold">
       <h3>Gouden munten</h3>
       <p>Bekende gouden munten die wereldwijd worden verhandeld.</p>
       <div class="coin-grid">
@@ -897,7 +985,7 @@ document.getElementById("next-time").innerHTML =
           <div class="coin-card-body"><h4>Wiener Philharmoniker</h4><p>Een Oostenrijkse beleggingsmunt die bekendstaat om de muziekinstrumenten op het ontwerp. De gouden versie wordt onder meer in een gewicht van één troy ounce uitgegeven.</p><span class="coin-fineness">999,9‰ goud</span></div>
         </article>
         <article class="coin-card">
-          <img onerror="this.onerror=null;this.style.display='none';this.parentElement.classList.add('coin-image-missing')" src="https://commons.wikimedia.org/wiki/Special:FilePath/British%20Britannia%20Silver%202021%201Oz.%20.999%20Fine%20Silver%202%20Pounds%20English%20coin.jpg" alt="Voorbeeld van een gouden Britannia" loading="lazy">
+          <img onerror="this.onerror=null;this.style.display='none';this.parentElement.classList.add('coin-image-missing')" src="https://commons.wikimedia.org/wiki/Special:FilePath/Liberty%20%26%20Britannia%20Gold%20Coin.jpg" alt="Voorbeeld van een gouden Britannia" loading="lazy">
           <div class="coin-card-body"><h4>Britannia</h4><p>Een Britse munt met de personificatie van Britannia. De zuiverheid hangt af van de uitgifte: oudere en nieuwere edities kunnen verschillen.</p><span class="coin-fineness">Controleer jaartal en zuiverheid</span></div>
         </article>
         <article class="coin-card">
@@ -907,7 +995,7 @@ document.getElementById("next-time").innerHTML =
       </div>
     </div>
 
-    <div class="coin-group">
+    <div class="coin-group" data-coin-group="silver">
       <h3>Zilveren munten</h3>
       <p>Van moderne zilveren beleggingsmunten tot klassieke historische munten.</p>
       <div class="coin-grid">
@@ -1242,9 +1330,10 @@ document.querySelectorAll('[data-info]').forEach(el=>{el.addEventListener('click
  if(!nav)return;
  const specs=[
   {id:'pagina-home',label:'Home',selectors:['header.hero','section#next-location','.strip']},
-  {id:'pagina-diensten',label:'Wat doen we?',selectors:['section#diensten','section.gold-section','body > section:not(#next-location):not(#diensten):not(#munten):not(.gold-section):not(#afspraak):not(#contact):not(.appointment-section):not(.location):not(.next-location)','.location']},
+  {id:'pagina-diensten',label:'Wat doen we?',selectors:['section#diensten','section.gold-section','body > section:not(#next-location):not(#diensten):not(#munten):not(#koersen):not(.gold-section):not(#afspraak):not(#contact):not(.appointment-section):not(.location):not(.next-location)','.location']},
+  {id:'pagina-munten',label:'Munten',selectors:['section#munten']},
+  {id:'pagina-koersen',label:'Koersen',selectors:['section#koersen']},
   {id:'pagina-afspraak',label:'Afspraak',selectors:['section#afspraak']},
-   {id:'pagina-munten',label:'Munten',selectors:['section#munten']},
   {id:'pagina-contact',label:'Contact',selectors:['section#contact']}
  ];
  const main=document.createElement('main');main.id='pagina-inhoud';
@@ -1268,9 +1357,102 @@ document.querySelectorAll('[data-info]').forEach(el=>{el.addEventListener('click
    if(el.matches('header.hero,section,.strip')&&!moved.has(el)){views['pagina-diensten'].appendChild(el);moved.add(el)}
  });
  function show(id,hash){const view=views[id]||views['pagina-home'];Object.values(views).forEach(v=>v.classList.toggle('is-active',v===view));nav.querySelectorAll('a').forEach(a=>{if(a.getAttribute('href')==='#'+(hash||'home'))a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});if(hash)history.replaceState(null,'','#'+hash);window.scrollTo({top:0,behavior:'smooth'});}
- const route={'home':'pagina-home','next-location':'pagina-home','diensten':'pagina-diensten','gehaltes':'pagina-diensten','afspraak':'pagina-afspraak','munten':'pagina-munten','contact':'pagina-contact'};
+ const route={'home':'pagina-home','next-location':'pagina-home','diensten':'pagina-diensten','gehaltes':'pagina-diensten','munten':'pagina-munten','koersen':'pagina-koersen','afspraak':'pagina-afspraak','contact':'pagina-contact'};
  document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(!a)return;const hash=a.getAttribute('href').slice(1);if(route[hash]){e.preventDefault();show(route[hash],hash);}});
  show('pagina-home','home');
+})();
+</script>
+
+
+<script>
+(()=>{
+ const root=document.querySelector('#munten');
+ if(!root)return;
+ const choices=[...root.querySelectorAll('[data-coin-type]')];
+ const groups=[...root.querySelectorAll('[data-coin-group]')];
+ choices.forEach(btn=>btn.addEventListener('click',()=>{
+   const type=btn.dataset.coinType;
+   choices.forEach(b=>b.setAttribute('aria-pressed',String(b===btn)));
+   groups.forEach(g=>g.classList.toggle('is-selected',g.dataset.coinGroup===type));
+ }));
+ const modal=document.createElement('div');
+ modal.className='coin-details-modal';modal.setAttribute('aria-hidden','true');
+ modal.innerHTML='<div class="coin-details-panel" role="dialog" aria-modal="true" aria-labelledby="coin-details-title"><button type="button" class="coin-details-close" aria-label="Sluiten">×</button><img alt=""><h3 id="coin-details-title"></h3><div class="coin-details-copy"></div></div>';
+ document.body.appendChild(modal);
+ const panel=modal.querySelector('.coin-details-panel'),img=panel.querySelector('img'),title=panel.querySelector('h3'),copy=panel.querySelector('.coin-details-copy'),close=modal.querySelector('.coin-details-close');
+ let previous=null;
+ function shut(){modal.classList.remove('is-open');modal.setAttribute('aria-hidden','true');document.body.style.overflow='';if(previous)previous.focus()}
+ root.querySelectorAll('.coin-card').forEach(card=>{
+   card.setAttribute('role','button');card.setAttribute('tabindex','0');
+   const open=()=>{
+     previous=card;const source=card.querySelector('img'),name=card.querySelector('h4'),description=card.querySelector('p'),fineness=card.querySelector('.coin-fineness');
+     img.src=source.currentSrc||source.src;img.alt=source.alt;title.textContent=name.textContent;
+     copy.innerHTML='';const p=document.createElement('p');p.textContent=description.textContent;copy.appendChild(p);
+     if(fineness){const badge=fineness.cloneNode(true);badge.style.display='inline-block';copy.appendChild(badge)}
+     modal.classList.add('is-open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';close.focus();
+   };
+   card.addEventListener('click',e=>{if(e.target.closest('a'))return;open()});
+   card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}});
+ });
+ close.addEventListener('click',shut);modal.addEventListener('click',e=>{if(e.target===modal)shut()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('is-open'))shut()});
+})();
+</script>
+
+<script>
+(()=>{
+ const endpoint='https://xaus.com/api/v1/spot?currency=EUR&unit=kg&compact=1';
+ const status=document.getElementById('rates-status');
+ const statusText=document.getElementById('rates-status-text');
+ const goldValue=document.getElementById('gold-rate-value');
+ const silverValue=document.getElementById('silver-rate-value');
+ const goldUpdated=document.getElementById('gold-rate-updated');
+ const silverUpdated=document.getElementById('silver-rate-updated');
+ if(!status||!statusText||!goldValue||!silverValue)return;
+ const eur=new Intl.NumberFormat('nl-BE',{style:'currency',currency:'EUR',maximumFractionDigits:2});
+ const kgPerTroyOunce=1000/31.1034768;
+ let isFirstLoad=true;
+ function showError(){
+   status.classList.remove('is-live');status.classList.add('is-error');
+   statusText.textContent='De koersen zijn momenteel niet beschikbaar. Probeer later opnieuw.';
+   if(isFirstLoad){goldValue.textContent='Niet beschikbaar';silverValue.textContent='Niet beschikbaar';goldUpdated.textContent='Geen betrouwbare koersgegevens ontvangen.';silverUpdated.textContent='Geen betrouwbare koersgegevens ontvangen.';}
+ }
+ function formatTime(value){
+   if(!value)return 'tijdstip niet meegedeeld';
+   const date=new Date(value);if(Number.isNaN(date.getTime()))return 'tijdstip niet meegedeeld';
+   return new Intl.DateTimeFormat('nl-BE',{dateStyle:'medium',timeStyle:'short',timeZone:'Europe/Brussels'}).format(date);
+ }
+ async function loadRates(){
+   try{
+     const response=await fetch(endpoint,{method:'GET',cache:'no-store',headers:{'Accept':'application/json'}});
+     if(!response.ok)throw new Error('Koersbron niet beschikbaar');
+     const data=await response.json();
+     const gold=Number(data?.xau?.price);
+     const silverUsdOz=Number(data?.silver_usd_oz);
+     const fx=Number(data?.fx_rate);
+     if(!Number.isFinite(gold)||gold<=0||!Number.isFinite(silverUsdOz)||silverUsdOz<=0||!Number.isFinite(fx)||fx<=0)throw new Error('Ongeldige koersgegevens');
+     const silver=silverUsdOz*fx*kgPerTroyOunce;
+     if(!Number.isFinite(silver)||silver<=0)throw new Error('Ongeldige zilverkoers');
+     goldValue.textContent=eur.format(gold);
+     silverValue.textContent=eur.format(silver);
+     const stamp=formatTime(data.price_as_of||data.updated_at);
+     goldUpdated.textContent='Koersbron bijgewerkt: '+stamp+(data.stale?' · laatste bekende koers (verouderd)':'');
+     silverUpdated.textContent='Indicatieve koers · bronupdate: '+formatTime(data.updated_at)+(data.fx_stale?' · wisselkoers kan verouderd zijn':'');
+     const goldDate=new Date(data.price_as_of||data.updated_at).getTime();
+     const staleByAge=!Number.isFinite(goldDate)||(Date.now()-goldDate)>5*60*1000;
+     if(data.stale||staleByAge||data.data_state?.status==='unavailable'){
+       status.classList.remove('is-live');status.classList.add('is-error');
+       statusText.textContent='Let op: de koersbron meldt mogelijk verouderde gegevens. Controleer het tijdstip hieronder.';
+     }else{
+       status.classList.remove('is-error');status.classList.add('is-live');
+       statusText.textContent='Koersen geladen · automatische vernieuwing ongeveer elke minuut.';
+     }
+     isFirstLoad=false;
+   }catch(error){
+     showError();
+   }
+ }
+ loadRates();
+ window.setInterval(loadRates,60000);
 })();
 </script>
 
