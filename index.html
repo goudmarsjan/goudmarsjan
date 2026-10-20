@@ -941,7 +941,7 @@ document.getElementById("next-time").innerHTML =
       </article>
     </div>
 
-    <p class="rate-disclaimer">Bron: <a href="https://xaus.com/api/" target="_blank" rel="noopener noreferrer">XAUS — marktdata</a>. Belangrijk: dit zijn indicatieve internationale marktprijzen, geen aankoopbod of gegarandeerd uitbetalingsbedrag van DE GOUDMARSJAN. De prijs die voor een voorwerp wordt geboden, hangt onder meer af van het gewicht, de zuiverheid, de staat en eventuele verzamelwaarde. De koers wordt niet getoond als de gegevens niet correct kunnen worden opgehaald.</p>
+    <p class="rate-disclaimer">Bron: <a href="https://www.goldapi.io/" target="_blank" rel="noopener noreferrer">GoldAPI.io — marktdata</a>. Belangrijk: dit zijn indicatieve internationale marktprijzen, geen aankoopbod of gegarandeerd uitbetalingsbedrag van DE GOUDMARSJAN. De prijs die voor een voorwerp wordt geboden, hangt onder meer af van het gewicht, de zuiverheid, de staat en eventuele verzamelwaarde. De koers wordt niet getoond als de gegevens niet correct kunnen worden opgehaald.</p>
   </div>
 </section>
 
@@ -1400,7 +1400,12 @@ document.querySelectorAll('[data-info]').forEach(el=>{el.addEventListener('click
 
 <script>
 (()=>{
- const endpoint='https://xaus.com/api/v1/spot?currency=EUR&unit=kg&compact=1';
+ // GoldAPI.io publieke statische endpoints: geen geheime API-sleutel in de websitecode.
+ // Deze endpoints gebruiken gecachete marktgegevens; vernieuw daarom niet elke minuut.
+ const endpoints={
+   gold:'https://www.goldapi.io/api/static/XAU/EUR',
+   silver:'https://www.goldapi.io/api/static/XAG/EUR'
+ };
  const status=document.getElementById('rates-status');
  const statusText=document.getElementById('rates-status-text');
  const goldValue=document.getElementById('gold-rate-value');
@@ -1411,48 +1416,64 @@ document.querySelectorAll('[data-info]').forEach(el=>{el.addEventListener('click
  const eur=new Intl.NumberFormat('nl-BE',{style:'currency',currency:'EUR',maximumFractionDigits:2});
  const kgPerTroyOunce=1000/31.1034768;
  let isFirstLoad=true;
- function showError(){
+ function showError(message){
    status.classList.remove('is-live');status.classList.add('is-error');
-   statusText.textContent='De koersen zijn momenteel niet beschikbaar. Probeer later opnieuw.';
+   statusText.textContent=message||'GoldAPI.io kon de koersen niet ophalen. Er worden geen geschatte of verzonnen prijzen getoond.';
    if(isFirstLoad){goldValue.textContent='Niet beschikbaar';silverValue.textContent='Niet beschikbaar';goldUpdated.textContent='Geen betrouwbare koersgegevens ontvangen.';silverUpdated.textContent='Geen betrouwbare koersgegevens ontvangen.';}
  }
  function formatTime(value){
    if(!value)return 'tijdstip niet meegedeeld';
-   const date=new Date(value);if(Number.isNaN(date.getTime()))return 'tijdstip niet meegedeeld';
+   let date;
+   if(typeof value==='number'||/^\d+$/.test(String(value))){
+     const n=Number(value);date=new Date(n<1000000000000?n*1000:n);
+   }else{date=new Date(value);}
+   if(Number.isNaN(date.getTime()))return 'tijdstip niet meegedeeld';
    return new Intl.DateTimeFormat('nl-BE',{dateStyle:'medium',timeStyle:'short',timeZone:'Europe/Brussels'}).format(date);
+ }
+ function readKilogramPrice(data){
+   const candidates=[
+     data?.price_per_unit?.kilogram,
+     data?.price_per_unit?.kg,
+     data?.price_gram_24k!=null?Number(data.price_gram_24k)*1000:null,
+     data?.price_gram!=null?Number(data.price_gram)*1000:null,
+     data?.price!=null?Number(data.price)*kgPerTroyOunce:null
+   ];
+   for(const candidate of candidates){const value=Number(candidate);if(Number.isFinite(value)&&value>0)return value;}
+   throw new Error('GoldAPI.io gaf geen herkenbare prijs per kilogram terug.');
+ }
+ async function fetchMetal(url){
+   const response=await fetch(url,{method:'GET',cache:'no-store',headers:{'Accept':'application/json'}});
+   if(!response.ok)throw new Error('GoldAPI.io HTTP '+response.status);
+   const data=await response.json();
+   const price=readKilogramPrice(data);
+   const timestamp=data.datetime||data.timestamp||data.updated_at||data.date||null;
+   return {price,timestamp};
  }
  async function loadRates(){
    try{
-     const response=await fetch(endpoint,{method:'GET',cache:'no-store',headers:{'Accept':'application/json'}});
-     if(!response.ok)throw new Error('Koersbron niet beschikbaar');
-     const data=await response.json();
-     const gold=Number(data?.xau?.price);
-     const silverUsdOz=Number(data?.silver_usd_oz);
-     const fx=Number(data?.fx_rate);
-     if(!Number.isFinite(gold)||gold<=0||!Number.isFinite(silverUsdOz)||silverUsdOz<=0||!Number.isFinite(fx)||fx<=0)throw new Error('Ongeldige koersgegevens');
-     const silver=silverUsdOz*fx*kgPerTroyOunce;
-     if(!Number.isFinite(silver)||silver<=0)throw new Error('Ongeldige zilverkoers');
-     goldValue.textContent=eur.format(gold);
-     silverValue.textContent=eur.format(silver);
-     const stamp=formatTime(data.price_as_of||data.updated_at);
-     goldUpdated.textContent='Koersbron bijgewerkt: '+stamp+(data.stale?' · laatste bekende koers (verouderd)':'');
-     silverUpdated.textContent='Indicatieve koers · bronupdate: '+formatTime(data.updated_at)+(data.fx_stale?' · wisselkoers kan verouderd zijn':'');
-     const goldDate=new Date(data.price_as_of||data.updated_at).getTime();
-     const staleByAge=!Number.isFinite(goldDate)||(Date.now()-goldDate)>5*60*1000;
-     if(data.stale||staleByAge||data.data_state?.status==='unavailable'){
+     const results=await Promise.all([fetchMetal(endpoints.gold),fetchMetal(endpoints.silver)]);
+     const [gold,silver]=results;
+     goldValue.textContent=eur.format(gold.price);
+     silverValue.textContent=eur.format(silver.price);
+     goldUpdated.textContent='GoldAPI.io · bronupdate: '+formatTime(gold.timestamp);
+     silverUpdated.textContent='GoldAPI.io · bronupdate: '+formatTime(silver.timestamp);
+     const times=[gold.timestamp,silver.timestamp].map(v=>v?new Date(typeof v==='number'||/^\d+$/.test(String(v))?(Number(v)<1000000000000?Number(v)*1000:Number(v)):v).getTime():NaN);
+     const newestAge=times.every(Number.isFinite)?Math.max(Date.now()-times[0],Date.now()-times[1]):Infinity;
+     if(newestAge>2*60*60*1000){
        status.classList.remove('is-live');status.classList.add('is-error');
-       statusText.textContent='Let op: de koersbron meldt mogelijk verouderde gegevens. Controleer het tijdstip hieronder.';
+       statusText.textContent='Let op: de brongegevens lijken ouder dan 2 uur. Controleer de bronupdate hieronder voordat je deze prijzen gebruikt.';
      }else{
        status.classList.remove('is-error');status.classList.add('is-live');
-       statusText.textContent='Koersen geladen · automatische vernieuwing ongeveer elke minuut.';
+       statusText.textContent='Koersen geladen via GoldAPI.io. De publieke gegevens kunnen gecachet zijn; automatisch opnieuw controleren om de 30 minuten.';
      }
      isFirstLoad=false;
    }catch(error){
-     showError();
+     console.error('GoldAPI.io koersfout:',error);
+     showError('GoldAPI.io is momenteel niet bereikbaar of blokkeert deze aanvraag. De koers wordt niet getoond om verkeerde prijzen te vermijden.');
    }
  }
  loadRates();
- window.setInterval(loadRates,60000);
+ window.setInterval(loadRates,30*60*1000);
 })();
 </script>
 
