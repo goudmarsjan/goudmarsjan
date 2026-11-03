@@ -303,6 +303,40 @@ section{padding:94px 24px}
 @media(max-width:850px){.coin-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.coin-grid{grid-template-columns:1fr}.coin-card img{height:210px}}
 
+
+/* Opkoopdagen: countdown en overzicht van alle locaties */
+.next-countdown{margin-top:24px;padding:18px;border:1px solid rgba(229,207,157,.3);background:rgba(255,255,255,.055);border-radius:5px}
+.next-countdown-label{display:block;margin-bottom:10px;color:var(--gold-light);font-size:10px;font-weight:800;letter-spacing:1.7px;text-transform:uppercase}
+.countdown-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.countdown-unit{padding:10px 5px;background:rgba(255,255,255,.07);border:1px solid rgba(229,207,157,.16);text-align:center}
+.countdown-unit strong{display:block;color:#fff;font:600 clamp(22px,3vw,30px)/1.1 var(--serif);font-variant-numeric:tabular-nums}
+.countdown-unit span{display:block;margin-top:5px;color:#d0c8b8;font-size:9px;text-transform:uppercase;letter-spacing:1px}
+.countdown-message{margin:12px 0 0;color:#e9dfcc;font-size:12px;line-height:1.6}
+.locations-heading{margin:48px 0 18px;color:var(--ink);font:600 clamp(24px,3vw,32px)/1.2 var(--serif);text-align:center}
+.locations-intro{max-width:650px;margin:0 auto 24px;color:var(--muted);font-size:14px;text-align:center;line-height:1.8}
+.locations-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.location-event{display:grid;grid-template-columns:94px 1fr;gap:17px;align-items:center;padding:20px;border:1px solid #ded2bc;border-radius:5px;background:#fff;box-shadow:0 9px 25px rgba(30,25,15,.045)}
+.location-event-date{padding:13px 8px;background:#f4ecdc;border:1px solid #e9dcc1;text-align:center;color:#795b2b}
+.location-event-date strong{display:block;font:600 25px/1 var(--serif)}
+.location-event-date span{display:block;margin-top:7px;font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase}
+.location-event h3{margin:0 0 5px;color:var(--ink);font:600 20px/1.25 var(--serif)}
+.location-event p{margin:3px 0;color:var(--muted);font-size:12px;line-height:1.6}
+.location-event .event-time{color:#6c5125;font-weight:800}
+.location-event .event-status{display:inline-block;margin-top:7px;padding:4px 8px;background:#f7f2e8;color:#765722;font-size:10px;font-weight:800;letter-spacing:.04em}
+.location-event .event-map{display:inline-flex;margin-top:9px;color:#8b672b;font-size:12px;font-weight:800;text-decoration:underline;text-underline-offset:3px}
+.location-event.is-next{border-color:#c6a15b;box-shadow:0 10px 28px rgba(166,124,48,.12)}
+.location-event.is-past{opacity:.68}
+.next-location .next-card{grid-template-columns:1fr .9fr}
+@media(max-width:680px){
+ .locations-list{grid-template-columns:1fr}
+ .location-event{grid-template-columns:78px 1fr;padding:15px;gap:13px}
+ .location-event-date strong{font-size:22px}
+ .next-countdown{padding:14px}
+ .countdown-grid{gap:5px}
+ .countdown-unit{padding:9px 3px}
+ .countdown-unit strong{font-size:23px}
+}
+
 </style>
 
 </head>
@@ -450,122 +484,208 @@ section{padding:94px 24px}
 
 
 <!-- ==================================================
-     NEXT LOCATION
+     OPKOOPDAGEN & VOLGENDE LOCATIE
 ================================================== -->
 
-<script>
-
-const nextLocation = {
-
-  date: "ZATERDAG 31 OKTOBER",
-
-  name: "Intermezzo – Vergaderzaal",
-
-  address: "Kasteeldreef 55, 9340 Lede",
-
-  time: "9:30 – 17:30"
-
-};
-
-</script>
-
-
-<section
-  class="next-location"
-  id="next-location"
->
-
+<section class="next-location" id="next-location">
   <div class="next-inner">
-
-    <div class="next-label">
-      NEXT LOCATION
-    </div>
-
-
-    <h2 class="next-title">
-      Onze volgende opkoopdag
-    </h2>
-
+    <div class="next-label">DE GOUDMARSJAN KOMT NAAR U TOE</div>
+    <h2 class="next-title">Ontdek onze komende locaties</h2>
 
     <div class="next-card">
-
-
       <div class="next-main">
-
-        <div
-          class="next-date"
-          id="next-date"
-        >
-        </div>
-
-
-        <h3 id="next-name">
-        </h3>
-
-
-        <div
-          class="next-address"
-          id="next-address"
-        >
-        </div>
-
-
-        <div
-          class="next-time"
-          id="next-time"
-        >
-          🕘
-        </div>
-
-      </div>
-
-
-      <div class="next-side">
-
-        <div class="next-side-inner">
-
-          <div class="pin">
-            📍
+        <div class="next-date" id="next-date">Eerstvolgende opkoopdag</div>
+        <h3 id="next-name">Onze volgende locatie</h3>
+        <div class="next-address" id="next-address"></div>
+        <div class="next-time" id="next-time">🕘</div>
+        <div class="next-countdown" aria-live="polite">
+          <span class="next-countdown-label" id="countdown-label">Aftellen naar onze volgende opkoopdag</span>
+          <div class="countdown-grid">
+            <div class="countdown-unit"><strong id="countdown-days">—</strong><span>dagen</span></div>
+            <div class="countdown-unit"><strong id="countdown-hours">—</strong><span>uren</span></div>
+            <div class="countdown-unit"><strong id="countdown-minutes">—</strong><span>minuten</span></div>
+            <div class="countdown-unit"><strong id="countdown-seconds">—</strong><span>seconden</span></div>
           </div>
-
-
-          <strong>
-            Kom gerust langs
-          </strong>
-
-
-          <span>
-            Wij zijn daar aanwezig
-            om uw goud, zilver, juwelen
-            en horloges te bekijken.
-          </span>
-
+          <p class="countdown-message" id="countdown-message">We kijken ernaar uit u te verwelkomen.</p>
         </div>
-
       </div>
-
-
+      <div class="next-side">
+        <div class="next-side-inner">
+          <div class="pin">📍</div>
+          <strong id="next-side-title">Kom gerust langs</strong>
+          <span id="next-side-copy">Wij bekijken uw goud, zilver, juwelen en horloges met plezier.</span>
+          <a class="btn btn-gold" id="next-map-link" href="#" target="_blank" rel="noopener noreferrer" style="margin-top:20px">Route bekijken ↗</a>
+        </div>
+      </div>
     </div>
 
+    <h3 class="locations-heading">Alle geplande opkoopdagen</h3>
+    <p class="locations-intro">Zo vindt u gemakkelijk terug waar en wanneer DE GOUDMARSJAN in uw buurt aanwezig is. Klik op ‘Route bekijken’ om uw route te plannen.</p>
+    <div class="locations-list" id="locations-list"></div>
   </div>
-
 </section>
 
-
 <script>
+(() => {
+  // Alle data komt overeen met de vier aangeleverde flyers.
+  // Datum/tijd worden lokaal geïnterpreteerd in de tijdzone van België.
+  const locations = [
+    {
+      date: "2026-11-07",
+      start: "09:30",
+      end: "17:30",
+      name: "Huisje Mostinckx",
+      address: "Mostinckxstraat 16, 1700 Dilbeek"
+    },
+    {
+      date: "2026-11-14",
+      start: "10:00",
+      end: "17:30",
+      name: "GC de Nieuwe Ark",
+      address: "Kerkstraat 34, 2870 Ruisbroek"
+    },
+    {
+      date: "2026-11-20",
+      start: "09:30",
+      end: "17:30",
+      name: "Zaal De Blomme",
+      address: "Dekenijstraat 10, 9080 Lochristi"
+    },
+    {
+      date: "2026-11-28",
+      start: "09:30",
+      end: "17:30",
+      name: "Kloosterstraat 40",
+      address: "Kloosterstraat 40, 9620 Zottegem"
+    }
+  ];
 
-document.getElementById("next-date").textContent =
-  nextLocation.date;
+  const $ = id => document.getElementById(id);
+  const dateFormatter = new Intl.DateTimeFormat("nl-BE", {
+    weekday: "long", day: "numeric", month: "long", year: "numeric"
+  });
 
-document.getElementById("next-name").textContent =
-  nextLocation.name;
+  function localDateTime(date, time) {
+    return new Date(`${date}T${time}:00`);
+  }
 
-document.getElementById("next-address").textContent =
-  nextLocation.address;
+  function eventStart(event) { return localDateTime(event.date, event.start); }
+  function eventEnd(event) { return localDateTime(event.date, event.end); }
 
-document.getElementById("next-time").innerHTML =
-  "🕘 " + nextLocation.time;
+  function mapUrl(address) {
+    return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(address);
+  }
 
+  function eventState(event, now) {
+    if (now < eventStart(event)) return "upcoming";
+    if (now <= eventEnd(event)) return "live";
+    return "past";
+  }
+
+  function renderList(nextEvent, now) {
+    const list = $("locations-list");
+    list.innerHTML = "";
+
+    locations.forEach(event => {
+      const state = eventState(event, now);
+      const date = eventStart(event);
+      const card = document.createElement("article");
+      card.className = "location-event" +
+        (event === nextEvent ? " is-next" : "") +
+        (state === "past" ? " is-past" : "");
+
+      const dateBox = document.createElement("div");
+      dateBox.className = "location-event-date";
+      const day = document.createElement("strong");
+      day.textContent = new Intl.DateTimeFormat("nl-BE", {day:"2-digit"}).format(date);
+      const month = document.createElement("span");
+      month.textContent = new Intl.DateTimeFormat("nl-BE", {month:"short"}).format(date).replace(".", "");
+      dateBox.append(day, month);
+
+      const details = document.createElement("div");
+      const title = document.createElement("h3");
+      title.textContent = event.name;
+      const address = document.createElement("p");
+      address.textContent = event.address;
+      const time = document.createElement("p");
+      time.className = "event-time";
+      time.textContent = `🕘 ${event.start.replace(":", "u")} – ${event.end.replace(":", "u")}`;
+
+      const status = document.createElement("span");
+      status.className = "event-status";
+      status.textContent = state === "live" ? "Vandaag aanwezig" :
+        state === "past" ? "Voorbij" :
+        event === nextEvent ? "Eerstvolgende locatie" : "Gepland";
+
+      const route = document.createElement("a");
+      route.className = "event-map";
+      route.href = mapUrl(event.address);
+      route.target = "_blank";
+      route.rel = "noopener noreferrer";
+      route.textContent = "Route bekijken ↗";
+
+      details.append(title, address, time, status, document.createElement("br"), route);
+      card.append(dateBox, details);
+      list.appendChild(card);
+    });
+  }
+
+  function update() {
+    const now = new Date();
+    const nextEvent = locations.find(event => eventEnd(event) >= now);
+
+    if (!nextEvent) {
+      $("next-date").textContent = "Nieuwe data volgen binnenkort";
+      $("next-name").textContent = "Onze volgende opkoopdag wordt binnenkort bekendgemaakt";
+      $("next-address").textContent = "Hou deze pagina in de gaten voor nieuwe locaties.";
+      $("next-time").textContent = "🕘 Nieuwe uren volgen";
+      $("countdown-label").textContent = "Geen toekomstige opkoopdag ingepland";
+      $("countdown-message").textContent = "Neem gerust contact met ons op voor meer informatie.";
+      $("next-side-title").textContent = "Tot binnenkort";
+      $("next-side-copy").textContent = "We maken nieuwe locaties zo snel mogelijk bekend.";
+      $("next-map-link").style.display = "none";
+      renderList(null, now);
+      return;
+    }
+
+    $("next-map-link").style.display = "inline-flex";
+    $("next-map-link").href = mapUrl(nextEvent.address);
+    $("next-date").textContent = dateFormatter.format(eventStart(nextEvent));
+    $("next-name").textContent = nextEvent.name;
+    $("next-address").textContent = nextEvent.address;
+    $("next-time").textContent = `🕘 Van ${nextEvent.start.replace(":", "u")} tot ${nextEvent.end.replace(":", "u")}`;
+
+    const state = eventState(nextEvent, now);
+    const target = state === "live" ? eventEnd(nextEvent) : eventStart(nextEvent);
+    const diff = Math.max(0, target - now);
+    const days = Math.floor(diff / 86400000);
+    const hours = Math.floor((diff % 86400000) / 3600000);
+    const minutes = Math.floor((diff % 3600000) / 60000);
+    const seconds = Math.floor((diff % 60000) / 1000);
+
+    $("countdown-days").textContent = String(days).padStart(2, "0");
+    $("countdown-hours").textContent = String(hours).padStart(2, "0");
+    $("countdown-minutes").textContent = String(minutes).padStart(2, "0");
+    $("countdown-seconds").textContent = String(seconds).padStart(2, "0");
+
+    if (state === "live") {
+      $("countdown-label").textContent = "We zijn vandaag aanwezig!";
+      $("countdown-message").textContent = `U kunt nog bij ons langskomen tot ${nextEvent.end} uur.`;
+      $("next-side-title").textContent = "Vandaag welkom";
+      $("next-side-copy").textContent = "We bekijken graag uw goud, zilver, juwelen en horloges.";
+    } else {
+      $("countdown-label").textContent = "Aftellen naar onze volgende opkoopdag";
+      $("countdown-message").textContent = "We kijken ernaar uit u daar te verwelkomen.";
+      $("next-side-title").textContent = "Kom gerust langs";
+      $("next-side-copy").textContent = "Breng uw goud, zilver, juwelen en horloges mee voor een persoonlijke beoordeling.";
+    }
+
+    renderList(nextEvent, now);
+  }
+
+  update();
+  window.setInterval(update, 1000);
+})();
 </script>
 
 
@@ -947,11 +1067,7 @@ document.getElementById("next-time").innerHTML =
           <li>Poppen, verkleedkleren en knuffels</li>
           <li>Puzzels en spellen graag volledig; speelgoed moet proper en veilig zijn</li>
         </ul>
-        <div class="action-dates">
-          <div class="action-date"><strong>Zaterdag 31 oktober 2026 · 9.30–17.30</strong><span>Intermezzo – Vergaderzaal, Kasteeldreef 55, 9340 Lede</span></div>
-          <div class="action-date"><strong>Zaterdag 7 november 2026 · 9.30–17.30</strong><span>Huisje Mostinckx, Mostinckxstraat 16, 1700 Dilbeek</span></div>
-        </div>
-        <div class="action-note">Speelgoed afgeven kan tijdens deze inkoopdagen. De inzamelactie loopt tot en met 15 december 2026. Een klein gebaar maakt een groot verschil.</div>
+        <div class="action-note">Speelgoed afgeven kan tijdens onze opkoopdagen op de locaties die hierboven vermeld staan. De inzamelactie loopt tot en met 15 december 2026. Een klein gebaar maakt een groot verschil.</div>
       </article>
 
       <article class="action-card">
